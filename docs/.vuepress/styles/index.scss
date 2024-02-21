@@ -14,3 +14,10 @@
   flex-basis: 45%;
   max-width: 45%;
 }
+//markdown相关
+blockquote{
+  //color: #333;
+  padding: 0.55rem 0 0.55rem 1rem;
+  border-left:0.4rem solid var(--c-brand);
+  background-color: var(--c-tip-bg)
+}

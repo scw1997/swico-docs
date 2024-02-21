@@ -10,7 +10,8 @@ export default defineUserConfig({
 
   theme: defaultTheme({
     // logo:'/favicon.ico',
-    lastUpdated:true,
+    lastUpdatedText:'上次更新',
+    contributors:false,
     navbar: [
         '/',
       {
