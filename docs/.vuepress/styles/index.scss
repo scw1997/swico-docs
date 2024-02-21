@@ -1,0 +1,16 @@
+@import "./light.scss";
+@import "./dark.scss";
+
+//下面是一些覆盖全局的或自定义扩展的样式
+
+
+//首页大Logo
+.home .hero img{
+  max-height: 200px;
+}
+
+//首页亮点介绍
+.home .feature{
+  flex-basis: 45%;
+  max-width: 45%;
+}
