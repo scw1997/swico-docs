@@ -1,13 +1,14 @@
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress/cli'
 import { webpackBundler } from '@vuepress/bundler-webpack'
+import sidebar from "./sidebar.js";
 
 export default defineUserConfig({
   lang: 'zh-CN',
 
   title: 'SECYWO',
   description: '简易，高效，实用的前端开发框架',
-  base:'/secywo-docs/',
+  // base:'/secywo-docs/',
   theme: defaultTheme({
     // logo:'/favicon.ico',
     lastUpdatedText:'上次更新',
@@ -19,14 +20,19 @@ export default defineUserConfig({
         children:[
           {
             text:'概述',
-            link:'/introduce'
+            link:'/introduce',
+            rel:'noopener'
           },
           {
             text:'快速上手',
             link:'/start'
           },
           {
-            text:'API',
+            text:'模板结构',
+            link:'/template'
+          },
+          {
+            text:'配置',
             link:'/config'
           }
         ]
@@ -53,30 +59,7 @@ export default defineUserConfig({
         link:'/'
       }
     ],
-    sidebar:[
-      {
-        text:'概述',
-        link:'/introduce'
-      },
-      {
-        text:'快速上手',
-        link:'/start'
-      },
-      {
-        text:'API',
-        children:[
-          {
-            text:'配置',
-            link:'/config',
-          },
-          {
-            text:'命令行',
-            link:'/command',
-          },
-
-        ]
-      }
-    ]
+    sidebar,
   }),
 
   bundler: webpackBundler(),
