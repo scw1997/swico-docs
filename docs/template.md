@@ -7,25 +7,25 @@ sidebar:
     - text: 模板结构
       link: /template
       children:
-        - text: .husky
-          link: template.md#husky
-          activeMatch: /*/
+        - text: .husky  
+          link: template.html#husky
+
         - text: config
-          link: #config
+          link: template.html#config
         - text: dist
-          link: #dist
+          link: template.html#dist
         - text: public
-          link: #public
+          link: template.html#public
         - text: pages
-          link: #pages
+          link: template.html#pages
         - text: views
-          link: #views
+          link: template.html#views
         - text: router
-          link: #router
+          link: template.html#router
         - text: typings
-          link: #typings
+          link: template.html#typings
         - text: index.ejs
-          link: #index-ejs
+          link: template.html#index-ejs
 ---
 
 # 模板结构
