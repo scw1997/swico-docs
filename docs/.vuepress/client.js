@@ -7,6 +7,8 @@ export default defineClientConfig({
             const {hash,path} = to
             if(['#alias','#console','#copy','#define','#devtool','#plugins','#proxy','#publicpath'].includes(hash) && path!=='/config.html'){
                 next(`/config.html${hash}`)
+            }else if(['#husky','#config','#dist','#public','#views','#pages','#router','#typings','#index-ejs','#commitlint-config-js'].includes(hash) && path!=='/template.html'){
+                next(`/template.html${hash}`)
             }else{
                 next()
             }

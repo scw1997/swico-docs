@@ -65,7 +65,7 @@ secywo目前内置提供了两套前端开发模板可供选择，方便不同�
 └── tsconfig.json
 ```
 
-下面是模板具体目录结构的介绍：
+下面是关于模板主要结构的介绍：
 
 ## .husky
 husky 配置文件路径，提供 git 提交前的操作钩子。
@@ -100,12 +100,12 @@ husky 配置文件路径，提供 git 提交前的操作钩子。
 
     用于规范git提交时输入的注释信息。
     
-    配置介绍见[commitlint.config.js](#commitlint-config-js)
+    配置介绍见[commitlint.config.js](#commitlint-config-js)。
 
 
 > 配置文档：[husky 官方文档](https://typicode.github.io/husky/#/)
 
-> 为防止开发者误删husky配置文件，该文件会在每次项目启动后重新生成
+> 为防止开发者误删husky配置文件，该文件会在每次项目启动后重新生成。
 
 ## config
 
@@ -122,7 +122,7 @@ secywo提供配置文件方便开发者可对部分项目配置进行修改扩�
 
 此目录下所有文件（夹）会完全按原有路径结构被复制到打包构建产物的根路径(dist)下。
 
-可用于存放静态资源文件，并在项目代码中通过`根路径`引入该文件
+可用于存放静态资源文件，并在项目代码中通过`根路径`引入该文件。
 
 示例：
 <CodeGroup>
@@ -161,7 +161,7 @@ const Index: React.FC = () => {
 
 此外，模板也支持外部样式文件 `css` 和 `less` 文件的引入，暂不考虑支持`sass/scss`文件。
 
-> :warning:：由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件`CSS Modules`特性
+> :warning:：由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不支持外部样式文件`CSS Modules`特性
 
 示例：
 
@@ -199,7 +199,7 @@ const Index: React.FC = () => {
 `React`模板的页面存放路径，它应该主要存放React TSX组件和样式文件。
 
 其中样式文件支持 `css` 和 `less` 文件的引入，并且对以`module.(css|less)`
-命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性
+命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。
 
 示例：
 
@@ -388,8 +388,69 @@ interface Window {
 
 ## commitlint.config.js
 
+git 提交格式规范校验规则配置文件。
+
+用于配合`husky`的`commit-msg`操作钩子进行`git commit`的提交信息的格式校验。
+
+
+默认配置：
+
+```javascript
+//默认配置
+module.exports = {
+    // 继承的规则
+    extends: ['@commitlint/config-conventional'],
+    // 定义规则类型
+    rules: {
+        // type 类型定义，表示 git 提交的 type 必须在以下类型范围内
+        'type-enum': [
+            2,
+            'always',
+            [
+                'add', // 新功能 feature
+                'fix', // 修复 bug
+                'docs', // 文档注释
+                'config', // 架构配置修改
+                'perf', // 性能优化
+                'test', // 增加测试
+                'revert', // 回退
+                'others' // 其他
+            ]
+        ],
+        // subject 大小写不做校验
+        'subject-case': [0]
+    }
+};
+```
+
+基于上述默认配置，git 提交时填写提交内容的说明信息需遵循以下格式，否则会校验不通过报错而提交失败：
+
+```ts
+[type]: 说明信息  // 注意中间是英文冒号+空格
+```
+
+`type`的可选值如下：
+
+- `config`: 项目构建配置的变动
+- `docs`: 仅仅修改了文档等（不是指文案类的改动，而是指项目文档、代码注释等）
+- `fix`: 修复 bug
+- `add`: 增加新功能
+- `perf`: 各种业务代码的修改，优化
+- `revert`: 代码回滚
+- `test`: 测试用例代码
+- `others`:其他类型的更改（非即以上类型的改动）
+
+提交示例：
+```text
+fix: 修复部分bug
+```
+
+参考文档：[commitlint 官方文档](https://commitlint.js.org/#/guides-local-setup)
+
+
+
 [Vue模板]:https://gitee.com/fanlaBoy/secywo-template-vue
 [React模板]:https://gitee.com/fanlaBoy/secywo-template-react
-[API > 配置]:/config.md#alias
+[API > 配置]:/config.md
 
 

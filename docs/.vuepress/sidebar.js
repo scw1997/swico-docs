@@ -9,7 +9,8 @@ export default [
     },
     {
         text:'模板结构',
-        collapsible:true,
+        link: '/template',
+        // collapsible:true,
         children:[
             {
                 text:'.husky',
@@ -18,6 +19,34 @@ export default [
             {
                 text:'config',
                 link:'#config'
+            },
+            {
+                text:'dist',
+                link:'#dist'
+            },
+            {
+                text:'public',
+                link:'#public'
+            },
+            {
+                text:'views',
+                link:'#views'
+            },
+            {
+                text:'pages',
+                link:'#pages'
+            },
+            {
+                text:'router',
+                link:'#router'
+            },
+            {
+                text:'typings',
+                link:'#typings'
+            },
+            {
+                text:'index.ejs',
+                link:'#index-ejs'
             },
             {
                 text:'commitlint.config.js',
@@ -31,7 +60,8 @@ export default [
         children:[
             {
                 text: '配置',
-                collapsible:true,
+                // collapsible:true,
+                link: '/config',
                 children:[
                     {
                         text:'alias',

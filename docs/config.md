@@ -195,22 +195,22 @@ define: () => {
 declare const FOO: string;
 ```
 
-> 注意：设置的每个变量值会进行一次JSON.stringify转换。如果你设置的变量值为引用类型，请记得取值时进行类型转换
+> :warning: 注意：设置的每个变量值会进行一次JSON.stringify转换。如果你设置的变量值为引用类型，请记得取值时进行类型转换
 
 > 此配置项仅`secywo.ts`可用
 
 
 ## devtool
 
-默认值：
+- 默认值：
 
-开发环境：`cheap-module-source-map`（Vue模板），`eval-cheap-module-source-map`（React模板）
-
-生产环境：`nosources-source-map`
+    开发环境：`cheap-module-source-map`（Vue模板），`eval-cheap-module-source-map`（React模板）
+        
+    生产环境：`nosources-source-map`
 
 devtool用于设置SourceMap源码映射类型，主要用于代码运行报错时的错误定位排查。
 
-更多可选值说明参考 [devtool文档](https://webpack.docschina.org/configuration/devtool/)
+更多可选值说明参考 [devtool文档](https://webpack.docschina.org/configuration/devtool/)。    
 
 
 ## plugins
@@ -247,7 +247,7 @@ proxy: {
 }
 ```
 
-详见 [devServer Proxy文档](https://webpack.docschina.org/configuration/dev-server/#devserverproxy)
+更多属性说明请参考[devServer Proxy文档](https://webpack.docschina.org/configuration/dev-server/#devserverproxy)。
 
 > 此配置项仅`secywo.dev.ts`可用
 
@@ -262,7 +262,7 @@ proxy: {
 
 更多细节参考 [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)。
 
-> :triangular_flag_on_post:：secywo默认会将此属性值挂载到全局，项目代码中可通过`window.publicPath`访问。
+> :triangular_flag_on_post:：secywo默认会将此属性值通过项目入口文件[index.ejs]挂载到全局，项目代码中可通过`window.publicPath`访问。
 
 > 此配置项仅`secywo.ts`可用
 
@@ -271,4 +271,4 @@ proxy: {
 当配置此项后，通常前端路由也需要同步调整修改，例如`React-Router`的`basename`选项。
 :::
 
-
+[index.ejs]:/template.md#index-ejs
