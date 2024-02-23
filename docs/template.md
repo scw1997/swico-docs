@@ -11,32 +11,6 @@ secywo目前内置提供了两套前端开发模板可供选择，方便不同�
 
 两套模板结构和配置大同小异，主要针对React和Vue的特点做了细微区分。
 
-```shell title="react模板"
-├── .husky
-├── config
-├── dist
-├── public
-├── src
-│   ├── pages
-│   │   ├── index.tsx
-│   │   └── index.less
-│   │   └── 404.tsx
-│   ├── router
-│   │   └── index.ts
-│   ├── typings
-│   │   └── global.d.ts
-│   ├── index.ejs
-│   ├── index.tsx
-│   ├── app.tsx
-│   ├── app.less
-├── .eslintignore
-├── .eslintrc
-├── .prettierignore
-├── .prettierrc.js
-├── commitlint.config.js
-├── package.json
-└── tsconfig.json
-```
 
 ```shell title="vue模板"
 ├── .husky
@@ -64,6 +38,35 @@ secywo目前内置提供了两套前端开发模板可供选择，方便不同�
 ├── package.json
 └── tsconfig.json
 ```
+
+
+```shell title="react模板"
+├── .husky
+├── config
+├── dist
+├── public
+├── src
+│   ├── pages
+│   │   ├── index.tsx
+│   │   └── index.less
+│   │   └── 404.tsx
+│   ├── router
+│   │   └── index.ts
+│   ├── typings
+│   │   └── global.d.ts
+│   ├── index.ejs
+│   ├── index.tsx
+│   ├── app.tsx
+│   ├── app.less
+├── .eslintignore
+├── .eslintrc
+├── .prettierignore
+├── .prettierrc.js
+├── commitlint.config.js
+├── package.json
+└── tsconfig.json
+```
+
 
 下面是关于模板主要结构的介绍：
 
@@ -358,7 +361,7 @@ interface Window {
 
 项目的入口`index.html`模板文件，可根据需要自行修改：
 
-```html
+```html title="src/index.ejs"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -395,7 +398,7 @@ git 提交格式规范校验规则配置文件。
 
 默认配置：
 
-```javascript
+```javascript title="commitlint.config.js"
 //默认配置
 module.exports = {
     // 继承的规则
