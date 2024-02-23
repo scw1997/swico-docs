@@ -13,6 +13,7 @@ export default defineUserConfig({
     // logo:'/favicon.ico',
     lastUpdatedText:'上次更新',
     contributors:false,
+    toggleColorMode:'切换主题',
     navbar: [
         '/',
       {

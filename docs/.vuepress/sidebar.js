@@ -9,16 +9,29 @@ export default [
     },
     {
         text:'模板结构',
-        link: '/template',
+        collapsible:true,
+        children:[
+            {
+                text:'.husky',
+                link:'#husky'
+            },
+            {
+                text:'config',
+                link:'#config'
+            },
+            {
+                text:'commitlint.config.js',
+                link:'#commitlint-config-js'
+            },
+
+        ]
     },
     {
         text:'API',
-        // link:'/api',
         children:[
             {
                 text: '配置',
-                link: '/config',
-                // collapsible:true,
+                collapsible:true,
                 children:[
                     {
                         text:'alias',

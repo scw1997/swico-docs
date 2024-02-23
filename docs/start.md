@@ -1,10 +1,10 @@
 
 
 # 快速上手
-## 1. 环境准备
-请确保系统已安装`Node 18`及以上的版本（[Node中文官网]）
+## 环境准备
+请确保系统已安装`Node 18`及以上的版本（[Node中文官网]）。
 
-:triangular_flag_on_post:：推荐使用`nvm`来管理Node版本，windows下推荐安装[nvm-windows]
+:triangular_flag_on_post:：推荐使用`nvm`来管理Node版本，windows下推荐安装[nvm-windows]。
 
 ```shell
 $ nvm install 18.19.0
@@ -13,7 +13,7 @@ $ node -v
 v18.19.0
 ```
 
-## 2. 创建项目
+## 创建项目
 
 使用`npm`全局安装`secywo`脚手架：    
 ```shell
@@ -21,14 +21,14 @@ npm i secywo -g
 ```
 
 ::: danger 警告
-请不要指定安装使用v1.0之前的secywo版本，它们功能不完备且无法保证稳定性
+请不要指定安装使用v1.0之前的secywo版本，它们功能不完备且无法保证稳定性。
 :::
 
 进入任意路径，创建指定名称的Secywo App项目：
 ```shell
 secywo create [project-name]
 ```
-此命令执行后会引导开发者选择指定模板并远程拉取，随后会自动安装node_modules依赖
+此命令执行后会引导开发者选择指定模板并远程拉取，随后会自动安装node_modules依赖。
 
 创建成功示例：
 

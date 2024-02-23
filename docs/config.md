@@ -51,7 +51,7 @@ export default {
 };
 ```
 
-我们推荐你使用模板内置包`secywo-template-cli`提供的`defineConfig`方法来自定义配置，以便支持ts类型提示：
+:triangular_flag_on_post:：我们推荐你使用模板内置包`secywo-template-cli`提供的`defineConfig`方法来自定义配置，以便支持ts类型提示：
 
 
 ```typescript title="config/secywo.dev.ts"
@@ -83,12 +83,7 @@ alias: {
     apiPath: path.join('.', '/src/api')
 },
 ```
-则你在项目代码中使用`import 'apiPath/test' `等价于引入`项目根路径/scr/api/test`
-
-
-secywo默认已配置`@`映射为`/src`目录
-
-
+则你在项目代码中使用`import 'apiPath/test' `等价于引入`项目根路径/scr/api/test`。
 
 配置此项后，你需要在`tsconfig.json`文件中设置声明`paths`选项，以支持 ts 类型提示。
 
@@ -102,6 +97,9 @@ secywo默认已配置`@`映射为`/src`目录
     }
 }
 ```
+
+> secywo默认已配置`@`映射为`/src`目录
+
 > 此配置项仅`secywo.ts`可用
 
 
@@ -110,7 +108,7 @@ secywo默认已配置`@`映射为`/src`目录
 
 默认值：`true`
 
-生产环境是否在浏览器控制台中显示代码中console 打印的信息
+生产环境是否在浏览器控制台中显示代码中console 打印的信息。
 
 
 > 此配置项仅`secywo.prod.ts`可用
@@ -160,7 +158,7 @@ copy: [
 - file.json
 ```
 
-> secywo默认已内置在构建产物时对public文件夹复制到构建产物dist目录下
+> secywo默认已内置在构建产物时对项目根路径下public文件夹复制到构建产物dist目录下
 
 > 此配置项仅`secywo.prod.ts`可用
 
@@ -176,7 +174,7 @@ define: { FOO: 'bar' }
 
 那么代码里的 `console.log(hello, FOO)` 会被编译成 `console.log(hello, 'bar')`。
 
-secywo也支持通过函数返回一个对象或promise来设置变量值
+secywo也支持通过函数返回一个对象或promise来设置变量值：
 
 ```typescript
 define: () => {
@@ -190,7 +188,7 @@ define: () => {
 }
 ```
 
-此外你需要在`typings`文件夹中或其他类型声明文件中声明已设置的变量类型，以支持 ts 类型提示
+此外你需要在`typings`文件夹中或其他类型声明文件中声明已设置的变量类型，以支持 ts 类型检查和提示。
 
 示例：
 ```typescript title="typings/global.d.ts"
@@ -210,7 +208,7 @@ declare const FOO: string;
 
 生产环境：`nosources-source-map`
 
-devtool用于设置SourceMap源码映射类型，主要用于代码运行报错时的错误定位排查
+devtool用于设置SourceMap源码映射类型，主要用于代码运行报错时的错误定位排查。
 
 更多可选值说明参考 [devtool文档](https://webpack.docschina.org/configuration/devtool/)
 
@@ -232,7 +230,7 @@ plugins: [
 
 ## proxy
 
-配置本地开发时，Webpack DevServer的请求代理
+配置本地开发时，Webpack DevServer的请求代理。
 
 示例：
 
@@ -257,19 +255,19 @@ proxy: {
 
 默认值：`/`
 
-配置 Webpack 的 publicPath 选项，表示当前项目的前缀路径。
+配置 Webpack 的`output > publicPath` 选项，表示当前项目访问地址的前缀路径。
 
 通常在当项目被部署到到服务器`非根路径`下的情况下使用。 比如项目被部署的服务器路径为`/test`，那么通过浏览器访问项目首页的地址默认为`www.xxx.com/test/index.html`。当不设置publicPath时，
-访问该地址默认会404，此时你需要设置publicPath为`/test/`
+项目构建后index.html中所引用的js，css，图片等静态资源地址依然是基于根路径，这种情况下访问上面首页地址后，将无法正确引用静态资源。 此时需要设置publicPath为`/test/`。
 
 
-详细参考 [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)
+更多细节参考 [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)。
 
 > 此配置项仅`secywo.ts`可用
 
 ::: warning 注意
 
-当配置此项后，多数场景下前端路由也需要同步调整修改，例如`React-Router`的`basename`选项
+当配置此项后，通常前端路由也需要同步调整修改，例如`React-Router`的`basename`选项。
 :::
 
 

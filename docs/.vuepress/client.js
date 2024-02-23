@@ -2,19 +2,17 @@ import { defineClientConfig } from 'vuepress/client'
 
 export default defineClientConfig({
     enhance({ router }) {
+        //控制部分导航路由跳转逻辑
         router.beforeEach((to,from,next) => {
             const {hash,path} = to
-            if(hash==='#alias' && path!=='/config.html'){
-                next('/config.html#alias')
+            if(['#alias','#console','#copy','#define','#devtool','#plugins','#proxy','#publicpath'].includes(hash) && path!=='/config.html'){
+                next(`/config.html${hash}`)
             }else{
                 next()
             }
-            console.log('before navigation',to)
+
         })
 
-        // router.afterEach((to) => {
-        //     console.log('after navigation')
-        // })
     },
     setup() {},
     rootComponents: [],

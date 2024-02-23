@@ -19,7 +19,7 @@ features:
   - title: 开箱即用
     details: 内置路由，本地开发服务器，打包构建，Git Lint等功能，完善开发流程。
   - title: 代码风格约束
-    details: 内置ESLint + Prettier + Husky三大前端编码风格以及代码提交规范约束插件，保证代码风格统一和质量以及 Git 提交规范。
+    details: 内置ESLint + Prettier + Husky三大前端编码风格以及代码提交规范约束插件，保证代码风格统一以及 Git 提交规范。
   - title: 可扩展
     details: 框架提供多个API进行项目架构自定义配置，例如Alias映射，本地请求代理等。
 footer: MIT Licensed | Copyright © 2024-present
