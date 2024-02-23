@@ -3,6 +3,7 @@ home: true
 title: 首页
 heroImage: /logo.png
 heroText: null
+heroHeight: 200
 actions:
   - text: 快速上手
     link: /start

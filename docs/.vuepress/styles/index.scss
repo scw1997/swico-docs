@@ -7,6 +7,9 @@
 //首页大Logo
 .home .hero img{
   max-height: 200px;
+  @media screen and (max-width :576px) {
+      height: 130px;
+  }
 }
 
 //首页亮点介绍
