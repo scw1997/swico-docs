@@ -9,6 +9,7 @@ export default defineUserConfig({
   title: 'SECYWO',
   description: '简易，高效，实用的前端开发框架',
   base:'/secywo-docs/',
+  head:   [['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon.co' }]],
   theme: defaultTheme({
     // logo:'/favicon.ico',
     lastUpdatedText:'上次更新',
