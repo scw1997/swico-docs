@@ -36,7 +36,7 @@ export default defineUserConfig({
           {
             text:'配置',
             link:'/config'
-          }
+          },
         ]
       },
       {

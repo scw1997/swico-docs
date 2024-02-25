@@ -7,7 +7,6 @@ secywo目前内置提供了两套前端开发模板可供选择，方便不同�
 
 - [React模板]：`React 18 + React Router 6.x + TypeScript 5.x`
 
-> 该模板同时也支持在不安装secywo的情况下，独立拉取此模板进行开发。
 
 两套模板结构和配置大同小异，主要针对React和Vue的特点做了细微区分。
 
@@ -158,44 +157,6 @@ const Index: React.FC = () => {
   </CodeGroupItem>
 </CodeGroup>
 
-## views
-
-`Vue`模板的页面存放路径，它应该主要存放单文件组件(SFC)。
-
-此外，模板也支持外部样式文件 `css` 和 `less` 文件的引入，暂不考虑支持`sass/scss`文件。
-
-> :warning: 由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件`CSS Modules`特性。
-
-示例：
-
-```vue title="src/views/Index.vue"
-<script setup lang="ts">
-
-</script>
-
-<template>
-  <div class="welcome">
-    <img alt="logo" src="/logo.png" />
-    <h2 style="color: #3a95a7">Welcome to Secywo!</h2>
-  </div>
-</template>
-
-<style scoped lang="less">
-.welcome {
-  inset: 0 0 0 0;
-  position: absolute;
-  width: 100%;
-  height: max-content;
-  margin: auto;
-  text-align: center;
-
-  img {
-    max-width: 100%;
-  }
-}
-
-</style>
-```
 
 ## pages
 
@@ -281,7 +242,7 @@ export default Index;
     height: max-content;
     margin: auto;
     text-align: center;
-    :global{
+    :global{ //覆盖指定全局样式
       img {
         max-width: 100%;
       }
@@ -292,6 +253,47 @@ export default Index;
 ```
   </CodeGroupItem>
 </CodeGroup>
+
+## views
+
+`Vue`模板的页面存放路径，它应该主要存放单文件组件(SFC)。
+
+此外，模板也支持外部样式文件 `css` 和 `less` 文件的引入，暂不考虑支持`sass/scss`文件。
+
+> :warning: 由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件`CSS Modules`特性。
+
+示例：
+
+```vue title="src/views/Index.vue"
+<script setup lang="ts">
+
+</script>
+
+<template>
+  <div class="welcome">
+    <img alt="logo" src="/logo.png" />
+    <h2 style="color: #3a95a7">Welcome to Secywo!</h2>
+  </div>
+</template>
+
+<style scoped lang="less">
+.welcome {
+  inset: 0 0 0 0;
+  position: absolute;
+  width: 100%;
+  height: max-content;
+  margin: auto;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+</style>
+```
+
+
 
 ## router
 
@@ -304,7 +306,7 @@ export default Index;
 
 ```ts title="src/router/index.ts"
 import { createRouter, createWebHistory } from 'vue-router';
-import Index from '../views/Index.vue';
+import Index from '@/views/Index.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -318,15 +320,15 @@ const router = createRouter({
     {
       path: '/example',
       name: 'example',
-      component: () => import('../views/example/Index.vue'),
+      component: () => import('@/views/example/Index.vue'),
       children: [
         {
           path: 'child-1', // 通过/example/child-1访问
-          component: () => import('../views/example/Child1.vue')
+          component: () => import('@/views/example/Child1.vue')
         },
         {
           path: 'child-2', // 通过/example/child-2访问
-          component: () => import('../views/example/Child2.vue')
+          component: () => import('@/views/example/Child2.vue')
         }
       ]
     }
