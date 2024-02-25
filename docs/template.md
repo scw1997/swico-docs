@@ -467,6 +467,12 @@ git 提交格式规范校验规则配置文件。
 
 用于配合`husky`的`commit-msg`操作钩子进行`git commit`的提交信息的格式校验。
 
+```bash title=".husky/commit-msg"
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no -- commitlint --edit $1
+```
 
 默认配置：
 

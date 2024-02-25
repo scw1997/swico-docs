@@ -51,7 +51,7 @@ export default {
 };
 ```
 
-:bulb:     我们推荐你使用模板内置包`secywo-template-cli`提供的`defineConfig`方法来自定义配置，以便支持ts类型提示：
+:bulb: 我们推荐你使用模板内置包`secywo-template-cli`提供的`defineConfig`方法来自定义配置，以便支持ts类型提示：
 
 
 ```typescript title="config/secywo.dev.ts"
@@ -262,7 +262,7 @@ proxy: {
 
 更多细节参考 [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)。
 
-> :bulb: secywo默认会将此属性值通过项目入口文件[index.ejs]挂载到全局，项目代码中可通过`window.publicPath`访问。
+> :bulb: secywo默认会将此属性值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.publicPath`访问。
 
 > 此配置项仅`secywo.ts`可用
 
