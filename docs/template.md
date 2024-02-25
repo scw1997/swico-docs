@@ -7,7 +7,7 @@ secywo目前内置提供了两套前端开发模板可供选择，方便不同�
 
 - [React模板]：`React 18 + React Router 6.x + TypeScript 5.x`
 
-> 该模板支持在不安装secywo的情况下，独立拉取此模板进行开发。
+> 该模板同时也支持在不安装secywo的情况下，独立拉取此模板进行开发。
 
 两套模板结构和配置大同小异，主要针对React和Vue的特点做了细微区分。
 
@@ -103,7 +103,7 @@ husky 配置文件路径，提供 git 提交前的操作钩子。
 
     用于规范git提交时输入的注释信息。
     
-    配置介绍见[commitlint.config.js](#commitlint-config-js)。
+   详见：[模板结构 > commitlint.config.js](#commitlint-config-js)。
 
 
 > 配置文档：[husky 官方文档](https://typicode.github.io/husky/#/)
@@ -164,7 +164,7 @@ const Index: React.FC = () => {
 
 此外，模板也支持外部样式文件 `css` 和 `less` 文件的引入，暂不考虑支持`sass/scss`文件。
 
-> :warning:：由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不支持外部样式文件`CSS Modules`特性
+> :warning: 由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件`CSS Modules`特性。
 
 示例：
 
@@ -204,7 +204,10 @@ const Index: React.FC = () => {
 其中样式文件支持 `css` 和 `less` 文件的引入，并且对以`module.(css|less)`
 命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。
 
-示例：
+标准CSS示例：
+
+<CodeGroup>
+  <CodeGroupItem title="index.tsx">
 
 ```tsx title="src/pages/index.tsx"
 import './index.less';
@@ -219,7 +222,76 @@ const Index: React.FC = () => {
 };
 
 export default Index;
+
 ```
+
+  </CodeGroupItem>
+
+  <CodeGroupItem title="index.less">
+
+```less title="src/pages/index.less"
+.welcome {
+    inset: 0 0 0 0;
+    position: absolute;
+    width: 100%;
+    height: max-content;
+    margin: auto;
+    text-align: center;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+
+```
+  </CodeGroupItem>
+</CodeGroup>
+
+CSS Modules示例：
+
+<CodeGroup>
+  <CodeGroupItem title="index.tsx">
+
+```tsx title="src/pages/index.tsx"
+import style from './index.module.less';
+
+const Index: React.FC = () => {
+    return (
+        <div className={style.welcome}>
+            <img alt="logo" src="/logo.png" />
+            <h2 style="color: #3a95a7">欢迎使用 Secywo</h2>
+        </div>
+    );
+};
+
+export default Index;
+
+```
+
+  </CodeGroupItem>
+
+  <CodeGroupItem title="index.module.less">
+
+```less title="src/pages/index.module.less"
+.welcome {
+    inset: 0 0 0 0;
+    position: absolute;
+    width: 100%;
+    height: max-content;
+    margin: auto;
+    text-align: center;
+    :global{
+      img {
+        max-width: 100%;
+      }
+    }
+}
+
+
+```
+  </CodeGroupItem>
+</CodeGroup>
 
 ## router
 

@@ -4,7 +4,7 @@
 ## 环境准备
 请确保系统已安装`Node 18`及以上的版本（[Node中文官网]）。
 
-:triangular_flag_on_post:：推荐使用`nvm`来管理Node版本，windows下推荐安装[nvm-windows]。
+:bulb:  推荐使用`nvm`来管理Node版本，windows下推荐安装[nvm-windows]。
 
 ```shell:no-line-numbers
 $ nvm install 18.19.0

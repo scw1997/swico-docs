@@ -6,9 +6,9 @@ secywo提供配置文件方便开发者可对部分项目配置进行修改扩�
 
 配置文件存在于项目根目录的`config`文件夹下，可包含以下三种文件：
 
--   `secywo.ts` ：通用公共配置
--   `secywo.dev.ts`： 开发环境专属配置，若与 `secywo.ts` 存在配置项冲突，以当前配置项为准
--   `secywo.prod.ts`： 生产环境专属配置，若与 `secywo.ts` 存在配置项冲突，以当前配置项为准
+-   `secywo.ts` ：通用公共配置。
+-   `secywo.dev.ts`： 开发环境专属配置，若与 `secywo.ts` 存在配置项冲突，以当前配置项为准。
+-   `secywo.prod.ts`： 生产环境专属配置，若与 `secywo.ts` 存在配置项冲突，以当前配置项为准。
 
 配置代码示例：
 
@@ -51,7 +51,7 @@ export default {
 };
 ```
 
-:triangular_flag_on_post:：我们推荐你使用模板内置包`secywo-template-cli`提供的`defineConfig`方法来自定义配置，以便支持ts类型提示：
+:bulb:     我们推荐你使用模板内置包`secywo-template-cli`提供的`defineConfig`方法来自定义配置，以便支持ts类型提示：
 
 
 ```typescript title="config/secywo.dev.ts"
@@ -262,7 +262,7 @@ proxy: {
 
 更多细节参考 [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)。
 
-> :triangular_flag_on_post:：secywo默认会将此属性值通过项目入口文件[index.ejs]挂载到全局，项目代码中可通过`window.publicPath`访问。
+> :bulb: secywo默认会将此属性值通过项目入口文件[index.ejs]挂载到全局，项目代码中可通过`window.publicPath`访问。
 
 > 此配置项仅`secywo.ts`可用
 
