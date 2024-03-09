@@ -40,6 +40,10 @@ export default defineUserConfig({
         ]
       },
       {
+        text:'更新日志',
+        link:'/log',
+      },
+      {
         text:'Git',
         children:[
           {
@@ -57,7 +61,7 @@ export default defineUserConfig({
         ]
       },
       {
-        text:'v1.0',
+        text:'v1.1.0',
         link:'/'
       }
     ],

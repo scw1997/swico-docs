@@ -213,6 +213,14 @@ devtool用于设置SourceMap源码映射类型，主要用于代码运行报错�
 更多可选值说明参考 [devtool文档](https://webpack.docschina.org/configuration/devtool/)。    
 
 
+
+## npmType
+
+包管理工具种类，支持`npm`和`pnpm`
+
+> 此配置项仅`secywo.ts`可用
+
+
 ## plugins
 
 默认值：`[]`

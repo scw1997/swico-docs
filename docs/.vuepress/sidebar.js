@@ -83,6 +83,10 @@ export default [
                         text:'devtool',
                         link:'#devtool'
                     },
+                    {
+                        text:'npmType',
+                        link:'#npmtype'
+                    },
 
                     {
                         text:'plugins',
@@ -100,5 +104,9 @@ export default [
             }
 
         ]
-    }
+    },
+    {
+        text:'更新日志',
+        link:'/log'
+    },
 ]

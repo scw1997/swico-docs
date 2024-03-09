@@ -21,14 +21,14 @@ npm i secywo -g
 ```
 
 ::: danger 警告
-请不要指定安装使用v1.0之前的secywo版本，它们功能不完备且无法保证稳定性。
+请不要指定安装使用v1.0之前的任意secywo版本，它们功能不完备且无法保证稳定性。
 :::
 
 进入任意路径，创建指定名称的Secywo App项目：
 ```shell:no-line-numbers
 secywo create [project-name]
 ```
-此命令执行后会引导开发者选择指定模板并远程拉取，随后会自动安装node_modules依赖。
+此命令执行后会引导开发者选择指定开发模板和包管理工具，并远程拉取模板，随后会自动安装node_modules依赖。
 
 创建成功示例：
 
