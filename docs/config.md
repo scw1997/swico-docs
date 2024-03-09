@@ -216,6 +216,8 @@ devtool用于设置SourceMap源码映射类型，主要用于代码运行报错�
 
 ## npmType
 
+>:bulb: v1.1.0版本新增
+
 包管理工具种类，支持`npm`和`pnpm`
 
 > 此配置项仅`secywo.ts`可用
