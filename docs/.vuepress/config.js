@@ -61,7 +61,7 @@ export default defineUserConfig({
         ]
       },
       {
-        text:'v1.1.0',
+        text:'v1.0.0',
         link:'/'
       }
     ],

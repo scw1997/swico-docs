@@ -21,10 +21,10 @@ features:
     details: 内置路由，本地开发服务器，打包构建，Git Hooks等功能，完善开发流程。
   - title: 代码风格约束
     details: 内置ESLint + Prettier + Husky三大前端编码风格以及代码提交规范约束插件，保证代码风格统一以及 Git 提交规范。
-  - title: 可配置化路由
+  - title: 配置化路由
     details: 基于React-Router 6和Vue-Router 4进行封装，支持路由嵌套，动态参数，懒加载以及装饰校验等功能。
-  - title: 配置可扩展
-    details: 框架提供多个API进行项目架构自定义配置，例如Alias映射，本地请求代理等。
+  - title: 功能可扩展
+    details: 框架提供多个API进行项目架构自定义配置修改或扩展，例如Alias映射，本地请求代理等。
 footer: MIT Licensed | Copyright © 2024-present
 ---
 
