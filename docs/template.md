@@ -1,7 +1,7 @@
 
 # 模板结构
 
-secywo目前内置提供了两套前端开发模板可供选择，方便不同框架开发者使用：
+Swico提供了两套前端开发模板可供选择，方便不同框架开发者使用：
 
 - [Vue模板]：`Vue 3.4 + Vue Router 4.x + TypeScript 5.x`
 
@@ -11,54 +11,27 @@ secywo目前内置提供了两套前端开发模板可供选择，方便不同�
 两套模板结构和配置大同小异，主要针对React和Vue的特点做了细微区分。
 
 
-```shell title="vue模板"
-├── .husky
-├── config
-├── dist
-├── public
-├── src
-│   ├── views
-│   │   ├── Index.vue
-│   │   └── 404.vue
-│   │   
-│   ├── router
-│   │   └── index.ts
-│   ├── typings
-│   │   └── global.d.ts
-│   ├── index.ejs
-│   ├── index.tsx
-│   └── App.vue
-│
-├── .eslintignore
-├── .eslintrc
-├── .prettierignore
-├── .prettierrc.js
-├── commitlint.config.js
-├── package.json
-└── tsconfig.json
-```
-
-
-```shell title="react模板"
-├── .husky
-├── config
-├── dist
+```text
+├── .husky 
+├── config  
+├── dist  
 ├── public
 ├── src
 │   ├── pages
-│   │   ├── index.tsx
+│   │   ├── index.tsx或Index.vue
 │   │   └── index.less
-│   │   └── 404.tsx
-│   ├── router
-│   │   └── index.ts
+│   │   └── 404.tsx或404.vue
+│   ├── layout
+│   │   └── index.tsx或Layout.vue
 │   ├── typings
 │   │   └── global.d.ts
 │   ├── index.ejs
-│   ├── index.tsx
-│   ├── app.tsx
-│   ├── app.less
+│   ├── global.ts
+│   └── global.less
+│  
 ├── .eslintignore
 ├── .eslintrc
+├── .npmrc
 ├── .prettierignore
 ├── .prettierrc.js
 ├── commitlint.config.js
@@ -111,7 +84,7 @@ husky 配置文件路径，提供 git 提交前的操作钩子。
 
 ## config
 
-secywo提供配置文件方便开发者可对部分项目配置进行修改扩展，例如Alias映射，本地请求代理等。
+swico配置文件目录，项目路由需要在此配置。此外你还可以进行功能扩展例如Alias映射，本地请求代理等。
 
 详见：[API > 配置]
 
@@ -160,139 +133,142 @@ const Index: React.FC = () => {
 
 ## pages
 
-`React`模板的页面存放路径，它应该主要存放React TSX组件和样式文件。
+页面相关文件存放路径。
 
-其中样式文件支持 `css` 和 `less` 文件的引入，并且对以`module.(css|less)`
-命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。
+- 在`React`模板中:
 
-标准CSS示例：
+  `pages`目录应该主要存放React TSX组件和样式文件。
 
-<CodeGroup>
-  <CodeGroupItem title="index.tsx">
-
-```tsx title="src/pages/index.tsx"
-import './index.less';
-
-const Index: React.FC = () => {
-    return (
-        <div className={'welcome'}>
-            <img alt="logo" src="/logo.png" />
-            <h2 style="color: #3a95a7">欢迎使用 Secywo</h2>
-        </div>
-    );
-};
-
-export default Index;
-
-```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="index.less">
-
-```less title="src/pages/index.less"
-.welcome {
-    inset: 0 0 0 0;
-    position: absolute;
-    width: 100%;
-    height: max-content;
-    margin: auto;
-    text-align: center;
-
-    img {
-        max-width: 100%;
-    }
-}
+  其中样式文件支持 `css` 和 `less` 文件的引入，并且对以`module.(css|less)`命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。不支持sass/scss文件。
 
 
-```
-  </CodeGroupItem>
-</CodeGroup>
+  标准CSS使用示例：
 
-CSS Modules示例：
-
-<CodeGroup>
-  <CodeGroupItem title="index.tsx">
-
-```tsx title="src/pages/index.tsx"
-import style from './index.module.less';
-
-const Index: React.FC = () => {
-    return (
-        <div className={style.welcome}>
-            <img alt="logo" src="/logo.png" />
-            <h2 style="color: #3a95a7">欢迎使用 Secywo</h2>
-        </div>
-    );
-};
-
-export default Index;
-
-```
-
-  </CodeGroupItem>
-
-  <CodeGroupItem title="index.module.less">
-
-```less title="src/pages/index.module.less"
-.welcome {
-    inset: 0 0 0 0;
-    position: absolute;
-    width: 100%;
-    height: max-content;
-    margin: auto;
-    text-align: center;
-    :global{ //覆盖指定全局样式
+  <CodeGroup>
+    <CodeGroupItem title="index.tsx">
+  
+  ```tsx title="src/pages/index.tsx"
+  import './index.less';
+  
+  const Index: React.FC = () => {
+      return (
+          <div className={'welcome'}>
+              <img alt="logo" src="/logo.png" />
+              <h2 style="color: #3a95a7">欢迎使用 Swico</h2>
+          </div>
+      );
+  };
+  
+  export default Index;
+  
+  ```
+  
+    </CodeGroupItem>
+  
+    <CodeGroupItem title="index.less">
+  
+  ```less title="src/pages/index.less"
+  .welcome {
+      inset: 0 0 0 0;
+      position: absolute;
+      width: 100%;
+      height: max-content;
+      margin: auto;
+      text-align: center;
+  
       img {
-        max-width: 100%;
+          max-width: 100%;
       }
-    }
-}
-
-
-```
-  </CodeGroupItem>
-</CodeGroup>
-
-## views
-
-`Vue`模板的页面存放路径，它应该主要存放单文件组件(SFC)。
-
-此外，模板也支持外部样式文件 `css` 和 `less` 文件的引入，暂不考虑支持`sass/scss`文件。
-
-> :warning: 由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件`CSS Modules`特性。
-
-示例：
-
-```vue title="src/views/Index.vue"
-<script setup lang="ts">
-
-</script>
-
-<template>
-  <div class="welcome">
-    <img alt="logo" src="/logo.png" />
-    <h2 style="color: #3a95a7">Welcome to Secywo!</h2>
-  </div>
-</template>
-
-<style scoped lang="less">
-.welcome {
-  inset: 0 0 0 0;
-  position: absolute;
-  width: 100%;
-  height: max-content;
-  margin: auto;
-  text-align: center;
-
-  img {
-    max-width: 100%;
   }
-}
+  
+  
+  ```
+    </CodeGroupItem>
+  </CodeGroup>
 
-</style>
-```
+  CSS Modules使用示例：
+  
+  <CodeGroup>
+    <CodeGroupItem title="index.tsx">
+  
+  ```tsx title="src/pages/index.tsx"
+  import style from './index.module.less';
+  
+  const Index: React.FC = () => {
+      return (
+          <div className={style.welcome}>
+              <img alt="logo" src="/logo.png" />
+              <h2 style="color: #3a95a7">欢迎使用 Swico</h2>
+          </div>
+      );
+  };
+  
+  export default Index;
+  
+  ```
+  
+    </CodeGroupItem>
+  
+    <CodeGroupItem title="index.module.less">
+  
+  ```less title="src/pages/index.module.less"
+  .welcome {
+      inset: 0 0 0 0;
+      position: absolute;
+      width: 100%;
+      height: max-content;
+      margin: auto;
+      text-align: center;
+      :global{ //覆盖指定全局样式
+        img {
+          max-width: 100%;
+        }
+      }
+  }
+  
+  
+  ```
+    </CodeGroupItem>
+  </CodeGroup>
 
+- 在`Vue`模板中：
+
+  `pages`目录应该主要存放单文件组件(SFC)。
+
+  同样也支持外部样式文件 `css` 和 `less` 文件的引入，不支持sass/scss文件。
+
+  > :warning: 由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件`CSS Modules`特性。
+
+  示例：
+
+  ```vue title="src/views/Index.vue"
+  <script setup lang="ts">
+  
+  </script>
+  
+  <template>
+    <div class="welcome">
+      <img alt="logo" src="/logo.png" />
+      <h2 style="color: #3a95a7">Welcome to Swico</h2>
+    </div>
+  </template>
+  
+  <style scoped lang="less">
+  .welcome {
+    inset: 0 0 0 0;
+    position: absolute;
+    width: 100%;
+    height: max-content;
+    margin: auto;
+    text-align: center;
+  
+    img {
+      max-width: 100%;
+    }
+  }
+  
+  </style>
+  ```
 
 
 ## router
@@ -532,8 +508,8 @@ fix: 修复部分bug
 
 
 
-[Vue模板]:https://gitee.com/fanlaBoy/secywo-template-vue
-[React模板]:https://gitee.com/fanlaBoy/secywo-template-react
+[Vue模板]:https://gitee.com/fanlaBoy/swico-template-vue
+[React模板]:https://gitee.com/fanlaBoy/swico-template-react
 [API > 配置]:/config.md
 
 
