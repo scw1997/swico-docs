@@ -6,10 +6,10 @@ import sidebar from "./sidebar.js";
 export default defineUserConfig({
   lang: 'zh-CN',
 
-  title: 'SECYWO',
+  title: 'SWICO',
   description: '简易，高效，实用的前端开发框架',
-  base:'/secywo-docs/',
-  head:   [['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/secywo-docs/favicon.ico' }]],
+  base:'/swico-docs/',
+  head:   [['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/swico-docs/favicon.ico' }]],
   theme: defaultTheme({
     // logo:'/favicon.ico',
     lastUpdatedText:'上次更新',
@@ -43,16 +43,16 @@ export default defineUserConfig({
         text:'Git',
         children:[
           {
-            text:'Secywo',
-            link:'https://gitee.com/fanlaBoy/secywo.git'
+            text:'Swico',
+            link:'https://gitee.com/fanlaBoy/swico.git'
           },
           {
-            text:'Secywo Vue模板',
-            link:'https://gitee.com/fanlaBoy/secywo-template-vue'
+            text:'Swico Vue模板',
+            link:'https://gitee.com/fanlaBoy/swico-template-vue'
           },
           {
-            text:'Secywo React模板',
-            link:'https://gitee.com/fanlaBoy/secywo-template-react'
+            text:'Swico React模板',
+            link:'https://gitee.com/fanlaBoy/swico-template-react'
           }
         ]
       },
