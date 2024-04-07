@@ -51,7 +51,7 @@ export default {
 };
 ```
 
-:bulb: 我们推荐你使用模板内置包`secywo-template-cli`提供的`defineConfig`方法来自定义配置，以便支持ts类型提示：
+:bulb: 我推荐你使用模板内置包`secywo-template-cli`提供的`defineConfig`方法来自定义配置，以便支持ts类型提示：
 
 
 ```typescript title="config/secywo.dev.ts"

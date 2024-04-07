@@ -329,7 +329,7 @@ const Index: React.FC = () => {
   <link rel="shortcut icon" href="/favicon.ico" />
   <Title>Swico App</Title>
   <script>
-    <!-- swico配置文件中router->base配置项，可在代码中访问       -->
+    // swico配置文件中router->base配置项，可在代码中访问
     window.routerBase = '<%= routerBase %>'
   </script>
 </head>
@@ -346,7 +346,7 @@ const Index: React.FC = () => {
 
 这里可以添加一些全局性的代码，会在全局页面渲染时执行。 
 
-此外这里还可以定义一些全局配置性代码（需要默认导出）。 推荐使用`defineGlobal` api来获得更好的TypeScript类型提示
+此外这里还可以定义一些全局配置性代码（需要默认导出）。推荐使用`defineGlobal` api来获得更好的TypeScript类型提示。
 
 目前可支持的全局配置有：
 
