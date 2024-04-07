@@ -27,8 +27,9 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 │   │   └── global.d.ts
 │   ├── index.ejs
 │   ├── global.ts
-│   └── global.less
-│  
+│   ├── global.less
+    └── loading
+│       └── index.tsx
 ├── .eslintignore
 ├── .eslintrc
 ├── .npmrc
@@ -131,15 +132,52 @@ const Index: React.FC = () => {
 </CodeGroup>
 
 
+## layout
+
+全局布局的组件文件存放目录。
+
+
+- **在React模板中**:
+
+  全局布局组件文件路径为`layout/index.tsx`
+  ```tsx title="src/layout/index.tsx"
+  import { FC } from 'react';
+  import { Outlet } from 'swico';
+  
+  const Layout: FC = () => {
+    //Outlet为整体路由页面渲染，可根据布局需要放置到layout里适当的位置
+    return <Outlet />;
+  };
+  
+  export default Layout;
+
+  
+  ```
+
+- **在Vue模板中**:
+
+  全局布局组件文件路径为`layout/Layout.vue`
+  ```vue
+  <script setup lang="ts">
+  import { Outlet } from 'swico';
+  </script>
+  
+  <template>
+    <!--Outlet为整体路由页面渲染，可根据布局需要放置到layout里适当的位置-->
+      <Outlet />
+  </template>
+  ```
+
+
 ## pages
 
 页面相关文件存放路径。
 
-- 在`React`模板中:
+- **在React模板中**:
 
   `pages`目录应该主要存放React TSX组件和样式文件。
 
-  其中样式文件支持 `css` 和 `less` 文件的引入，并且对以`module.(css|less)`命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。不支持sass/scss文件。
+  其中样式文件支持 `css` 和 `less` 文件的引入，并且对以`.module.(css|less)`命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。不支持sass/scss文件。
 
 
   标准CSS使用示例：
@@ -231,7 +269,7 @@ const Index: React.FC = () => {
     </CodeGroupItem>
   </CodeGroup>
 
-- 在`Vue`模板中：
+- **在Vue模板中**：
 
   `pages`目录应该主要存放单文件组件(SFC)。
 
@@ -241,7 +279,7 @@ const Index: React.FC = () => {
 
   示例：
 
-  ```vue title="src/views/Index.vue"
+  ```vue title="src/pages/Index.vue"
   <script setup lang="ts">
   
   </script>
@@ -270,174 +308,117 @@ const Index: React.FC = () => {
   </style>
   ```
 
-
-## router
-
-项目页面路由相关配置路径。
-
-`Vue`和`React`模板已分别内置了基于 [Vue-Router 4](https://router.vuejs.org/zh/)和[React-Router 6](https://reactrouter.com/en/main/start/tutorial) 的基本路由配置：
-
-<CodeGroup>
-  <CodeGroupItem title="vue">
-
-```ts title="src/router/index.ts"
-import { createRouter, createWebHistory } from 'vue-router';
-import Index from '@/views/Index.vue';
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'index',
-      component: Index
-    },
-    //示例页
-    {
-      path: '/example',
-      name: 'example',
-      component: () => import('@/views/example/Index.vue'),
-      children: [
-        {
-          path: 'child-1', // 通过/example/child-1访问
-          component: () => import('@/views/example/Child1.vue')
-        },
-        {
-          path: 'child-2', // 通过/example/child-2访问
-          component: () => import('@/views/example/Child2.vue')
-        }
-      ]
-    }
-  ]
-});
-
-export default router;
-```
-  </CodeGroupItem>
-
-  <CodeGroupItem title="react">
-
-```tsx title="src/router/index.ts"
-import type { RouteProps } from 'react-router-dom';
-
-export type RoutePageType = RouteProps & {
-  lazyComponent?: () => Promise<{ default: React.FC }>;
-  routes?: RoutePageType[];
-};
-
-const Router: RoutePageType[] = [
-  {
-    path: '/',
-    lazyComponent: () => import('@/pages/index')
-  },
-
-  //示例页
-  {
-    path: '/example',
-    lazyComponent: () => import('@/pages/example'),
-    routes: [
-      {
-        path: 'child-1', // 通过/example/child-1访问
-        element: <div>example-child-1</div>
-      },
-      {
-        path: 'child-2', // 通过/example/child-2访问
-        element: <div>example-child-2</div>
-      }
-    ]
-  },
-  {
-    path: '/404',
-    lazyComponent: () => import('@/pages/404')
-  }
-];
-
-export default Router;
-```
-  </CodeGroupItem>
-</CodeGroup>
-
-
-
 ## typings
 
 主要存放全局 TypeScript 类型声明文件(`.d.ts`)。
 
-默认配置：
-
-<CodeGroup>
-  <CodeGroupItem title="vue">
-
-```typescript title="src/typings/global.d.ts"
-declare module '*.svg';
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.jpeg';
-declare module '*.gif';
-declare module '*.bmp';
-declare module '*.webp';
-declare module '*.less';
-declare module '*.vue';
-
-interface Window {
-    publicPath: string;
-}
-
-```
-  </CodeGroupItem>
-
-  <CodeGroupItem title="react">
-
-```typescript title="src/typings/global.d.ts"
-declare module '*.svg';
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.jpeg';
-declare module '*.gif';
-declare module '*.bmp';
-declare module '*.webp';
-declare module '*.less';
-
-interface Window {
-  publicPath: string;
-}
-
-```
-  </CodeGroupItem>
-</CodeGroup>
-
-
 ## index.ejs
 
-项目的入口`index.html`模板文件，可根据需要自行修改：
+项目的入口`index.html`模板文件，可根据需要自行修改，例如引入一些外部js资源等
 
 ```html title="src/index.ejs"
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-     <link rel="shortcut icon" href="/favicon.ico" />
-    <Title>Secywo App</Title>
-    <script>
-        <!-- webpack publicPath配置项，可在代码中访问       -->
-        window.publicPath = '<%= publicPath %>'
-    </script>
+  <meta charset="UTF-8"/>
+  <meta
+          name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <Title>Swico App</Title>
+  <script>
+    <!-- swico配置文件中router->base配置项，可在代码中访问       -->
+    window.routerBase = '<%= routerBase %>'
+  </script>
 </head>
 <body>
 <div id="root">
-    <!-- 页面在这里渲染            -->
+  <!-- 页面在这里渲染            -->
 </div>
 </body>
 </html>
 
 ```
 
+## global.ts
 
+这里可以添加一些全局性的代码，会在全局页面渲染时执行。 
+
+此外这里还可以定义一些全局配置性代码（需要默认导出）。 推荐使用`defineGlobal` api来获得更好的TypeScript类型提示
+
+目前可支持的全局配置有：
+
+- **onInit**（仅支持Vue模板）
+
+  Vue模板挂载的App实例初始完成后的回调。返回两个参数：app实例和vue-router对象。
+
+  可以在此对app和router进行api调用操作，比如添加插件或者设置vue-router路由守卫等。
+
+  
+
+  示例：
+  ```ts title="src/global.ts"
+  import { defineGlobal } from 'swico';
+  import { createPinia } from 'pinia';
+  
+  export default defineGlobal({
+      onInit: (app, router) => {
+          //app为实例,router为vue-router的Router对象
+          app.use(createPinia());
+  
+          router.beforeEach((to, from, next) => {})
+      }
+  });
+  
+  ```
+> :warning: 注意：此文件不可删除，并且必须有默认导出。如果你不需要或者是React模板，则使默认导出为空对象即可
+
+
+## global.less
+
+全局样式文件，主要用于添加一些全局可用的通用样式。此文件是可选的
+
+
+## loading
+
+全局路由懒加载时的临时组件存放路径，主要用来配置加载动画。此文件是可选的
+
+- **在React模板中：**
+  具体路径为`loading/index.tsx`。以下为示例：
+
+<CodeGroup>
+  <CodeGroupItem title="loading/index.tsx">
+
+  ```tsx
+  import { Spin } from 'antd';
+  import style from './style.module.less';
+  export default () => (
+    <div className={style.loadingContainer}>
+      <Spin spinning tip={'正在加载'} />
+    </div>
+  );
+
+  ```
+  </CodeGroupItem>
+
+  <CodeGroupItem title="style.module.less">
+
+  ```less
+   .loadingContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ```
+  </CodeGroupItem>
+  
+</CodeGroup>
+
+> 注意：此功能暂时只支持React模板
 
 ## commitlint.config.js
 

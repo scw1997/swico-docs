@@ -10,7 +10,7 @@ export default [
     {
         text:'模板结构',
         link: '/template',
-        // collapsible:true,
+        collapsible:true,
         children:[
             {
                 text:'.husky',
@@ -29,21 +29,34 @@ export default [
                 link:'#public'
             },
             {
+                text:'layout',
+                link:'#layout'
+            },
+            {
                 text:'pages',
                 link:'#pages'
-            },
-            {
-                text:'router',
-                link:'#router'
-            },
-            {
-                text:'typings',
-                link:'#typings'
             },
             {
                 text:'index.ejs',
                 link:'#index-ejs'
             },
+            {
+                text:'global.ts',
+                link:'#global-ts'
+            },
+            {
+                text:'global.less',
+                link:'#global-less'
+            },
+            {
+                text:'loading',
+                link:'#loading'
+            },
+            {
+                text:'typings',
+                link:'#typings'
+            },
+
             {
                 text:'commitlint.config.js',
                 link:'#commitlint-config-js'
@@ -52,11 +65,16 @@ export default [
         ]
     },
     {
+        text:'路由',
+        link:'/router'
+    },
+
+    {
         text:'API',
         children:[
             {
-                text: '配置',
-                // collapsible:true,
+                text: 'Swico配置',
+                collapsible:true,
                 link: '/config',
                 children:[
                     {
@@ -97,6 +115,15 @@ export default [
                         link:'#publicpath'
                     }
                 ]
+            },
+            {
+                text:'Swico变量',
+                link:'/swico-var'
+            },
+            {
+                text: 'Global配置',
+                link: '/global',
+
             }
 
         ]
