@@ -66,7 +66,39 @@ export default [
     },
     {
         text:'路由',
-        link:'/router'
+        link:'/router',
+        children:[
+            {
+                text:'基本配置',
+                link:'#基本配置',
+                children:[
+                    {
+                        text:'type',
+                        link:'#type'
+                    },
+                    {
+                        text:'base',
+                        link:'#base'
+                    },
+                    {
+                        text:'routes',
+                        link:'#routes'
+                    }]
+            },
+
+            {
+                text:'路由跳转',
+                link:'#路由跳转'
+            },
+            {
+                text:'Link组件',
+                link:'#Link组件'
+            },
+            {
+                text:'路由参数',
+                link:'#路由参数'
+            },
+        ]
     },
 
     {
@@ -127,6 +159,10 @@ export default [
             }
 
         ]
+    },
+    {
+        text:'常见问题',
+        link:'/faq'
     },
     {
         text:'更新日志',

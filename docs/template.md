@@ -87,7 +87,7 @@ husky 配置文件路径，提供 git 提交前的操作钩子。
 
 swico配置文件目录，项目路由需要在此配置。此外你还可以进行功能扩展例如Alias映射，本地请求代理等。
 
-详见：[API > 配置]
+详见：[API > Swico配置]
 
 ## dist
 
@@ -491,6 +491,6 @@ fix: 修复部分bug
 
 [Vue模板]:https://gitee.com/fanlaBoy/swico-template-vue
 [React模板]:https://gitee.com/fanlaBoy/swico-template-react
-[API > 配置]:/config.md
+[API > Swico配置]:/config.md
 
 
