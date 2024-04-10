@@ -4,7 +4,7 @@
 ## 环境准备
 请确保系统已安装`Node 18`及以上的版本（[Node中文官网]）。
 
-:bulb:  推荐使用`nvm`来管理Node版本，windows下推荐安装[nvm-windows]。
+:bulb:  推荐使用`nvm`来管理Node版本，推荐安装[nvm-windows]。
 
 ```shell:no-line-numbers
 $ nvm install 18.19.0
@@ -15,7 +15,7 @@ v18.19.0
 
 ## 创建项目
 
-全局安装`swico-cli`，这是swico项目的官方脚手架工具：    
+全局安装`swico-cli`，这是swico项目的官方脚手架工具。详见：[API > 脚手架]    
 ```shell:no-line-numbers
 npm i swico-cli -g
 ```
@@ -28,43 +28,9 @@ npm i swico-cli -g
 ```shell:no-line-numbers
 swico create [project-name]
 ```
-此命令执行后会引导开发者选择指定开发模板和包管理工具，并远程拉取模板，随后会自动安装node_modules依赖。
+此命令执行后会引导开发者选择指定开发模板和包管理工具，随后等待模板初始化完成即可创建成功。
 
-创建成功示例：
-
-```shell:no-line-numbers
-? Please select the template type: React18.2 + Typescript5
-? Please select the npm type: npm
-- pulling the built-in template...
-
-√ Successfully pulled!
-
-Installing dependencies...
-
-added 967 packages, and audited 968 packages in 8s
-
-290 packages are looking for funding
-  run `npm fund` for details
-
-found 0 vulnerabilities
-√ Install finished!
-
-Successfully Created!
-
-
-  .-')     (`\ .-') /`
- ( OO ).    `.( OO ),'
-(_)---\_),--./  .--.  ,-.-')   .-----.  .-'),-----.
-/    _ | |      |  |  |  |OO) '  .--./ ( OO'  .-.  '
-\  :` `. |  |   |  |, |  |  \ |  |('-. /   |  | |  |
- '..`''.)|  |.'.|  |_)|  |(_//_) |OO  )\_) |  |\|  |
-.-._)   \|         | ,|  |_.'||  |`-'|   \ |  | |  |
-\       /|   ,'.   |(_|  |  (_'  '--'\    `'  '-'  '
- `-----' '--'   '--'  `--'     `-----'      `-----'
-
-Now you can cd test and npm run start to start your Swico App!
-```
-创建项目成功后，进入项目：
+成功后进入项目：
 ```shell:no-line-numbers
 cd [project-name]
 ```
@@ -87,3 +53,4 @@ npm run build:analyze
 
 [nvm-windows]:https://github.com/coreybutler/nvm-windows
 [Node中文官网]:https://www.nodejs.com.cn/
+[API > 脚手架]:/cli.md

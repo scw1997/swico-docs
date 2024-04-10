@@ -21,11 +21,6 @@ export default defineUserConfig({
         text:'指南',
         children:[
           {
-            text:'概述',
-            link:'/introduce',
-            rel:'noopener'
-          },
-          {
             text:'快速上手',
             link:'/start'
           },
@@ -34,10 +29,55 @@ export default defineUserConfig({
             link:'/template'
           },
           {
-            text:'配置',
-            link:'/config'
+            text:'路由',
+            link:'/router'
+          },
+          {
+            text:'样式',
+            link:'/style'
+          },
+          {
+            text:'Git Hooks',
+            link:'/git-hooks'
+          },
+          {
+            text:'环境变量',
+            link:'/env'
           },
         ]
+      },
+      {
+        text:'API',
+        children:[
+          {
+            text: 'Swico配置',
+            link: '/swico-config',
+          },
+          {
+            text:'Swico变量',
+            link:'/swico-var'
+          },
+          {
+            text: 'Global配置',
+            link: '/swico-global',
+
+          },
+          {
+            text: 'Link组件',
+            link: '/link',
+
+          },
+          {
+            text: '脚手架',
+            link: '/cli',
+          }
+
+
+        ]
+      },
+      {
+        text:'常见问题',
+        link:'/faq'
       },
       {
         text:'更新日志',

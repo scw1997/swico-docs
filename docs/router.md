@@ -375,5 +375,5 @@ import {Link} from 'swico'
 ## 路由参数
 [Vue-Router4]:https://router.vuejs.org/zh/
 [React-Router6]:https://reactrouter.com/en/v6.3.0
-[API > Swico变量 > history]:/config.md
-[API > Link组件]:/config.md
+[API > Swico变量 > history]:/swico-var.md#history
+[API > Link组件]:/link.md

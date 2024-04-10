@@ -13,8 +13,8 @@ export default [
         collapsible:true,
         children:[
             {
-                text:'.husky',
-                link:'#husky'
+                text:'husky/commitlint',
+                link:'#husky-commitlint'
             },
             {
                 text:'config',
@@ -37,6 +37,10 @@ export default [
                 link:'#pages'
             },
             {
+                text:'typings',
+                link:'#typings'
+            },
+            {
                 text:'index.ejs',
                 link:'#index-ejs'
             },
@@ -52,21 +56,15 @@ export default [
                 text:'loading',
                 link:'#loading'
             },
-            {
-                text:'typings',
-                link:'#typings'
-            },
 
-            {
-                text:'commitlint.config.js',
-                link:'#commitlint-config-js'
-            },
+
 
         ]
     },
     {
         text:'路由',
         link:'/router',
+        collapsible: true,
         children:[
             {
                 text:'基本配置',
@@ -92,13 +90,25 @@ export default [
             },
             {
                 text:'Link组件',
-                link:'#Link组件'
+                link:'#link组件'
             },
             {
                 text:'路由参数',
                 link:'#路由参数'
             },
         ]
+    },
+    {
+        text: '样式',
+        link: '/style',
+    },
+    {
+        text: 'Git Hooks',
+        link: '/git-hooks',
+    },
+    {
+        text: '环境变量',
+        link: '/env',
     },
 
     {
@@ -107,7 +117,7 @@ export default [
             {
                 text: 'Swico配置',
                 collapsible:true,
-                link: '/config',
+                link: '/swico-config',
                 children:[
                     {
                         text:'alias',
@@ -154,9 +164,20 @@ export default [
             },
             {
                 text: 'Global配置',
-                link: '/global',
+                link: '/swico-global',
+
+            },
+            {
+                text: 'Link组件',
+                link: '/link',
+
+            },
+            {
+                text: '脚手架',
+                link: '/cli',
 
             }
+
 
         ]
     },
