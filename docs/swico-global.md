@@ -24,10 +24,12 @@ Global配置是在模板的`src/global.ts`文件中用于定义一些全局配�
   
   export default defineGlobal({
       onInit: (app, router) => {
-          //app为实例,router为vue-router的Router对象
+          //注入全局状态管理store
           app.use(createPinia());
-  
-          router.beforeEach((to, from, next) => {})
+          //设置路由守卫
+          router.beforeEach((to, from, next) => {
+              //
+          })
       }
   });
   
