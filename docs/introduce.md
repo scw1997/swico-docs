@@ -44,7 +44,7 @@ Swico，发音类似于“斯威扣”。
 [Vue3]:https://cn.vuejs.org/
 [Vue-Router4]:https://router.vuejs.org/zh/
 [React18]:https://react.docschina.org/
-[React-Router6]:https://reactrouter.com/en/v6.3.0
+[React-Router6]:https://reactrouter.com/en/main
 [Typescript5]:https://ts.nodejs.cn/
 [ESLint]:https://zh-hans.eslint.org/docs/latest/use/getting-started
 [Prettier]:https://www.prettier.cn/

@@ -160,7 +160,14 @@ export default [
             },
             {
                 text:'Swico变量',
-                link:'/swico-var'
+                link:'/swico-var',
+                collapsible: true,
+                children: [
+                    {
+                        text:'history',
+                        link: '#history'
+                    }
+                ]
             },
             {
                 text: 'Global配置',
@@ -176,7 +183,11 @@ export default [
                 text: '脚手架',
                 link: '/cli',
 
-            }
+            },
+            {
+                text: 'Hooks',
+                link: '/hooks',
+            },
 
 
         ]

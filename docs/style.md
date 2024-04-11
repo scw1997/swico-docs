@@ -15,7 +15,7 @@
   ```tsx title="src/pages/index.tsx"
   import './index.less';
   
-  const Index: React.FC = () => {
+  const Index= () => {
       return (
           <div className={'welcome'}>
               <img alt="logo" src="/logo.png" />
@@ -59,7 +59,7 @@ CSS Modules使用示例：
   ```tsx title="src/pages/index.tsx"
   import style from './index.module.less';
   
-  const Index: React.FC = () => {
+  const Index= () => {
       return (
           <div className={style.welcome}>
               <img alt="logo" src="/logo.png" />

@@ -84,7 +84,7 @@ swico配置文件目录，项目路由需要在此配置。此外你还可以进
   <CodeGroupItem title="react">
 
 ```tsx
-const Index: React.FC = () => {
+const Index = () => {
     return (
         <div className={'welcome'}>
             {/*public目录下有个logo.png文件*/}
@@ -198,6 +198,7 @@ const Index: React.FC = () => {
 全局路由懒加载时的临时组件存放路径，主要用来配置加载动画。此文件是可选的
 
 - **在React模板中：**
+
   具体路径为`src/loading/index.tsx`。以下为示例：
 
 <CodeGroup>
@@ -230,9 +231,9 @@ const Index: React.FC = () => {
   
 </CodeGroup>
 
-> 注意：此功能暂时只支持React模板
+- **在Vue模板中：**
 
-
+  暂不支持
 
 [Vue模板]:https://gitee.com/fanlaBoy/swico-template-vue
 [React模板]:https://gitee.com/fanlaBoy/swico-template-react

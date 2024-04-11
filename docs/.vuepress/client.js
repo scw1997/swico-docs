@@ -11,6 +11,8 @@ export default defineClientConfig({
                 next(`/template.html${hash}`)
             }else if(['#基本配置','#type','#base','#routes','#路由跳转','#link组件','#路由参数'].includes(hash) && path!=='/router.html'){
                 next(`/router.html${hash}`)
+            }else if(['#history'].includes(hash) && path!=='/swico-var.html'){
+                next(`/swico-var${hash}`)
             } else{
                 next()
             }

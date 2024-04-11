@@ -70,8 +70,11 @@ export default defineUserConfig({
           {
             text: '脚手架',
             link: '/cli',
-          }
-
+          },
+          {
+            text: 'Hooks',
+            link: '/hooks',
+          },
 
         ]
       },
