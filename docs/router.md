@@ -405,6 +405,8 @@ Swico抛弃了类hooks的路由跳转方式，统一采用了`命令式跳转`�
 
 模板的[Swico变量]里面包含一个`history`属性，通过它来进行路由跳转。
 
+基本示例：
+
 <CodeGroup>
   <CodeGroupItem title="react">
 
@@ -445,31 +447,7 @@ export default Example;
   </CodeGroupItem>
 </CodeGroup>
 
-`push`调用的参数除了string类型，还可以是一个对象：
-
-```js
-//推荐使用包含name的对象形式代替string形式
-
-// {
-//     path:'/test',
-//     name:'test'        
-// }
-
-history.push({name:'test'}) //相当于push('/test')
-history.push({name:'test',query:{a:'a',b:'b'}})  //相当于push('/test?a=a&b=b')
-history.push({name:'test',hash:'hash'})  //相当于push('/test#/hash')
-
-// {
-//     path:'/test1/:id',
-//     name:'test1'        
-// }
-
-history.push({name:'test1',params:{id:'123'}})  //相当于push('/test1/123')
-```
-除了push，还有`replace，go，back`等方法...
-
-
-更多关于history的API介绍请参考：[API > Swico变量 > history]
+更多关于history的API介绍请阅读：[API > Swico变量 > history]
 
 
 
@@ -507,7 +485,7 @@ import {Link} from 'swico'
   </CodeGroupItem>
 </CodeGroup>
 
-更多关于Link组件的属性介绍请参考：[API > Link组件]
+更多关于Link组件的属性介绍请阅读：[API > Link组件]
 
 ## 路由参数
 [Vue-Router4]:https://router.vuejs.org/zh/
