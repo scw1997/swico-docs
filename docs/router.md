@@ -399,11 +399,7 @@ type ConfigRoutesItemType = {
 
 ## 路由跳转
 
-Swico抛弃了类hooks的路由跳转方式，统一采用了`命令式跳转`。
-
-这意味着无论你是在页面路由组件内部还是外部，你都只需要调用同一个api进行路由跳转。
-
-模板的[Swico变量]里面包含一个`history`属性，通过它来进行路由跳转。
+swico暴露了一个`history`对象属性，通过调用它的方法来进行路由的命令式跳转。
 
 基本示例：
 
@@ -411,16 +407,16 @@ Swico抛弃了类hooks的路由跳转方式，统一采用了`命令式跳转`�
   <CodeGroupItem title="react">
 
 ```tsx
+import { history } from 'swico'
+
 const Example = () => {
-  //这里的Swico变量是自动注入到模板中的，无需引入
-  const {history} = Swico
   const handleClick = ()=>{
       history.push('/test')
   }
   return (
-   <div>
-        <button onClick={handleClick}>点我跳转</button>
-  </div>
+     <div>
+          <button onClick={handleClick}>点我跳转</button>
+    </div>
     );
 };
 
@@ -432,11 +428,11 @@ export default Example;
 
 ```vue
 <script setup lang="ts">
-  //这里的Swico变量是自动注入到模板中的，无需引入
-  const {history} = Swico
-  const handleClick = ()=>{
-    history.push('/test')
-  }
+import { history } from 'swico'
+
+const handleClick = ()=>{
+  history.push('/test')
+}
 </script>
 
 <template>
@@ -447,7 +443,7 @@ export default Example;
   </CodeGroupItem>
 </CodeGroup>
 
-更多关于history的API介绍请阅读：[API > Swico变量 > history]
+更多关于history路由跳转的方法请阅读：[API > history]
 
 
 
@@ -491,6 +487,6 @@ import {Link} from 'swico'
 [Vue-Router4]:https://router.vuejs.org/zh/
 [React-Router6]:https://reactrouter.com/en/main
 [Swico变量]:/swico-var.md
-[API > Swico变量 > history]:/swico-var.md#history
+[API > history]:/history.md
 [API > Link组件]:/link.md
 
