@@ -17,6 +17,10 @@ export default [
                 link:'#husky-commitlint'
             },
             {
+                text:'.swico',
+                link:'#swico'
+            },
+            {
                 text:'config',
                 link:'#config'
             },

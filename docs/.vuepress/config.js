@@ -54,27 +54,26 @@ export default defineUserConfig({
             link: '/swico-config',
           },
           {
-            text:'Swico变量',
-            link:'/swico-var'
-          },
-          {
             text: 'Global配置',
             link: '/swico-global',
-
           },
           {
-            text: 'Link组件',
-            link: '/link',
-
-          },
-          {
-            text: '脚手架',
-            link: '/cli',
+            text:'history',
+            link:'/history'
           },
           {
             text: 'Hooks',
             link: '/hooks',
           },
+          {
+            text: 'Link',
+            link: '/link',
+          },
+          {
+            text: '脚手架',
+            link: '/cli',
+          },
+
 
         ]
       },

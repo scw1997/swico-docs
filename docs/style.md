@@ -100,8 +100,9 @@ CSS Modules使用示例：
 
 
   在Vue模板中同样也支持外部样式文件 `css` 和 `less` 文件的引入，不支持sass/scss文件。
-
-  > :warning: 由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件`CSS Modules`特性。
+  ::: warning 注意
+  由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件 `CSS Modules` 特性。
+  :::
 
   示例：
 

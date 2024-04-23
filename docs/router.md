@@ -399,7 +399,9 @@ type ConfigRoutesItemType = {
 
 ## 路由跳转
 
-swico暴露了一个`history`对象属性，通过调用它的方法来进行路由的命令式跳转。
+### 命令式跳转
+
+使用Swico提供的`history` API可以进行命令式跳转。
 
 基本示例：
 
@@ -446,6 +448,57 @@ const handleClick = ()=>{
 更多关于history路由跳转的方法请阅读：[API > history]
 
 
+### Hooks API
+
+组件内部跳转推荐使用Hooks API `useNav`。
+
+基本示例：
+
+<CodeGroup>
+  <CodeGroupItem title="react">
+
+```tsx
+import { useNav } from 'swico'
+
+const Example = () => {
+  const nav = useNav()  
+  const handleClick = ()=>{
+    nav('/test')
+  }
+  return (
+     <div>
+          <button onClick={handleClick}>点我跳转</button>
+    </div>
+    );
+};
+
+export default Example;
+```
+  </CodeGroupItem>
+
+  <CodeGroupItem title="vue">
+
+```vue
+<script setup lang="ts">
+import { useNav } from 'swico'
+
+const nav = useNav() 
+
+const handleClick = ()=>{
+  nav('/test')
+}
+</script>
+
+<template>
+  <button @click="handleClick">点我跳转</button>
+</template>
+
+```
+  </CodeGroupItem>
+</CodeGroup>
+
+
+更多关于useNav的介绍请阅读：[API > Hooks > useNav]
 
 ## Link组件
 
@@ -470,7 +523,7 @@ export default Example;
 
 ```vue
 <script setup lang="ts">
-import {Link} from 'swico'
+import { Link } from 'swico'
 </script>
 
 <template>
@@ -481,12 +534,20 @@ import {Link} from 'swico'
   </CodeGroupItem>
 </CodeGroup>
 
-更多关于Link组件的属性介绍请阅读：[API > Link组件]
+更多关于Link组件的属性介绍请阅读：[API > Link]
 
 ## 路由参数
+
+Swico项目中可通过两种方式获取路由参数信息：
+
+- 使用history API：[history.location]
+- 页面组件内推荐使用hook来获取： [useLocation]
+
 [Vue-Router4]:https://router.vuejs.org/zh/
 [React-Router6]:https://reactrouter.com/en/main
 [Swico变量]:/swico-var.md
 [API > history]:/history.md
-[API > Link组件]:/link.md
-
+[API > Link]:/link.md
+[API > Hooks > useNav]:/hooks.md#usenav
+[history.location]:/history.md#location
+[useLocation]:/hooks.md#uselocation

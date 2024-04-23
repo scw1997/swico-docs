@@ -3,7 +3,9 @@
 
 - 类型：`SwicoHistoryType`
 
-history用来进行路由的命令式跳转， 任何时候你需要进行路由跳转都应该使用此API。
+history用来进行路由的命令式跳转，适合在页面组件外部进行路由跳转。
+
+组件内部跳转推荐使用Hooks API `useNav`，详见：[API > Hooks > useNav]
 
 关于路由配置相关请阅读：[路由]
 
@@ -157,7 +159,7 @@ type SwicoLocationType = {
   path: string; 
   pathname: string; 
   search: string;
-};
+}; 
 ```
 
 用于获取当前页面路由的相关参数：
@@ -181,7 +183,7 @@ console.log('name',location.name)
 console.log('path',location.path)
 ```
 
-> path和pathname的区别：
+> **path和pathname的区别：**
 > 
 > 二者的区别主要在于路由base值的设置（见：[路由 > 基本配置 > base]）。
 > 
@@ -189,6 +191,6 @@ console.log('path',location.path)
 
 
 
-
+[API > Hooks > useNav]:/hooks.md#usenav
 [路由]:/router.md
 [路由 > 基本配置 > base]:/router.md#base
