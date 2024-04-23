@@ -174,7 +174,7 @@ export default [
                 link: '/hooks',
             },
             {
-                text: 'Link组件',
+                text: 'Link',
                 link: '/link',
 
             },

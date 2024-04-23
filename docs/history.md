@@ -172,6 +172,15 @@ type SwicoLocationType = {
 | pathname | string             | 带base的完整path值                                                                |
 | search   | string             | 路由查询字符串,如`?a=1&b=2`                                                          |
 
+```typescript
+import {history} from 'swico'
+const {location} = history
+
+console.log('query',location.query)
+console.log('name',location.name)
+console.log('path',location.path)
+```
+
 > path和pathname的区别：
 > 
 > 二者的区别主要在于路由base值的设置（见：[路由 > 基本配置 > base]）。
