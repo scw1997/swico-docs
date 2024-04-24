@@ -192,6 +192,17 @@ export default [
             {
                 text: 'Hooks',
                 link: '/hooks',
+                collapsible:true,
+                children: [
+                    {
+                        text: 'useLocation',
+                        link: '#uselocation',
+                    },
+                    {
+                        text: 'useNav',
+                        link: '#usenav',
+                    }
+                ]
             },
             {
                 text: 'Link',
@@ -203,8 +214,6 @@ export default [
                 link: '/cli',
 
             },
-
-
 
         ]
     },

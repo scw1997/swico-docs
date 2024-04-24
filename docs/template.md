@@ -180,12 +180,16 @@ const Index = () => {
   </script>
 </head>
 <body>
+<!--切勿删除此元素节点-->
 <div id="root">
   <!-- 页面在这里渲染    -->
 </div>
 </body>
 </html>
 ```
+::: danger 警告
+切勿删除`id=root`的div元素，它是模板中挂载整个项目App的容器元素。
+:::
 
 ## global.ts
 
