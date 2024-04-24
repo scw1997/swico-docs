@@ -119,8 +119,12 @@ export default defineConfig('base', {
 
 当项目涉及服务器非根路径部署时，你需要设置base为对应具体值。
 
-> :warning: 注意：当type值为`hash`时，此时将会忽略base值的设置。这意味着此时访问路由无论是否携带base都可以正常访问。
-例如`http://xxx.com/base/#/xxx` 和 `http://xxx.com/#/xxx`是等价的
+>Swico默认会将此配置值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.routerBase`访问。
+
+::: warning 注意
+当type值为`hash`时，此时将会忽略base值的设置。这意味着此时访问路由无论是否携带base都可以正常访问。
+此时`http://xxx.com/base/#/test` 和 `http://xxx.com/#/test`都可访问到`/test`路由页面
+:::
 
 ### routes
 
@@ -153,7 +157,7 @@ type ConfigRoutesItemType = {
 
   当前路由的命名，也是唯一标识。
 
-  :bulb: 推荐设置，方便路由跳转和项目日后维护（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
+  :bulb: 推荐设置此属性，方便路由跳转和项目日后维护（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
 - `component`
 
   当前路由地址对应的页面组件路径。值为相对于`src/pages`的相对路径，且不需要文件名后缀。不支持绝对路径。
@@ -192,8 +196,7 @@ type ConfigRoutesItemType = {
     <CodeGroupItem title="vue">
 
   ```typescript title="swico.ts"
-       //...
-  
+    //...
     routes: [
         {
             path: '/',
@@ -210,7 +213,6 @@ type ConfigRoutesItemType = {
             },
        ]
     //...
-  
     ```
     </CodeGroupItem>
   
@@ -399,58 +401,9 @@ type ConfigRoutesItemType = {
 
 ## 路由跳转
 
-### 命令式跳转
+- 使用Hook
 
-使用Swico提供的`history` API可以进行命令式跳转。
-
-基本示例：
-
-<CodeGroup>
-  <CodeGroupItem title="react">
-
-```tsx
-import { history } from 'swico'
-
-const Example = () => {
-  const handleClick = ()=>{
-      history.push('/test')
-  }
-  return (
-     <div>
-          <button onClick={handleClick}>点我跳转</button>
-    </div>
-    );
-};
-
-export default Example;
-```
-  </CodeGroupItem>
-
-  <CodeGroupItem title="vue">
-
-```vue
-<script setup lang="ts">
-import { history } from 'swico'
-
-const handleClick = ()=>{
-  history.push('/test')
-}
-</script>
-
-<template>
-  <button @click="handleClick">点我跳转</button>
-</template>
-
-```
-  </CodeGroupItem>
-</CodeGroup>
-
-更多关于history路由跳转的方法请阅读：[API > history]
-
-
-### Hooks API
-
-组件内部跳转推荐使用Hooks API `useNav`。
+组件内部跳转推荐使用Hook API `useNav`。
 
 基本示例：
 
@@ -492,7 +445,6 @@ const handleClick = ()=>{
 <template>
   <button @click="handleClick">点我跳转</button>
 </template>
-
 ```
   </CodeGroupItem>
 </CodeGroup>
@@ -500,13 +452,32 @@ const handleClick = ()=>{
 
 更多关于useNav的介绍请阅读：[API > Hooks > useNav]
 
+- 命令式跳转
+
+使用Swico提供的`history` API可以进行命令式跳转。推荐在组件外部使用。
+
+基本示例：
+
+```typescript
+import { history } from 'swico'
+
+// ...
+const jumpLogin = ()=>{
+  history.push('/login')
+}
+// ...
+```
+
+更多关于history路由跳转的方法请阅读：[API > history]
+
+
 ## Link组件
 
 <CodeGroup>
   <CodeGroupItem title="react">
 
 ```tsx
-import {Link} from 'swico'
+import { Link } from 'swico'
 const Example = () => {
   return (
    <div>
@@ -529,7 +500,6 @@ import { Link } from 'swico'
 <template>
   <Link to='/test'>点我跳转到/test</Link>
 </template>
-
 ```
   </CodeGroupItem>
 </CodeGroup>
@@ -551,3 +521,4 @@ Swico项目中可通过两种方式获取路由参数信息：
 [API > Hooks > useNav]:/hooks.md#usenav
 [history.location]:/history.md#location
 [useLocation]:/hooks.md#uselocation
+[index.ejs]:/template.md#index-ejs

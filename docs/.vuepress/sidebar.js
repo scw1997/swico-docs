@@ -144,6 +144,14 @@ export default [
                         link:'#devtool'
                     },
                     {
+                        text:'externals',
+                        link:'#externals'
+                    },
+                    {
+                        text:'https',
+                        link:'#https'
+                    },
+                    {
                         text:'npmType',
                         link:'#npmtype'
                     },
@@ -159,6 +167,14 @@ export default [
                     {
                         text:'publicPath',
                         link:'#publicpath'
+                    },
+                    {
+                        text:'router',
+                        link:'#router'
+                    },
+                    {
+                        text:'template',
+                        link:'#template'
                     }
                 ]
             },

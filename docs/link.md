@@ -39,14 +39,14 @@ import {Link} from 'swico'
 
 - 类型：`string`
 
-必传项，表示欲跳转的路由path地址
+必传项，欲跳转的路由path地址
 
 ### replace
 
 - 类型：`boolean`
 - 默认值：`false`
 
-表示是否替换当前路由。
+是否替换当前路由。
 
 当为`true`时，跳转行为等价于`history.replace()`
 
@@ -55,11 +55,11 @@ import {Link} from 'swico'
 
 - 类型：`string`
 
-表示样式类名。React模板中为`className`，Vue模板中为`class`
+样式类名。React模板中为`className`，Vue模板中为`class`
 
 ### style
 
 - 类型：`string`
 
-style样式
+style属性设置
 

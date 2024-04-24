@@ -24,7 +24,7 @@ features:
   - title: 配置化路由
     details: 基于React-Router 6和Vue-Router 4进行封装，支持路由嵌套，动态参数，懒加载以及装饰校验等功能。
   - title: 功能可扩展
-    details: 框架提供多个API进行项目架构自定义配置修改或扩展，例如Alias映射，本地请求代理等。
+    details: 支持进行项目架构自定义配置修改或扩展，例如Alias映射，本地请求代理等。
 footer: MIT Licensed | Copyright © 2024-present
 ---
 

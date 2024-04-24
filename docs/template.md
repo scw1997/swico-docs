@@ -84,7 +84,7 @@ swico配置文件目录，项目路由需要在此配置。此外你还可以进
   <div class="welcome">
     <!--public目录下有个logo.png文件-->
     <img alt="logo" src="/logo.png" />
-    <h2 style="color: #3a95a7">Welcome to Secywo!</h2>
+    <h2 style="color: #3a95a7">Welcome to Swico!</h2>
   </div>
 </template>
 ```
@@ -98,7 +98,7 @@ const Index = () => {
         <div className={'welcome'}>
             {/*public目录下有个logo.png文件*/}
             <img alt="logo" src="/logo.png" />
-            <h2 style={{ color: '#3a95a7' }}>欢迎使用 Secywo</h2>
+            <h2 style={{ color: '#3a95a7' }}>欢迎使用 Swico</h2>
         </div>
     );
 };
@@ -125,8 +125,6 @@ const Index = () => {
   };
   
   export default Layout;
-
-  
   ```
 
 - **在Vue模板中**:
@@ -175,22 +173,23 @@ const Index = () => {
   <link rel="shortcut icon" href="/favicon.ico" />
   <Title>Swico App</Title>
   <script>
-    // swico配置文件中router->base配置项，可在代码中访问
+    // swico配置文件中router->base配置项
     window.routerBase = '<%= routerBase %>'
+    // swico配置文件中publicPath配置项
+    window.publicPath = '<%= publicPath %>'
   </script>
 </head>
 <body>
 <div id="root">
-  <!-- 页面在这里渲染            -->
+  <!-- 页面在这里渲染    -->
 </div>
 </body>
 </html>
-
 ```
 
 ## global.ts
 
-这里主要用于定义一些全局配置性的参数或方法，需要默认导出。（配置详细介绍见：[API > Global配置]）
+这里主要用于定义一些全局配置性的参数或方法，需要默认导出（配置详细介绍见：[API > Global配置]）。
 
 还可以添加一些全局性的代码，会在全局页面渲染时执行。 
 

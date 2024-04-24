@@ -43,6 +43,15 @@ type SwicoHistoryOptionType = {
 接收一个`to`参数：
 
 - 当参数值类型为string时，表示对应的路由完整`path`
+  ```typescript
+  import { history } from 'swico'
+  
+  // ...
+  const jumpLogin = ()=>{
+  history.push('/login')
+  }
+  // ...
+  ```
 - 当为对象时，其类型为`SwicoHistoryOptionType`，见下方说明：
 
   | 参数           | 类型                 | 说明                                                                             |
@@ -53,68 +62,25 @@ type SwicoHistoryOptionType = {
   | name | string             | 路由唯一标识值                                                                        |
   | path | string             | 配置的路由地址（不带任何参数）<br/>`注：当name有值时，path值无效`                                         |
 
-
-<CodeGroup>
-  <CodeGroupItem title="react">
-
-```tsx
-import { history } from 'swico'
-
-const Example = () => {
-  const handleClick = ()=>{
-    history.push('/test')
-  }
-  return (
-          <div>
-            <button onClick={handleClick}>点我跳转</button>
-          </div>
-  );
-};
-
-export default Example;
-```
-  </CodeGroupItem>
-
-  <CodeGroupItem title="vue">
-
-```vue
-<script setup lang="ts">
-  import { history } from 'swico'
-
-  const handleClick = ()=>{
-    history.push('/test')
-  }
-</script>
-
-<template>
-  <button @click="handleClick">点我跳转</button>
-</template>
-
-```
-  </CodeGroupItem>
-</CodeGroup>
-
-参数值为对象时：
-
-```js
-//推荐使用包含name的对象形式代替string形式
-
-// {
-//     path:'/test',
-//     name:'test'        
-// }
-
-history.push({name:'test'}) //相当于push('/test')
-history.push({name:'test',query:{a:'a',b:'b'}})  //相当于push('/test?a=a&b=b')
-history.push({name:'test',hash:'hash'})  //相当于push('/test#/hash')
-
-// {
-//     path:'/test1/:id',
-//     name:'test1'        
-// }
-
-history.push({name:'test1',params:{id:'123'}})  //相当于push('/test1/123')
-```
+  ```js
+  //推荐使用包含name的对象形式代替string形式
+  
+  // {
+  //     path:'/test',
+  //     name:'test'        
+  // }
+  
+  history.push({name:'test'}) //相当于push('/test')
+  history.push({name:'test',query:{a:'a',b:'b'}})  //相当于push('/test?a=a&b=b')
+  history.push({name:'test',hash:'hash'})  //相当于push('/test#/hash')
+  
+  // {
+  //     path:'/test1/:id',
+  //     name:'test1'        
+  // }
+  
+  history.push({name:'test1',params:{id:'123'}})  //相当于push('/test1/123')
+  ```
 
 
 ## replace
@@ -175,19 +141,53 @@ type SwicoLocationType = {
 | search   | string             | 路由查询字符串,如`?a=1&b=2`                                                          |
 
 ```typescript
-import {history} from 'swico'
-const {location} = history
+import { history } from 'swico'
+const { location } = history
 
-console.log('query',location.query)
-console.log('name',location.name)
-console.log('path',location.path)
+console.log('location',location)
 ```
 
-> **path和pathname的区别：**
-> 
-> 二者的区别主要在于路由base值的设置（见：[路由 > 基本配置 > base]）。
-> 
-> 例如当base值为`/base`，访问的当前路由地址为`/base/news/list?id=1`，则path值为`/news/list`,而pathname为`/base/news/list`
+假设当前页面对应的swico路由配置为：
+
+```js title="swico.ts"
+//... 
+router:{
+   base:'/base',
+   routes:[
+       //...
+     {
+       name:'news-detail',
+       path:'/news/:id',
+     }
+    //...
+   ] 
+}
+//... 
+```
+
+访问`/base/news/123?a=1&b=2#hash`，则通过`history.location`获取到的值为：
+```js
+{
+  name:'news-detail',
+  path:'/news/123',
+  pathname:'/base/news/123',
+  params:{
+      id:'123'
+  },
+  query:{
+      a:'1',
+      b:'2'
+  },  
+  hash:'#hash',
+  search:'?a=1&b=2'
+}
+```
+
+### history.location中的path和pathname的区别
+
+二者的区别主要在于路由base值的设置（见：[路由 > 基本配置 > base]）。
+ 
+例如当base值为`/base`，访问的当前路由地址为`/base/news/list?id=1`，则path值为`/news/list`,而pathname为`/base/news/list`
 
 
 
