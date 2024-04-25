@@ -152,7 +152,16 @@ type ConfigRoutesItemType = {
 
   必填项，配置当前路由地址。如果是第一级（最外层）路由，应以`/`开头，其他子路由则不需要以`/`开头。
   
-  path支持动态参数 如`:id` 的形式和通配符的形式，这方面[Vue-Router4]与[React-Router6]存在匹配规则差异，请自行查阅官方文档。
+  path支持路由动态参数 如`:id` 的形式和通配符的形式：
+
+  | path                                          | 匹配路径               | history.location.params获取值    |
+    |-----------------------------------------------|--------------------|-------------------------------|
+  | /news/:id                                     | /news/123          | `{id:'123'}`                  |
+  | /user/:userid/name/:username                  | /user/123/name/scw | `{userid:123,username:'scw'}` |
+  | /*  `（仅React）`<br/><br/>/:pathMatch(.*)\* `（仅Vue）` | 404页面              | `{}`                            |
+  :::warning 注意
+  除了上述一般用法外，在动态路由匹配规则上，Vue-Router和React-Router存在不少的差异，更多详情请阅读相应官方文档：[VueRouter动态路由]与[ReactRouter动态路由]。
+  :::
 - `name`
 
   当前路由的命名，也是唯一标识。
@@ -513,6 +522,8 @@ Swico项目中可通过两种方式获取路由参数信息：
 - 使用history API：[history.location]
 - 页面组件内推荐使用hook来获取： [useLocation]
 
+[VueRouter动态路由]:https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html
+[ReactRouter动态路由]:https://reactrouter.com/en/main/route/route#path
 [Vue-Router4]:https://router.vuejs.org/zh/
 [React-Router6]:https://reactrouter.com/en/main
 [Swico变量]:/swico-var.md
