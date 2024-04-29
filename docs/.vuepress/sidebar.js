@@ -60,7 +60,10 @@ export default [
                 text:'loading',
                 link:'#loading'
             },
-
+            {
+                text:'eslint/prettier',
+                link:'#eslint-prettier'
+            },
 
 
         ]

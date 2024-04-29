@@ -246,7 +246,13 @@ const Index = () => {
 
 - **在Vue模板中：**
 
-  暂不支持
+  Vue3的`Suspense`还不是正式版API，所以暂不支持
+
+## eslint/prettier
+`.eslintignore，.eslintrc`和`.prettierignore，.prettierrc.js`分别为eslint和prettier相关的配置文件， 可根据需要调整修改默认配置。
+
+需要说明的是，Swico默认只会在终端输出eslint error信息，并不会输出warning
+
 
 [Vue模板]:https://gitee.com/fanlaBoy/swico-template-vue
 [React模板]:https://gitee.com/fanlaBoy/swico-template-react
