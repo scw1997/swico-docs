@@ -2,11 +2,10 @@ import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress/cli'
 import { webpackBundler } from '@vuepress/bundler-webpack'
 import sidebar from "./sidebar.js";
-import path from "path";
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  dest:path.resolve(__dirname, '../../dist'),
+
   title: 'SWICO',
   description: '简易，高效，实用的前端开发框架',
   base:'/swico-docs/',
