@@ -6,7 +6,7 @@ Link组件是一个带路由跳转功能的 `<a>` 元素。
   <CodeGroupItem title="react">
 
 ```tsx
-import {Link} from 'swico'
+import { Link } from 'swico'
 const Example = () => {
   return (
    <div>
@@ -23,7 +23,7 @@ export default Example;
 
 ```vue
 <script setup lang="ts">
-import {Link} from 'swico'
+import { Link } from 'swico'
 </script>
 
 <template>
