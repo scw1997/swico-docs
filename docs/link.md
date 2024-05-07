@@ -56,11 +56,11 @@ import { Link } from 'swico'
 
 - 类型：`string`
 
-样式类名。React模板中为`className`，Vue模板中为`class`
+样式类名。React模板中为`className`，Vue模板中为`class`。
 
 ### style
 
 - 类型：`string`
 
-style属性设置
+style属性设置。
 
