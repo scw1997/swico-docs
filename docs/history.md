@@ -187,6 +187,7 @@ router:{
 }
 ```
 
+
 ### history.location中的path和pathname的区别
 
 二者的区别主要在于路由base值的设置（见：[路由 > 基本配置 > base]）。
