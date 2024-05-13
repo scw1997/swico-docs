@@ -35,6 +35,7 @@ type SwicoHistoryOptionType = {
   hash?: string;
   path?: string;
   name?: string;
+  state?: Record<string, any>;
 };
 ```
 
@@ -54,13 +55,14 @@ type SwicoHistoryOptionType = {
   ```
 - 当为对象时，其类型为`SwicoHistoryOptionType`，见下方说明：
 
-  | 参数           | 类型                 | 说明                                                                             |
-  |--------------|--------------------|--------------------------------------------------------------------------------|
-  | query | Record<string,any> | searchParams的序列化对象。<br/>如欲访问路由地址为`/news?a=1&b=2`，则param值应为`{a:1,b:2}`          |
+  | 参数     | 类型                 | 说明                                                                              |
+  |--------|--------------------|---------------------------------------------------------------------------------|
+  | query  | Record<string,any> | searchParams的序列化对象。<br/>如欲访问路由地址为`/news?a=1&b=2`，则param值应为`{a:1,b:2}`           |
   | params | Record<string,any> | 路由动态参数组成的对象。<br/>如欲跳转页面路由地址为`/news/123`，其路由path为`/news/:id`，则params应为`{id:123}` |
-  | hash | string             | 路由hash字符串                                                                      |
-  | name | string             | 路由唯一标识值                                                                        |
-  | path | string             | 配置的路由地址（不带任何参数）<br/>`注：当name有值时，path值无效`                                         |
+  | hash   | string             | 路由hash字符串                                                                       |
+  | name   | string             | 路由唯一标识值                                                                         |
+  | path   | string             | 配置的路由地址（不带任何参数）<br/>`注：当name有值时，path值无效`                                        |
+  | state  | Record<string,any>             | 定义跳转后路由的状态值对象，可在目标路由组件内获取，                                                      |
 
   ```js
   //推荐使用包含name的对象形式代替string形式
@@ -125,20 +127,22 @@ type SwicoLocationType = {
   path: string; 
   pathname: string; 
   search: string;
-}; 
+  state?: Record<string, any>;
+};
 ```
 
 用于获取当前页面路由的相关参数：
 
-| 参数       | 类型                 | 说明                                                                           |
-  |----------|--------------------|------------------------------------------------------------------------------|
-| query    | Record<string,any> | searchParams的序列化对象。<br/>如当前页面地址为`/news?a=1&b=2`，则query值为`{a:1,b:2}`          |
+| 参数       | 类型                 | 说明                                                                          |
+  |----------|--------------------|-----------------------------------------------------------------------------|
+| query    | Record<string,any> | searchParams的序列化对象。<br/>如当前页面地址为`/news?a=1&b=2`，则query值为`{a:1,b:2}`         |
 | params   | Record<string,any> | 路由动态参数组成的对象。<br/>如当前页面地址为`/news/123`，其路由path为`/news/:id`，则params值为`{id:123}` |
-| hash     | string             | 路由hash字符串                                                                    |
-| name     | string             | 路由唯一标识值                                                                      |
-| path     | string             | 配置的路由地址（不带任何参数）                                                              |
-| pathname | string             | 带base的完整path值                                                                |
-| search   | string             | 路由查询字符串,如`?a=1&b=2`                                                          |
+| hash     | string             | 路由hash字符串                                                                   |
+| name     | string             | 路由唯一标识值                                                                     |
+| path     | string             | 配置的路由地址（不带任何参数）                                                             |
+| pathname | string             | 带base的完整path值                                                               |
+| search   | string             | 路由查询字符串,如`?a=1&b=2`                                                         |
+| state    | Record<string,any>             | 当前路由状态值,一般在路由跳转时存储，只在当前会话窗口有效                                               |
 
 ```typescript
 import { history } from 'swico'

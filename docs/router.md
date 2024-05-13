@@ -173,7 +173,7 @@ type ConfigRoutesItemType = {
 
   例如你想引用`src/pages/home.tsx`或者`src/pages/Home.vue`，则设置`home`或者`Home`即可。
 
-  当`component`和`redirect`都未设置值时，Swico会将当前路由直接渲染成`Outlet`。当只需要访问子路由页面而不需要访问父路由页面时，这将会很有用。
+  当`component`和`redirect`都未设置值时，Swico会将当前路由直接渲染成`Outlet`。当只需要访问子路由页面而不需要访问父路由页面时，这会很有用。
 - `redirect`
 
   当前路由地址重定向后的路由地址，值为对应路由完整的`path`值。
@@ -412,7 +412,7 @@ type ConfigRoutesItemType = {
 
 - 使用Hook
 
-组件内部跳转推荐使用Hook API `useNav`。
+一般页面组件内部跳转推荐使用Hook API `useNav`。
 
 基本示例：
 
@@ -463,7 +463,9 @@ const handleClick = ()=>{
 
 - 命令式跳转
 
-使用Swico提供的`history` API可以进行命令式跳转。推荐在组件外部使用。
+使用Swico提供的`history` API可以进行命令式跳转。
+
+:bulb: 命令式跳转更适合在不属于当前路由架构上下文的组件外部场景，例如React模板中使用`creatRoot`额外挂载的根节点元素或者普通js/ts文件中需要用到路由跳转的地方。
 
 基本示例：
 
