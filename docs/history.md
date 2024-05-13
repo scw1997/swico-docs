@@ -3,9 +3,7 @@
 
 - 类型：`SwicoHistoryType`
 
-history用来进行路由的命令式跳转，适合在页面组件外部进行路由跳转。
-
-组件内部跳转推荐使用Hooks API `useNav`，详见：[API > Hooks > useNav]
+history用来进行路由的命令式跳转
 
 关于路由配置相关请阅读：[路由]
 
