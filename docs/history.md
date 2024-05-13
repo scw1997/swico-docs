@@ -49,7 +49,7 @@ type SwicoHistoryOptionType = {
   
   // ...
   const jumpLogin = ()=>{
-  history.push('/login')
+    history.push('/login')
   }
   // ...
   ```
