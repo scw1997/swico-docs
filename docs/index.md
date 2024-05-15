@@ -1,22 +1,24 @@
 ---
-home: true
-title: 首页
-heroImage: /logo.png
-heroText: null
-heroHeight: auto
-actions:
-  - text: 快速上手
-    link: /start
-    type: primary
-  - text: 概述
-    link: /introduce
-    type: default
+layout: home
+
+hero:
+  name: Swico
+  tagline: 简易，高效，实用的前端开发框架
+  actions:
+   - text: 快速上手
+     link: /start
+     type: primary
+   - text: 概述
+     link: /introduce
+     type: default
 
 
 
 features:
   - title: 前沿技术栈
-    details: 基于Webpack5 + Typescript5，提供Vue3.x和React18两种前端框架模板选择，并最大化统一API。
+    details: 基于Webpack5 + Typescript5，提供Vue3和React18两种开发模板。
+  - title: API高度统一
+    details: 最大化统一Vue3和React18两种模板开发时的API。
   - title: 开箱即用
     details: 内置路由，本地开发服务器，打包构建，Git Hooks等功能，完善开发流程。
   - title: 代码风格约束

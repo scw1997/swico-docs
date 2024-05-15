@@ -1,0 +1,4 @@
+.action:not(:first-child) .VPButton.brand{
+    background-color: #70a0b5;
+
+}

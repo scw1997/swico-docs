@@ -1,0 +1,131 @@
+import { defineConfig } from 'vitepress'
+import sidebar from "./sidebar.mjs";
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
+  title: "SWICO",
+  base:'/swico-docs/',
+  lang:'zh-cn',
+  description: '简易，高效，实用的前端开发框架',
+
+  head:   [['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/swico-docs/favicon.ico' }]],
+  themeConfig: {
+    outline:{
+      label:'页面导航',
+    },
+    docFooter:{
+      prev:'上一页',
+      next:'下一页'
+    },
+    footer: {
+      message: 'MIT Licensed',
+      copyright: 'Copyright © 2024-present'
+    },
+    lastUpdated: {
+      text: '最后更新于'
+    },
+    nav: [
+      {
+        text:'首页',
+        link:'/',
+      },
+      {
+        text:'指南',
+        items:[
+          {
+            text:'快速上手',
+            link:'/start'
+          },
+          {
+            text:'模板结构',
+            link:'/template'
+          },
+          {
+            text:'路由',
+            link:'/router'
+          },
+          {
+            text:'样式',
+            link:'/style'
+          },
+          {
+            text:'Git Hooks',
+            link:'/git-hooks'
+          },
+          {
+            text:'环境变量',
+            link:'/env'
+          },
+        ]
+      },
+      {
+        text:'API',
+        items:[
+          {
+            text: 'Swico配置',
+            link: '/swico-config',
+          },
+          {
+            text: 'Global配置',
+            link: '/swico-global',
+          },
+          {
+            text:'history',
+            link:'/history'
+          },
+          {
+            text: 'Hooks',
+            link: '/hooks',
+          },
+          {
+            text: 'Link',
+            link: '/link',
+          },
+          {
+            text: '脚手架',
+            link: '/cli',
+          },
+
+
+        ]
+      },
+      {
+        text:'常见问题',
+        link:'/faq'
+      },
+      {
+        text:'更新日志',
+        link:'/log',
+      },
+      {
+        text:'Git',
+        items:[
+          {
+            text:'Swico',
+            link:'https://gitee.com/fanlaBoy/swico.git'
+          },
+          {
+            text:'Swico Vue模板',
+            link:'https://gitee.com/fanlaBoy/swico-template-vue'
+          },
+          {
+            text:'Swico React模板',
+            link:'https://gitee.com/fanlaBoy/swico-template-react'
+          }
+        ]
+      },
+      {
+        text:'v1.0.0',
+        link:'/'
+      }
+    ],
+    sidebar,
+
+
+
+
+    socialLinks: [
+      { icon: 'github', link: 'https://gitee.com/fanlaBoy/swico-docs.git' }
+    ]
+  }
+})
