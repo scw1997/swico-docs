@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a1 as n}from"./chunks/framework.D7g5xyU9.js";const c=JSON.parse('{"title":"脚手架","description":"","frontmatter":{},"headers":[],"relativePath":"cli.md","filePath":"cli.md","lastUpdated":1712738129000}'),l={name:"cli.md"},h=n("",20),p=[h];function t(k,e,F,d,r,g){return a(),i("div",null,p)}const C=s(l,[["render",t]]);export{c as __pageData,C as default};

@@ -7,9 +7,29 @@ export default defineConfig({
   base:'/swico-docs/',
   lang:'zh-cn',
   description: '简易，高效，实用的前端开发框架',
-
   head:   [['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/swico-docs/favicon.ico' }]],
   themeConfig: {
+    search: {
+      provider: 'local',
+      options: {
+
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换'
+                }
+              }
+            }
+
+      }
+    },
     outline:{
       label:'页面导航',
     },
