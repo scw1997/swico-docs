@@ -9,12 +9,10 @@
 
 下面是两种模板的默认路由配置：
 
-<CodeGroup>
-  <CodeGroupItem title="react">
+::: code-group
 
-```ts title="config/swico.ts"
-//swico 公共自定义配置
-
+```ts [react]
+//config/swico.ts
 import { defineConfig } from 'swico';
 
 export default defineConfig('base', {
@@ -52,13 +50,10 @@ export default defineConfig('base', {
 });
 
 ```
-  </CodeGroupItem>
 
-  <CodeGroupItem title="vue">
 
-```ts title="config/swico.ts"
-//swico 公共自定义配置
-
+```ts [vue]
+//config/swico.ts
 import { defineConfig } from 'swico';
 
 export default defineConfig('base', {
@@ -97,9 +92,7 @@ export default defineConfig('base', {
 });
 
 ```
-  </CodeGroupItem>
-</CodeGroup>
-
+:::
 
 ### type
 
@@ -119,11 +112,11 @@ export default defineConfig('base', {
 
 当项目涉及服务器非根路径部署时，你需要设置base为对应具体值。
 
->Swico默认会将此配置值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.routerBase`访问。
+> Swico默认会将此配置值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.routerBase`访问。
 
 ::: warning 注意
 当type值为`hash`时，此时将会忽略base值的设置。这意味着此时访问路由无论是否携带base都可以正常访问。
-此时`http://xxx.com/base/#/test` 和 `http://xxx.com/#/test`都可访问到`/test`路由页面
+此时`http://xxx.com/base/#/test` 和 `http://xxx.com/#/test`都可访问到`/test`路由页面。
 :::
 
 ### routes
@@ -147,7 +140,7 @@ type ConfigRoutesItemType = {
 };
 
 ```
-下面是各个字段具体介绍 
+下面是各个字段具体介绍： 
 - `path`
 
   必填项，配置当前路由地址。如果是第一级（最外层）路由，应以`/`开头，其他子路由则不需要以`/`开头。
@@ -166,7 +159,7 @@ type ConfigRoutesItemType = {
 
   当前路由的命名，也是唯一标识。
 
-  :bulb: 推荐设置此属性，方便路由跳转和项目日后维护（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
+  :bulb: 推荐设置此属性，方便路由跳转和项目日后维护。（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
 - `component`
 
   当前路由地址对应的页面组件路径。值为相对于`src/pages`的相对路径，且不需要文件名后缀。不支持绝对路径。
@@ -178,15 +171,15 @@ type ConfigRoutesItemType = {
 
   当前路由地址重定向后的路由地址，值为对应路由完整的`path`值。
 
-  <CodeGroup>
-    <CodeGroupItem title="react">
+  ::: code-group
   
-    ```typescript title="swico.ts"
+    ```typescript [react]
+    // config/swico.ts
     //...
     routes: [
         {
             path: '/',
-            redirect: '/news/list',
+            redirect: '/news/list',  // [!code highlight]
         },
         {
             path: '/news',
@@ -200,42 +193,37 @@ type ConfigRoutesItemType = {
        ]
     //...
     ```
-    </CodeGroupItem>
-  
-    <CodeGroupItem title="vue">
 
-  ```typescript title="swico.ts"
-    //...
-    routes: [
-        {
-            path: '/',
-            redirect: '/news/list',
-        },
-        {
-            path: '/news',
-            children:[
-                    {
-                        path:'list',
-                        component:'news/List' //==>pages/news/List.vue         
-                    }
-                ]             
-            },
-       ]
-    //...
+  ```typescript [vue]
+  // config/swico.ts
+  //...
+  routes: [
+      {
+          path: '/',
+          redirect: '/news/list',// [!code highlight]
+      },
+      {
+          path: '/news',
+          children:[
+                  {
+                      path:'list',
+                      component:'news/List' //==>pages/news/List.vue         
+                  }
+              ]             
+          },
+     ]
+  //...
     ```
-    </CodeGroupItem>
-  
-  </CodeGroup>
-
+  :::
   
 
 - `children`
 
   当前路由的子路由列表设置，内部字段与外部一致。
-    <CodeGroup>
-    <CodeGroupItem title="react">
+  ::: code-group
   
-  ```ts title="config/swico.ts"
+  ```ts [react]
+  // config/swico.ts
   //...
     routes: [
         {
@@ -253,39 +241,35 @@ type ConfigRoutesItemType = {
     ]
   //...
   ```
-    </CodeGroupItem>
   
-    <CodeGroupItem title="vue">
-  
-  ```ts title="config/swico.ts"
-    //...
-    routes: [
-        {
-            path: '/example',
-            name: 'example',
-            component: 'example/Example',//==>pages/example/Example.vue
-            children: [
-                {
-                    path: 'child',  //通过/example/child访问
-                    name: 'example-child',
-                    component: 'example/Child', //==>pages/example/Child.vue
-                   
-                }
-            ]
-        },
-    ]
-     //...
+  ```ts [vue]
+  // config/swico.ts
+  //...
+  routes: [
+      {
+          path: '/example',
+          name: 'example',
+          component: 'example/Example',//==>pages/example/Example.vue
+          children: [
+              {
+                  path: 'child',  //通过/example/child访问
+                  name: 'example-child',
+                  component: 'example/Child', //==>pages/example/Child.vue
+                 
+              }
+          ]
+      },
+  ]
+   //...
   ```
-    </CodeGroupItem>
-  </CodeGroup>
+  :::
 
 
   要使子路由页面可被访问，需要父路由页面组件在内部引入`Outlet`。
 
-  <CodeGroup>
-    <CodeGroupItem title="react">
+  ::: code-group
   
-  ```tsx
+  ```tsx [react]
   import { Outlet } from 'swico';
 
   const Example = () => {
@@ -293,18 +277,15 @@ type ConfigRoutesItemType = {
      <div>
         example示例页
         {/*子路由组件在此渲染*/}
-        <Outlet />
+        <Outlet /> 
     </div>
       );
   };
 
   export default Example;
   ```
-    </CodeGroupItem>
   
-    <CodeGroupItem title="vue">
-  
-  ```vue
+  ```vue [vue]
   <script setup lang="ts">
   import { Outlet } from 'swico';
   </script>
@@ -319,56 +300,48 @@ type ConfigRoutesItemType = {
     
   <style scoped lang="less"></style>
   ```
-    </CodeGroupItem>
-  </CodeGroup>
+  :::
   
 - `decorator`
 
   当前路由组件的包装组件的路径，值类型与`component`一致。
-
-  <CodeGroup>
-   <CodeGroupItem title="react">
-
-   ```ts title="config/swico.ts"
+  ::: code-group
+  ```ts [react]
+  // config/swico.ts
   //...
     routes: [
         {
             path: '/example',
             name: 'example',
             component: 'example', //==>pages/example/index.tsx
-            decorator:'auth' //==>pages/auth.tsx
+            decorator:'auth' //==>pages/auth.tsx  // [!code highlight]
         },
     ]
   //...
   ```
-  </CodeGroupItem>
 
-  <CodeGroupItem title="vue">
-
-    ```ts title="config/swico.ts"
+   ```ts [vue]
+  // config/swico.ts
   //...
     routes: [
         {
             path: '/example',
             name: 'example',
             component: 'example', //==>pages/example/index.tsx
-            decorator:'Auth' //==>pages/Auth.vue
+            decorator:'Auth' //==>pages/Auth.vue  // [!code highlight]
         },
     ]
   //...
   ```
-    </CodeGroupItem>
-
-  </CodeGroup>
+  :::
 
   你可以通过它来实现权限校验等功能。
 
   在decorator组件中`Outlet`表示的就是当前路由对应的页面组件：
 
-  <CodeGroup>
-    <CodeGroupItem title="react">
+  ::: code-group
 
-  ```tsx
+  ```tsx [react]
   import { Outlet } from 'swico';
   import { useState } from 'react'
   const Decorator = () => {
@@ -383,11 +356,8 @@ type ConfigRoutesItemType = {
 
   export default Decorator;
   ```
-    </CodeGroupItem>
 
-    <CodeGroupItem title="vue">
-
-  ```vue
+  ```vue [vue]
   <script setup lang="ts">
   import { Outlet } from 'swico';
   defineProps<{isLogin:boolean}>()
@@ -404,8 +374,7 @@ type ConfigRoutesItemType = {
     
   <style scoped lang="less"></style>
   ```
-    </CodeGroupItem>
-  </CodeGroup>
+  :::
 
 
 ## 路由跳转
@@ -416,10 +385,9 @@ type ConfigRoutesItemType = {
 
 基本示例：
 
-<CodeGroup>
-  <CodeGroupItem title="react">
+::: code-group
 
-```tsx
+```tsx [react]
 import { useNav } from 'swico'
 
 const Example = () => {
@@ -436,11 +404,8 @@ const Example = () => {
 
 export default Example;
 ```
-  </CodeGroupItem>
 
-  <CodeGroupItem title="vue">
-
-```vue
+```vue [vue]
 <script setup lang="ts">
 import { useNav } from 'swico'
 
@@ -455,8 +420,7 @@ const handleClick = ()=>{
   <button @click="handleClick">点我跳转</button>
 </template>
 ```
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 
 更多关于useNav的介绍请阅读：[API > Hooks > useNav]
@@ -484,10 +448,9 @@ const jumpLogin = ()=>{
 
 ## Link组件
 
-<CodeGroup>
-  <CodeGroupItem title="react">
+::: code-group
 
-```tsx
+```tsx [react]
 import { Link } from 'swico'
 const Example = () => {
   return (
@@ -499,11 +462,8 @@ const Example = () => {
 
 export default Example;
 ```
-  </CodeGroupItem>
 
-  <CodeGroupItem title="vue">
-
-```vue
+```vue [vue]
 <script setup lang="ts">
 import { Link } from 'swico'
 </script>
@@ -512,8 +472,7 @@ import { Link } from 'swico'
   <Link to='/test'>点我跳转到/test</Link>
 </template>
 ```
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 更多关于Link组件的属性介绍请阅读：[API > Link]
 

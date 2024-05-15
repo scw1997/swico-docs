@@ -29,7 +29,7 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 │   ├── index.ejs
 │   ├── global.ts
 │   ├── global.less
-    └── loading
+│   └── loading
 │       └── index.tsx
 ├── .eslintignore
 ├── .eslintrc
@@ -46,10 +46,10 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 
 ## .swico
 
-Swico运行时配置文件，会在执行`swico start`和`swico build`命令时自动生成（默认已加入git忽略路径）。
+Swico运行时配置文件，会在每次执行`swico start`和`swico build`命令时自动重新生成（默认已加入git忽略路径）。
 
 ::: warning 注意
-本地开发时，不要手动删除此文件夹，会引发报错
+本地开发服务运行过程中时不要手动删除此文件夹，会引发报错。
 :::
 
 ## husky/commitlint
@@ -66,7 +66,7 @@ swico配置文件目录，项目路由需要在此配置。此外你还可以进
 
 ## dist
 
-默认打包构建产物输出路径
+默认打包构建产物输出路径。
 
 
 ## public
@@ -76,10 +76,9 @@ swico配置文件目录，项目路由需要在此配置。此外你还可以进
 可用于存放静态资源文件，并在项目代码中通过`根路径`引入该文件。
 
 示例：
-<CodeGroup>
-  <CodeGroupItem title="vue">
+::: code-group
 
-```vue
+```vue{4} [vue]
 <template>
   <div class="welcome">
     <!--public目录下有个logo.png文件-->
@@ -88,11 +87,9 @@ swico配置文件目录，项目路由需要在此配置。此外你还可以进
   </div>
 </template>
 ```
-  </CodeGroupItem>
 
-  <CodeGroupItem title="react">
 
-```tsx
+```tsx{5} [react]
 const Index = () => {
     return (
         <div className={'welcome'}>
@@ -103,9 +100,7 @@ const Index = () => {
     );
 };
 ```
-  </CodeGroupItem>
-</CodeGroup>
-
+:::
 
 ## layout
 
@@ -115,7 +110,9 @@ const Index = () => {
 - **在React模板中**:
 
   全局布局组件文件路径为`layout/index.tsx`
-  ```tsx title="src/layout/index.tsx"
+  ```tsx
+  // src/layout/index.tsx
+  
   import { FC } from 'react';
   import { Outlet } from 'swico';
   
@@ -131,7 +128,10 @@ const Index = () => {
 
   全局布局组件文件路径为`layout/Layout.vue`
   ```vue
+  <!--src/layout/Layout.vue  -->
+  
   <script setup lang="ts">
+  
   import { Outlet } from 'swico';
   </script>
   
@@ -158,7 +158,7 @@ const Index = () => {
 
 ## index.ejs
 
-项目的入口`index.html`模板文件，可根据需要自行修改，例如引入一些外部js资源等
+项目的入口`index.html`模板文件，可根据需要自行修改，例如引入一些外部js资源等。
 
 ```html title="src/index.ejs"
 <!DOCTYPE html>
@@ -188,7 +188,7 @@ const Index = () => {
 </html>
 ```
 ::: danger 警告
-切勿删除`id=root`的div元素，它是模板中挂载整个项目App的容器元素。
+切勿删除`id="root"`的div元素，它是模板中挂载整个项目App的容器元素。
 :::
 
 ## global.ts
@@ -198,12 +198,12 @@ const Index = () => {
 还可以添加一些全局性的代码，会在全局页面渲染时执行。 
 
 ::: warning 注意
- 此文件不可删除，并且必须有默认导出。如果你不需要，则使默认导出为空对象即可
+ 此文件不可删除，并且必须有默认导出。如果你不需要，则使默认导出为空对象即可。
 :::
 
 ## global.less
 
-全局样式文件，主要用于添加一些全局可用的通用样式。此文件是可选的
+全局样式文件，主要用于添加一些全局可用的通用样式。此文件是可选的。
 
 
 ## loading
@@ -214,10 +214,10 @@ const Index = () => {
 
   具体路径为`src/loading/index.tsx`。以下为示例：
 
-<CodeGroup>
-  <CodeGroupItem title="loading/index.tsx">
 
-  ```tsx title="src/loading/index.tsx"
+::: code-group
+
+  ```tsx [src/loading/index.tsx]
   import { Spin } from 'antd';
   import style from './style.module.less';
   export default () => (
@@ -227,11 +227,8 @@ const Index = () => {
   );
 
   ```
-  </CodeGroupItem>
 
-  <CodeGroupItem title="style.module.less">
-
-  ```less
+  ```less [style.module.less]
    .loadingContainer {
     height: 100%;
     display: flex;
@@ -240,18 +237,16 @@ const Index = () => {
   }
 
   ```
-  </CodeGroupItem>
-  
-</CodeGroup>
+:::
 
 - **在Vue模板中：**
 
-  Vue3的`Suspense`还不是正式版API，所以暂不支持
+  Vue3的`Suspense`还不是正式版API，所以暂不支持。
 
 ## eslint/prettier
 `.eslintignore，.eslintrc`和`.prettierignore，.prettierrc.js`分别为eslint和prettier相关的配置文件， 可根据需要调整修改默认配置。
 
-需要说明的是，Swico默认只会在终端输出eslint error信息，并不会输出warning
+需要说明的是，Swico默认只会在终端输出eslint error信息，并不会输出warning。
 
 
 [Vue模板]:https://gitee.com/fanlaBoy/swico-template-vue

@@ -1,5 +1,4 @@
 
 node_modules
-/docs/.vuepress/.cache/
-/docs/.vuepress/.temp/
 .idea
+/docs/.vitepress/cache/

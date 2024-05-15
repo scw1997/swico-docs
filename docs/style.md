@@ -9,10 +9,9 @@
 
 标准CSS使用示例：
 
-<CodeGroup>
-  <CodeGroupItem title="index.tsx">
+::: code-group
 
-  ```tsx title="src/pages/index.tsx"
+  ```tsx [src/pages/index.tsx]
   import './index.less';
   
   const Index= () => {
@@ -27,11 +26,9 @@
   export default Index;
   
   ```
-</CodeGroupItem>
 
-<CodeGroupItem title="index.less">
 
-  ```less title="src/pages/index.less"
+  ```less [src/pages/index.less]
   .welcome {
       inset: 0 0 0 0;
       position: absolute;
@@ -47,21 +44,18 @@
   
   
   ```
-</CodeGroupItem>
-
-</CodeGroup>
+:::
 
 CSS Modules使用示例：
 
-<CodeGroup>
-    <CodeGroupItem title="index.tsx">
+::: code-group
 
-  ```tsx title="src/pages/index.tsx"
+  ```tsx [src/pages/index.tsx]
   import style from './index.module.less';
   
   const Index= () => {
       return (
-          <div className={style.welcome}>
+          <div className={style.welcome}> 
               <img alt="logo" src="/logo.png" />
               <h2 style="color: #3a95a7">欢迎使用 Swico</h2>
           </div>
@@ -72,11 +66,8 @@ CSS Modules使用示例：
   
   ```
 
-</CodeGroupItem>
-  
-<CodeGroupItem title="index.module.less">
 
-  ```less title="src/pages/index.module.less"
+  ```less [src/pages/index.module.less]
   .welcome {
       inset: 0 0 0 0;
       position: absolute;
@@ -93,8 +84,7 @@ CSS Modules使用示例：
   
   
   ```
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ## Vue模板
 

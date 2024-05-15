@@ -10,10 +10,9 @@
 
 `useLocation`用于页面组件内部的路由参数获取：
 
-<CodeGroup>
-  <CodeGroupItem title="react">
+::: code-group
 
-```tsx
+```tsx [react]
 import { useLocation } from 'swico'
 
 const Example = () => {
@@ -24,11 +23,9 @@ const Example = () => {
 
 export default Example;
 ```
-  </CodeGroupItem>
 
-  <CodeGroupItem title="vue">
 
-```vue
+```vue [vue]
 <script setup lang="ts">
 import { useLocation } from 'swico'
 
@@ -38,8 +35,7 @@ console.log('location',location)
 </script>
 
 ```
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 假设当前页面对应的swico路由配置为：
 
@@ -104,10 +100,9 @@ type UseNavType = () => {
 
 此时，`nav(to)`可以看作等价于命令式跳转的`history.push(to)`：
 
-<CodeGroup>
-  <CodeGroupItem title="react">
+::: code-group
 
-```tsx
+```tsx [react]
 import { useNav } from 'swico'
 
 const Example = () => {
@@ -124,9 +119,6 @@ const Example = () => {
 
 export default Example;
 ```
-  </CodeGroupItem>
-
-  <CodeGroupItem title="vue">
 
 ```vue
 <script setup lang="ts">
@@ -143,8 +135,7 @@ const handleClick = ()=>{
 </template>
 
 ```
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 （2）当参数`to`类型为`number`时，表示跳转至历史记录的哪个位置：
 

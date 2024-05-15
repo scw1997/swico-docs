@@ -125,18 +125,18 @@ alias: {
 当值为`字符串数组`时，默认拷贝到产物dist目录，如：
 
 ```typescript
-copy: ['foo.json', 'src/bar.json']
+copy: ['test.json', 'src/img.png']
 ```
 
 会产生如下产物的结构：
 
 ```text
 + dist
-  - bar.json
-  - foo.json
+  - test.json
+  - img.png
 + src
-  - bar.json
-- foo.json
+  - img.png
+- test.json
 ```
 
 当值为`对象数组`时，支持复制到指定目标路径。 其中相对路径默认为项目根目录，不支持根路径写法。
@@ -146,7 +146,7 @@ copy: ['foo.json', 'src/bar.json']
 ```typescript
 copy: [
   { from: 'from', to: 'dist/output' },
-  { from: 'file.json', to: 'dist' }
+  { from: 'test.json', to: 'dist' }
 ]
 ```
 
@@ -155,11 +155,11 @@ copy: [
 ```text
 + dist
   + output
-    - foo.json
-  - file.json
+    - img.png
+  - test.json
 + from
-  - foo.json
-- file.json
+  - img.png
+- test.json
 ```
 
 > Swico默认已内置在构建产物时对项目根路径下public文件夹复制到构建产物dist目录下
