@@ -12,11 +12,12 @@ husky 配置文件路径，提供 git 提交前的操作钩子。
 
   默认配置：
 
-    ```bash title=".husky/pre-commit"
+    .husky/pre-commit:
+    ```bash 
     npm test
     ```
-
-    ```json title="package.json"
+    package.json：
+    ```json 
     "scripts": {
       "test": "lint-staged",
     },
@@ -51,16 +52,20 @@ git 提交格式规范校验规则配置文件。
 
 用于配合`husky`的`commit-msg`操作钩子进行`git commit`的提交信息的格式校验。
 
-```bash title=".husky/commit-msg"
+默认配置：
+
+.husky/commit-msg：
+```bash 
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
 npx --no -- commitlint --edit $1
 ```
 
-默认配置：
+commitlint.config.js：
 
-```javascript title="commitlint.config.js"
+```javascript 
+
 //默认配置
 module.exports = {
     // 继承的规则

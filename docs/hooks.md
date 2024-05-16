@@ -39,7 +39,9 @@ console.log('location',location)
 
 假设swico路由部分配置为：
 
-```js title="swico.ts"
+```js
+// config/swico.ts
+
 //... 
 router:{
    base:'/base',

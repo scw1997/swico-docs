@@ -27,7 +27,9 @@ cross-env ANALYZE=true swico build
 
 使用示例：
 
-```ts title="config/swico.ts"
+```ts
+// config/swico.ts
+
 import { defineConfig } from 'swico';
 const env = process.env.SWICO_ENV;
 

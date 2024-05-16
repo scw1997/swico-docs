@@ -96,7 +96,9 @@ CSS Modules使用示例：
 
   示例：
 
-  ```vue title="src/pages/Index.vue"
+  ```vue
+<!--src/pages/Index.vue-->
+
   <script setup lang="ts">
   
   </script>

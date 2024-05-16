@@ -160,7 +160,8 @@ const Index = () => {
 
 项目的入口`index.html`模板文件，可根据需要自行修改，例如引入一些外部js资源等。
 
-```html title="src/index.ejs"
+```html
+<!--src/index.ejs-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -244,7 +245,12 @@ const Index = () => {
   Vue3的`Suspense`还不是正式版API，所以暂不支持。
 
 ## eslint/prettier
-`.eslintignore，.eslintrc`和`.prettierignore，.prettierrc.js`分别为eslint和prettier相关的配置文件， 可根据需要调整修改默认配置。
+
+eslint配置文件：`.eslintignore，.eslintrc`
+
+prettier配置文件：`.prettierignore，.prettierrc.js`
+
+可根据需要自行修改默认配置。
 
 需要说明的是，Swico默认只会在终端输出eslint error信息，并不会输出warning。
 

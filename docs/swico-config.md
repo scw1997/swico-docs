@@ -12,7 +12,9 @@ Swico提供配置文件方便开发者可对部分项目配置进行修改扩展
 
 配置代码示例：
 
-```typescript title="config/swico.ts"
+```typescript
+//config/swico.ts
+
 export default {
     alias: {
         apiPath: 'src/api'
@@ -24,7 +26,9 @@ export default {
 };
 ```
 
-```typescript title="config/swico.dev.ts"
+```typescript
+// config/swico.dev.ts
+
 export default {
     proxy: {
         '/api/report': {
@@ -40,7 +44,9 @@ export default {
 ```
 
 
-```typescript title="config/swico.prod.ts"
+```typescript
+//config/swico.prod.ts
+
 export default {
     //插件
     plugins: [
@@ -54,7 +60,9 @@ export default {
 :bulb: 推荐使用Swico提供的`defineConfig`方法来自定义配置，以便支持TypeScript类型提示：
 
 
-```typescript title="config/swico.dev.ts"
+```typescript
+//config/swico.dev.ts
+
 import { defineConfig } from 'swico';
 
 //第一个参数指定环境，可选值有base,dev,prod
@@ -89,7 +97,8 @@ alias: {
 
 配置此项后，你需要在`tsconfig.json > compilerOptions > paths `属性中添加声明，以支持 ts 类型提示。
 
-```typescript title="tsconfig.json"
+tsconfig.json：
+```typescript
 {
     "compilerOptions": {
         "paths": {
@@ -194,8 +203,12 @@ define: () => {
 
 此外，你需要在`typings`文件夹中或其他类型声明文件中声明已设置的变量类型，以支持 ts 类型检查和提示：
 
-```typescript title="typings/global.d.ts"
+```typescript
+// typings/global.d.ts
+
+// ...
 declare const FOO: string;
+// ...
 ```
 
 ::: warning 注意
@@ -224,7 +237,8 @@ devtool用于设置SourceMap源码映射类型，主要用于代码运行报错�
 
 引用jquery示例：
 
-```html title="index.ejs"
+```html
+<!--index.ejs-->
 <!--...-->
 <script
   src="https://code.jquery.com/jquery-3.1.0.js"

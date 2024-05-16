@@ -18,7 +18,9 @@ Global配置是在模板的`src/global.ts`文件中用于定义一些全局配�
   可以在此对app和router进行api调用操作，比如添加插件，设置路由守卫等。
 
 示例：
-  ```ts title="src/global.ts"
+  ```ts
+  // src/global.ts
+
   import { defineGlobal } from 'swico';
   import { createPinia } from 'pinia';
   
