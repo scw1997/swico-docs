@@ -1,6 +1,5 @@
 # Link
 
-
 Link组件是一个带路由跳转功能的 `<a>` 元素。
 
 ::: code-group
