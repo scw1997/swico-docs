@@ -106,11 +106,11 @@ export default defineConfig('base', {
 - 类型：`string`
 - 默认值：`/`
 
-设置路由前缀，一般以`/`开头。
+设置路由前缀，一般以`/`开头。通常不需要设置，当项目涉及服务器非根路径部署时，你需要设置base为对应具体值。
 
 例如base值为`/test`且已配置path为`/home`的路由时，你需要通过`/test/home`访问该路由。
 
-当项目涉及服务器非根路径部署时，你需要设置base为对应具体值。
+
 
 > Swico默认会将此配置值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.routerBase`访问。
 
@@ -160,13 +160,20 @@ type ConfigRoutesItemType = {
   当前路由的命名，也是唯一标识。
 
   :bulb: 推荐设置此属性，方便路由跳转和项目日后维护。（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
-- `component`
+ `component`
 
-  当前路由地址对应的页面组件路径。值为相对于`src/pages`的相对路径，且不需要文件名后缀。不支持绝对路径。
+  当前路由地址对应的页面组件路径。值为相对于`src/pages`的相对路径，且不需要文件名后缀。不支持绝对路径。见示例：
 
-  例如你想引用`src/pages/home.tsx`或者`src/pages/Home.vue`，则设置`home`或者`Home`即可。
+  | 页面文件路径                      | component值 |
+  |-----------------------------|------------|
+  | src/pages/foo/bar/index.tsx | foo/bar    |
+  | src/pages/foo.tsx           | foo        | 
+  | src/pages/foo/MyFoo.vue     | foo/MyFoo  |
+  | src/pages/bar.vue           | bar        |
 
-  当`component`和`redirect`都未设置值时，Swico会将当前路由直接渲染成`Outlet`。当只需要访问子路由页面而不需要访问父路由页面时，这会很有用。
+  ::: tip 技巧
+    当`component`和`redirect`都未设置值时，Swico会将当前路由直接渲染成`Outlet`。当只需要访问子路由页面而不需要访问父路由页面时，这会很有用。
+  :::
 - `redirect`
 
   当前路由地址重定向后的路由地址，值为对应路由完整的`path`值。
@@ -428,9 +435,9 @@ const handleClick = ()=>{
 - 命令式跳转
 
 使用Swico提供的`history` API可以进行命令式跳转。
-
-:bulb: 命令式跳转更适合在不属于当前路由架构上下文的组件外部场景，例如React模板中使用`creatRoot`额外挂载的根节点元素或者普通js/ts文件中需要用到路由跳转的地方。
-
+::: tip 技巧
+命令式跳转更适合不属于当前路由结构上下文的组件外部场景，例如React模板中使用`creatRoot`额外挂载的根节点元素内部或者普通js/ts文件中需要用到路由跳转的地方。
+:::
 基本示例：
 
 ```typescript

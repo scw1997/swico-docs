@@ -37,7 +37,7 @@ console.log('location',location)
 ```
 :::
 
-假设当前页面对应的swico路由配置为：
+假设swico路由部分配置为：
 
 ```js title="swico.ts"
 //... 
@@ -163,9 +163,9 @@ nav(-1) //相当于history.go(-1)
 // ...
 const nav = useNav()
 // ...
-
 //推荐使用包含name的对象形式代替string形式
 
+// 假设有如下路由配置：
 // {
 //     path:'/test',
 //     name:'test'        
@@ -175,6 +175,7 @@ nav({name:'test'}) //相当nav('/test')
 nav({name:'test',query:{a:'a',b:'b'}})  //相当于nav('/test?a=a&b=b')
 nav({name:'test',hash:'hash'})  //相当于nav('/test#/hash')
 
+// 假设有如下路由配置：
 // {
 //     path:'/test1/:id',
 //     name:'test1'        

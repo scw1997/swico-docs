@@ -173,10 +173,10 @@ copy: [
 
 例如：
 ```typescript
-define: { FOO: 'bar' }
+define: { key: 'name' }
 ```
 
-那么代码里的 `console.log(hello, FOO)` 会被编译成 `console.log(hello, 'bar')`。
+那么代码里的 `console.log('hello world', key)` 会被编译成 `console.log('hello world', 'name')`。
 
 同时也支持通过函数返回一个对象或promise来设置变量值：
 
@@ -257,13 +257,13 @@ $('.my-element').animate(/* ... */);
 
 - 仅`swico.dev.ts`可用
 
-开发环境是否使用https开发服务器
+开发环境是否使用https开发服务器。
 
 ## npmType
 
 - 仅`swico.ts`可用
 
-表示包管理工具种类，支持`npm`和`pnpm`
+表示包管理工具种类，支持`npm`和`pnpm`。
 
 
 ## plugins

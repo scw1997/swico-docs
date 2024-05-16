@@ -10,4 +10,4 @@ import{_ as s,c as i,o as a,a3 as n}from"./chunks/framework.BVCC5fod.js";const g
 <span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">            //</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        })</span></span>
 <span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
-<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">});</span></span></code></pre></div><h2 id="react模板" tabindex="-1">React模板 <a class="header-anchor" href="#react模板" aria-label="Permalink to &quot;React模板&quot;">​</a></h2><p>暂无可支持的配置项</p>`,13),p=[l];function e(h,k,r,E,o,d){return a(),i("div",null,p)}const y=s(t,[["render",e]]);export{g as __pageData,y as default};
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">});</span></span></code></pre></div><h2 id="react模板" tabindex="-1">React模板 <a class="header-anchor" href="#react模板" aria-label="Permalink to &quot;React模板&quot;">​</a></h2><p>暂无可支持的配置项。</p>`,13),p=[l];function e(h,k,r,E,o,d){return a(),i("div",null,p)}const y=s(t,[["render",e]]);export{g as __pageData,y as default};

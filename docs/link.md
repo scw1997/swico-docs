@@ -36,7 +36,7 @@ import { Link } from 'swico'
 
 - 类型：`string`
 
-必传项，欲跳转的路由path地址
+必传项，欲跳转的路由path地址。
 
 ## replace
 
@@ -45,9 +45,9 @@ import { Link } from 'swico'
 
 是否替换当前路由。
 
-当为`true`时，跳转行为等价于`history.replace()`
+当为`true`时，跳转行为等价于`history.replace()`。
 
-当为`false`时，跳转行为等价于`history.push()`
+当为`false`时，跳转行为等价于`history.push()`。
 ## className/class
 
 - 类型：`string`
