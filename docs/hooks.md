@@ -184,7 +184,6 @@ nav({name:'test',hash:'hash'})  //相当于nav('/test#/hash')
 nav({name:'test1',params:{id:'123'}})  //相当于nav('/test1/123')
 ```
 
-
 ### options
 
 - 类型：`NavOptionsType`
