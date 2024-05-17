@@ -117,35 +117,15 @@ export default defineConfig({
         text:'更新日志',
         link:'/log',
       },
-      {
-        text:'Git',
-        items:[
-          {
-            text:'Swico',
-            link:'https://gitee.com/fanlaBoy/swico.git'
-          },
-          {
-            text:'Swico Vue模板',
-            link:'https://gitee.com/fanlaBoy/swico-template-vue'
-          },
-          {
-            text:'Swico React模板',
-            link:'https://gitee.com/fanlaBoy/swico-template-react'
-          }
-        ]
-      },
+
       {
         text:'v1.0.0',
         link:'/'
       }
     ],
     sidebar,
-
-
-
-
     socialLinks: [
-      { icon: 'github', link: 'https://gitee.com/fanlaBoy/swico-docs.git' }
+      { icon: 'github', link: 'https://gitee.com/fanlaBoy/swico.git' }
     ]
   }
 })

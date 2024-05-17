@@ -72,11 +72,5 @@ Successfully Created!
 Now you can cd test and npm run start to start your Swico App!
 
 ```
-## 不使用脚手架
 
-Swico支持在不使用脚手架的情况下，提供基础模板的远程Git仓库。
 
-开发者可直接通过git拉取基础模板后，手动安装依赖进行开发（但要注意部分模板配置可能需要开发者手动设置）：
-
-- [Vue模板](https://gitee.com/fanlaBoy/swico-template-vue.git)
-- [React模板](https://gitee.com/fanlaBoy/swico-template-react.git)
