@@ -257,7 +257,7 @@ prettier配置文件：`.prettierignore，.prettierrc.js`
 
 [Vue模板]:https://gitee.com/fanlaBoy/swico-template-vue
 [React模板]:https://gitee.com/fanlaBoy/swico-template-react
-[API > Swico配置]:/swico-config.md
-[Git Hooks]:/git-hooks.md
-[样式]:/style.md
-[API > Global配置]:/swico-global.md
+[API > Swico配置]:/swico-config
+[Git Hooks]:/git-hooks
+[样式]:/style
+[API > Global配置]:/swico-global

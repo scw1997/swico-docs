@@ -210,5 +210,5 @@ options表示跳转时的额外参数对象设置，目前支持以下属性：
   `nav(to,{replace:true})`可看作等价于命令式跳转的`history.replace(to)`
 
 
-[API > history > push]:/history.md#push
-[API > history > location]:/history.md#location
+[API > history > push]:/history#push
+[API > history > location]:/history#location

@@ -354,5 +354,5 @@ template:'react' //vue
 ```
 
 
-[index.ejs]:/template.md#index-ejs
-[路由]:/router.md
+[index.ejs]:/template#index-ejs
+[路由]:/router

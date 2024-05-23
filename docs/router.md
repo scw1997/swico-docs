@@ -495,10 +495,10 @@ Swico项目中可通过两种方式获取路由参数信息：
 [ReactRouter动态路由]:https://reactrouter.com/en/main/route/route#path
 [Vue-Router4]:https://router.vuejs.org/zh/
 [React-Router6]:https://reactrouter.com/en/main
-[Swico变量]:/swico-var.md
-[API > history]:/history.md
-[API > Link]:/link.md
-[API > Hooks > useNav]:/hooks.md#usenav
-[history.location]:/history.md#location
-[useLocation]:/hooks.md#uselocation
-[index.ejs]:/template.md#index-ejs
+[Swico变量]:/swico-var
+[API > history]:/history
+[API > Link]:/link
+[API > Hooks > useNav]:/hooks#usenav
+[history.location]:/history#location
+[useLocation]:/hooks#uselocation
+[index.ejs]:/template#index-ejs

@@ -196,6 +196,5 @@ router:{
 
 
 
-[API > Hooks > useNav]:/hooks.md#usenav
-[路由]:/router.md
-[路由 > 基本配置 > base]:/router.md#base
+[路由]:/router
+[路由 > 基本配置 > base]:/router#base

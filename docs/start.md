@@ -53,4 +53,4 @@ npm run build:analyze
 
 [nvm-windows]:https://github.com/coreybutler/nvm-windows
 [Node中文官网]:https://www.nodejs.com.cn/
-[API > 脚手架]:/cli.md
+[API > 脚手架]:/cli
