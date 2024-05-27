@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t,a3 as o}from"./chunks/framework.BVCC5fod.js";const f=JSON.parse('{"title":"更新日志","description":"","frontmatter":{},"headers":[],"relativePath":"log.md","filePath":"log.md","lastUpdated":1716778200000}'),r={name:"log.md"},s=o("",5),l=[s];function c(n,_,d,i,h,p){return t(),e("div",null,l)}const u=a(r,[["render",c]]);export{f as __pageData,u as default};
