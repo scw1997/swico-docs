@@ -20,10 +20,6 @@ v18.19.0
 npm i swico-cli -g
 ```
 
-::: danger 警告
-请不要指定安装使用v1.0之前的任意swico-cli版本，它们功能不完备且无法保证稳定性。
-:::
-
 安装完成后进入任意路径，创建指定名称的Swico App项目：
 ```shell:no-line-numbers
 swico create [project-name]

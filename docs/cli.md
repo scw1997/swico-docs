@@ -9,6 +9,10 @@
 npm i swico-cli -g
 ```
 
+::: danger 警告
+请不要指定安装使用v1.0之前的任意`swico-cli`版本，它们功能不完备且无法保证稳定性。
+:::
+
 在当前路径下创建项目：
 
 ```shell:no-line-numbers
