@@ -97,19 +97,21 @@ type SwicoHistoryOptionType = {
 
 用于跳转至当前历史记录的指定位置的路由。
 
-接收一个参数`delta`，类型为`number`。只能为整数。访问的是基于当前路由的相对位置的路由。如`go(-1)` 表示访问上一个路由，`go(1)` 表示前进一个路由 。
+接收一个参数delta，类型为number，只能为整数。
+
+访问的是基于当前路由的相对位置的路由。如`go(-1)` 表示访问上一个路由，`go(1)` 表示前进一个路由 。
 
 ## forward
 
 - 类型：`() => void`
 
-用于前进一个路由，与`history.go(1)`等价。
+用于前进一个路由，与history.go(1)等价。
 
 ## back
 
 - 类型：`() => void`
 
-用于访问上一个路由，与`history.go(-1)`等价。
+用于访问上一个路由，与history.go(-1)等价。
 
 ## location
 
@@ -192,7 +194,7 @@ router:{
 
 二者的区别主要在于路由base值的设置（见：[路由 > 基本配置 > base]）。
  
-例如当base值为`/base`，访问的当前路由地址为`/base/news/list?id=1`，则path值为`/news/list`,而pathname为`/base/news/list`。
+例如当base值为/base，访问的当前路由地址为/base/news/list?id=1，则path值为/news/list，而pathname为/base/news/list。
 
 
 

@@ -95,10 +95,10 @@ alias: {
 ```
 则你在项目代码中使用`import 'apiPath/test' `等价于引入`项目根路径/scr/api/test`。
 
-配置此项后，你需要在`tsconfig.json > compilerOptions > paths `属性中添加声明，以支持 ts 类型提示。
+配置此项后，你需要在`tsconfig.json > compilerOptions > paths`属性中添加声明，以支持 ts 类型提示。
 
 tsconfig.json：
-```typescript
+```json
 {
     "compilerOptions": {
         "paths": {
@@ -247,7 +247,7 @@ devtool用于设置SourceMap源码映射类型，主要用于代码运行报错�
 ></script>
 <!--...-->
 ```
-此时，通过script引入的第三方jqury包会自动在`window`上挂载一个名为`jQuery`的全局变量，然后配置externals：
+此时，通过script引入的第三方jqury包会自动在window上挂载一个名为jQuery的全局变量，然后配置externals：
 
 ```typescript
 externals: {
@@ -327,7 +327,9 @@ proxy: {
 
 配置 Webpack 的`output > publicPath` 选项，表示当前项目访问地址的前缀路径。
 
-通常在当项目被部署到到服务器`非根路径`下的情况下使用。 比如项目被部署的服务器路径为`/test`，那么通过浏览器访问项目首页的地址默认为`www.xxx.com/test/index.html`。当不设置publicPath时，
+通常在当项目被部署到到服务器`非根路径`下的情况下使用。
+
+比如项目被部署的服务器路径为`/test`，那么通过浏览器访问项目首页的地址默认为`www.xxx.com/test/index.html`。当不设置publicPath时，
 项目构建后index.html中所引用的js，css，图片等静态资源地址依然是基于根路径，这种情况下访问上面首页地址后，将无法正确引用静态资源。 此时需要设置publicPath为`/test/`。
 
 更多细节参考： [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)。

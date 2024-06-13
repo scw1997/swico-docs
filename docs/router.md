@@ -108,7 +108,7 @@ export default defineConfig('base', {
 
 设置路由前缀，一般以`/`开头。通常不需要设置，当项目涉及服务器非根路径部署时，你需要设置base为对应具体值。
 
-例如base值为`/test`且已配置path为`/home`的路由时，你需要通过`/test/home`访问该路由。
+例如base值为/test且已配置path为/home的路由时，你需要通过/test/home访问该路由。
 
 
 
@@ -143,15 +143,15 @@ type ConfigRoutesItemType = {
 下面是各个字段具体介绍： 
 - `path`
 
-  必填项，配置当前路由地址。如果是第一级（最外层）路由，应以`/`开头，其他子路由则不需要以`/`开头。
+  必填项，配置当前路由地址。如果是第一级（最外层）路由，应以`/`开头，其他子路由则不需要以/开头。
   
   path支持路由动态参数 如`:id` 的形式和通配符的形式：
 
   | path                                          | 匹配路径               | history.location.params获取值    |
   |-----------------------------------------------|--------------------|-------------------------------|
-  | /news/:id                                     | /news/123          | `{id:'123'}`                  |
-  | /user/:userid/name/:username                  | /user/123/name/scw | `{userid:123,username:'scw'}` |
-  | /*  `（仅React）`<br/><br/>/:pathMatch(.*)\* `（仅Vue）` | 404页面              | `{}`                            |
+  | /news/:id                                     | /news/123          | <span>{id:'123'}</span>       |
+  | /user/:userid/name/:username                  | /user/123/name/scw | <span>{userid:123,username:'scw'}</span>|
+  | /*  `（仅React）`<br/><br/>/:pathMatch(.*)\* `（仅Vue）` | 404页面              | <span>{}</span>                           |
   :::warning 注意
   除了上述一般用法外，在动态路由匹配规则上，Vue-Router和React-Router存在不少的差异，更多详情请阅读相应官方文档：[VueRouter动态路由]与[ReactRouter动态路由]。
   :::

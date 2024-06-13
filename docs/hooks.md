@@ -5,10 +5,10 @@
 
 - 类型：`() => SwicoLocationType`
 
-其中`SwicoLocationType`类型请参考：[API > history > location]
+其中SwicoLocationType类型请参考：[API > history > location]
 
 
-`useLocation`用于页面组件内部的路由参数获取：
+useLocation用于页面组件内部的路由参数获取：
 
 ::: code-group
 
@@ -79,7 +79,7 @@ router:{
 
 - 类型：`UseNavType`
 
-其中`UseNavType`类型定义如下：
+其中UseNavType类型定义如下：
 
 ```typescript
 type UseNavType = () => {
@@ -98,7 +98,7 @@ type UseNavType = () => {
 
 - 类型：`string | number | SwicoHistoryOptionType`
 
-（1）当参数`to`类型为`string`时，该参数表示路由地址：
+（1）当参数to类型为`string`时，该参数表示路由地址：
 
 此时，`nav(to)`可以看作等价于命令式跳转的`history.push(to)`：
 
@@ -139,7 +139,7 @@ const handleClick = ()=>{
 ```
 :::
 
-（2）当参数`to`类型为`number`时，表示跳转至历史记录的哪个位置：
+（2）当参数to类型为`number`时，表示跳转至历史记录的哪个位置：
 
 此时，`nav(to)`可以看作等价于命令式跳转的`history.go(to)`：
 
@@ -155,9 +155,9 @@ nav(1) //相当于history.go(1)
 nav(-1) //相当于history.go(-1)
 ```
 
-（3）当参数`to`类型为`SwicoHistoryOptionType`时，可以通过具体参数对象配置跳转的路由地址：
+（3）当参数to类型为`SwicoHistoryOptionType`时，可以通过具体参数对象配置跳转的路由地址：
 
-`SwicoHistoryOptionType`参数类型说明请参考：[API > history > push]
+SwicoHistoryOptionType参数类型说明请参考：[API > history > push]
 
 此时，`nav(to)`同样可以看作等价于命令式跳转的`history.push(to)`：
 
