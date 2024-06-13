@@ -2,9 +2,12 @@
 
 # 环境变量
 
-Swico内置了以下环境变量：
+Swico内置了以下Node环境变量。如果你在项目中需要设置新的环境变量，请避免与以下命名冲突：
 
 
+:::danger 警告
+大部分情况下，建议开发者不要擅自随意修改Swico内置环境变量，否则很容易导致程序运行异常。
+:::
 ## ANALYSE
 
 用于执行`swico build`时，是否开启分析模式。如果值为`true`，则会在打包构建完成后同时打开一个展示构建产物分析的页面。
@@ -16,7 +19,7 @@ cross-env ANALYZE=true swico build
 
 ## SWICO_ENV
 
-用于判断当前环境，该变量不可自行修改。
+用于判断当前环境。
 
 当执行`swico dev`时，该环境变量会被自动设置为`dev`。
 
@@ -48,3 +51,15 @@ export default defineConfig('base', {
 });
 
 ```
+
+## SWICO_RESTART <Badge type="tip" text="v1. 1. 0" />
+
+用于本地开发服务器更新重启的判断标志。
+
+## SWICO_PORT <Badge type="tip" text="v1. 1. 0" />
+
+用于缓存本地开发服务器当前所用的端口号。
+
+## SWICO_ROUTER_BASE <Badge type="tip" text="v1. 1. 0" />
+
+用于缓存本地开发服务器当前所设置的路由RouterBase值，见[路由 > 基本配置 > base](/router#base)。

@@ -28,7 +28,7 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 │   │   └── global.d.ts
 │   ├── index.ejs
 │   ├── global.ts
-│   ├── global.less
+│   ├── global.(css|less|scss)
 │   └── loading
 │       └── index.tsx
 ├── .eslintignore
@@ -202,7 +202,7 @@ const Index = () => {
  此文件不可删除，并且必须有默认导出。如果你不需要，则使默认导出为空对象即可。
 :::
 
-## global.less
+## global.(css|less|scss)
 
 全局样式文件，主要用于添加一些全局可用的通用样式。此文件是可选的。
 

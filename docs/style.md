@@ -2,9 +2,11 @@
 
 
 ## React模板
+:::tip 
+从`v1.1.0`版本开始，Swico支持引入`scss`样式文件。
+:::
 
-
- 在React模板中样式文件支持 `css` 和 `less` 文件的引入，并且对以`.module.(css|less)`命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。不支持sass/scss文件。
+在React模板中样式文件支持 `.css`，`.less`和`.scss` 文件的引入，并且对以`.module.(css|less|scss)`命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。
 
 
 标准CSS使用示例：
@@ -89,7 +91,7 @@ CSS Modules使用示例：
 ## Vue模板
 
 
-  在Vue模板中同样也支持外部样式文件 `css` 和 `less` 文件的引入，不支持sass/scss文件。
+  在Vue模板中同样也支持外部样式文件`.css`，`.less`和`.scss` 的引入，
   ::: warning 注意
   由于Vue单文件组件已内置`<style scoped>`和`<style module>`这种实现CSS模块化的特性，所以Vue模板暂不考虑支持外部样式文件 `CSS Modules` 特性。
   :::
