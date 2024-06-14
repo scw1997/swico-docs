@@ -1,10 +1,10 @@
 # 样式
+:::tip
+从`v1.1.0`版本开始，Swico支持引入`scss`样式文件。
+:::
 
 
 ## React模板
-:::tip 
-从`v1.1.0`版本开始，Swico支持引入`scss`样式文件。
-:::
 
 在React模板中样式文件支持 `.css`，`.less`和`.scss` 文件的引入，并且对以`.module.(css|less|scss)`命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。
 
