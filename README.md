@@ -1,6 +1,6 @@
 # 仓库介绍
 
-此仓库为Swico框架的官方文档。
+此仓库为Swico框架的官方文档的源码。
 
 文档访问地址：[https://scw1997.github.io/swico-docs](https://scw1997.github.io/swico-docs)
 
