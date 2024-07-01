@@ -1,11 +1,15 @@
-# SWICO介绍
+# 仓库介绍
 
-Swico，发音类似于“斯威扣”。
+此仓库为Swico框架的官方文档
+
+# Swico介绍
+
+Swico，发音近似于“斯威扣”。
 
 为个人独立开发的一款实用的前端框架，它基于前端工程化最新技术栈实现了前端开发从创建项目，获取模板，本地开发，Git提交校验到打包构建的完整过程。
 
 
-## 主要特性
+## Swico主要特性
 
 - 构建工具基于Webpack5，并配合esbuild-loader和swc-loader提升编译构建速率。
 
@@ -18,4 +22,4 @@ Swico，发音类似于“斯威扣”。
 - 提供配置文件可对部分项目配置进行修改扩展，例如Alias映射，本地请求代理等。
 
 
-详见：[SWICO 官方文档](https://scw1997.github.io/swico-docs)
+文档线上访问地址：[https://scw1997.github.io/swico-docs](https://scw1997.github.io/swico-docs)

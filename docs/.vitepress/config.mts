@@ -120,13 +120,13 @@ export default defineConfig({
       },
 
       {
-        text:'v1.1.0',
-        link:'/'
+        text:'v1.1.1',
+        link:null
       }
     ],
     sidebar,
     socialLinks: [
-      { icon: 'github', link: 'https://gitee.com/fanlaBoy/swico.git' }
+      { icon: 'github', link: 'https://github.com/scw1997/swico.git' }
     ]
   }
 })

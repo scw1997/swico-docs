@@ -9,6 +9,10 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v1. 1. 1 <Badge type="info">2024-07-01</Badge>
+
+- :lipstick: GIT地址迁移，README文档同步调整。
+
 ## v1. 1. 0 <Badge type="info">2024-06-13</Badge>
 
 - :new: 新增支持`scss`样式文件引入。
