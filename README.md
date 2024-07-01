@@ -1,6 +1,8 @@
 # 仓库介绍
 
-此仓库为Swico框架的官方文档
+此仓库为Swico框架的官方文档。
+
+文档访问地址：[https://scw1997.github.io/swico-docs](https://scw1997.github.io/swico-docs)
 
 # Swico介绍
 
@@ -22,4 +24,4 @@ Swico，发音近似于“斯威扣”。
 - 提供配置文件可对部分项目配置进行修改扩展，例如Alias映射，本地请求代理等。
 
 
-文档线上访问地址：[https://scw1997.github.io/swico-docs](https://scw1997.github.io/swico-docs)
+
