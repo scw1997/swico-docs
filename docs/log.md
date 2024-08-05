@@ -8,6 +8,15 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+
+
+## v1. 2. 0 <Badge type="info">2024-08-05</Badge>
+
+- :lipstick: 优化了部分静态资源的hash逻辑。
+- :wastebasket: 去掉Swico配置项中生产环境`devtool`的默认值，现为空。
+- :wrench: 修复了部分配置文件删除后未重新编译的问题。
+
+
 ## v1. 1. 1 <Badge type="info">2024-07-01</Badge>
 
 - :lipstick: GIT地址迁移，README文档同步调整。

@@ -222,7 +222,7 @@ declare const FOO: string;
 
     开发环境：`cheap-module-source-map`（Vue模板），`eval-cheap-module-source-map`（React模板）
         
-    生产环境：`nosources-source-map`
+    生产环境：`none（未设置）`
 
 devtool用于设置SourceMap源码映射类型，主要用于代码运行报错时的错误定位排查。
 
