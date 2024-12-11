@@ -136,6 +136,7 @@ type ConfigRoutesItemType = {
     redirect?: string; 
     name?: string;
     decorator?: string; 
+    custom?:any
     [key: string]: any;
 };
 
@@ -384,6 +385,32 @@ type ConfigRoutesItemType = {
   ```
   :::
 
+- `custom`
+
+  用于设置当前路由下的一些自定义字段数据，类型不限，且**不可修改**。例如设置当前路由页面的title
+
+
+  ```ts 
+  // config/swico.ts
+  //...
+    routes: [
+        {
+            path: '/example',
+            name: 'example',
+            component: 'example', //==>pages/example/index.tsx
+            custom:{ title:'example页面'} 
+        },
+    ]
+  //...
+  ```
+  在对应路由文件中，可通过hook api`useLocation`或`history.location`来获取定义的custom数据
+  
+  ```js
+  const { custom } = useLocation()
+  
+  
+  console.log(history.location.custom)
+  ```
 
 ## 路由跳转
 

@@ -107,7 +107,6 @@ export default defineConfig({
             link: '/cli',
           },
 
-
         ]
       },
       {
@@ -120,7 +119,7 @@ export default defineConfig({
       },
 
       {
-        text:'v1.2.0',
+        text:'v1.3.2',
         link:null
       }
     ],

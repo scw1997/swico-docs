@@ -1,6 +1,8 @@
 # 脚手架
 
-`swico-cli` 是Swico的官方脚手架工具，通过它可以轻松创建swico项目。
+[swico-cli] 是Swico的官方脚手架工具，通过它可以轻松创建swico项目。
+
+
 
 
 ## 安装使用
@@ -79,3 +81,4 @@ Now you can cd test and npm run start to start your Swico App!
 ```
 
 
+[swico-cli]:https://github.com/scw1997/swico-cli

@@ -255,8 +255,7 @@ prettier配置文件：`.prettierignore，.prettierrc.js`
 需要说明的是，Swico默认只会在终端输出eslint error信息，并不会输出warning。
 
 
-[Vue模板]:https://gitee.com/fanlaBoy/swico-template-vue
-[React模板]:https://gitee.com/fanlaBoy/swico-template-react
+
 [API > Swico配置]:/swico-config
 [Git Hooks]:/git-hooks
 [样式]:/style
