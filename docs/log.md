@@ -8,6 +8,10 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v1. 3. 3 <Badge type="info">2024-12-18</Badge>
+
+- :wrench: 修复开发环境部分场景下无法提示编译成功的问题
+
 ## v1. 3. 2 <Badge type="info">2024-12-11</Badge>
 
 - :lipstick: 优化部分文本输出格式
