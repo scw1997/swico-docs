@@ -10,22 +10,22 @@
 
 ## v1. 3. 3 <Badge type="info">2024-12-18</Badge>
 
-- :wrench: 修复开发环境部分场景下无法提示编译成功的问题
+- :wrench: 修复开发环境部分场景下无法提示编译成功的问题。
 
 ## v1. 3. 2 <Badge type="info">2024-12-11</Badge>
 
-- :lipstick: 优化部分文本输出格式
+- :lipstick: 优化部分文本输出格式。
 
 ## v1. 3. 1 <Badge type="info">2024-12-10</Badge>
 
-- :wastebasket: 删除部分console打印
+- :wastebasket: 删除部分console打印。
 
 ## v1. 3. 0 <Badge type="info">2024-12-10</Badge>
 
 - :new: 路由 [router > routes] 配置项新增`custom`属性。
 - :wrench: 修复调整生产环境swico配置时开发服务器仍会重启的问题。
 - :lipstick: 优化开发环境部分全局文件修改时的编译性能。
-- :lipstick: 优化vue模板的项目依赖问题
+- :lipstick: 优化vue模板的项目依赖问题。
 
 
 
