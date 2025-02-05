@@ -277,7 +277,7 @@ $('.my-element').animate(/* ... */);
 
 - 仅`swico.ts`可用
 
-表示包管理工具种类，支持`npm`和`pnpm`。
+表示包管理工具种类，目前仅支持`npm`。
 
 
 ## plugins

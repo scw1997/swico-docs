@@ -8,6 +8,12 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v1. 4. 0 <Badge type="info">2025-02-05</Badge>
+
+- :wastebasket: 移除创建项目时对`pnpm`的支持（存在较多问题待解决），目前默认为`npm`。
+- :wrench: 修复创建项目后未能生成默认`.gitignore`文件的问题。
+- :lipstick: 优化部分输出文本。
+
 ## v1. 3. 3 <Badge type="info">2024-12-18</Badge>
 
 - :wrench: 修复开发环境部分场景下无法提示编译成功的问题。

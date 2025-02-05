@@ -29,7 +29,7 @@ swico create [project-name]
 Cancel
 ```
 
-创建命令执行后，会提供两个创建选项：
+创建命令执行后，会提供以下选项：
 
 - 选择模板类型：
 
@@ -39,12 +39,17 @@ Cancel
 Vue3.4 + Typescript5
 ```
 
-- 选择依赖包管理工具，暂且只支持`npm`和`pnpm`：
-```shell:no-line-numbers
-? Please select the npm type: 
-> npm
-pnpm
-```
+[//]: # (- 选择依赖包管理工具，暂且只支持`npm`和`pnpm`：)
+
+[//]: # (```shell:no-line-numbers)
+
+[//]: # (? Please select the npm type: )
+
+[//]: # (> npm)
+
+[//]: # (pnpm)
+
+[//]: # (```)
 
 然后等待脚手架远程拉取模板并自动安装依赖后，项目即创建完成：
 

@@ -24,7 +24,7 @@ npm i swico-cli -g
 ```shell:no-line-numbers
 swico create [project-name]
 ```
-此命令执行后会引导开发者选择指定开发模板和包管理工具，随后等待模板初始化完成即可创建成功。
+此命令执行后会引导开发者选择指定开发模板，随后等待模板初始化完成即可创建成功。
 
 成功后进入项目：
 ```shell:no-line-numbers

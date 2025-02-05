@@ -33,7 +33,6 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 │       └── index.tsx
 ├── .eslintignore
 ├── .eslintrc
-├── .npmrc
 ├── .prettierignore
 ├── .prettierrc.js
 ├── commitlint.config.js
