@@ -8,6 +8,14 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v1. 5. 0 <Badge type="info">2025-02-12</Badge>
+
+- :hammer_and_wrench: 重构pnpm逻辑，项目模板全面重新支持pnpm。
+- :hammer_and_wrench: 重构模板依赖结构和scirpt脚本，重构webpack依赖引用逻辑，降低架构冗余性。
+- :lipstick: 优化swico-cli创建项目时交互，新增git和husky初始化逻辑。
+- :lipstick: 优化开发环境终端输出信息展示。
+- :wrench: 修复hook useNav中custom参数类型bug，现已移除。
+
 ## v1. 4. 0 <Badge type="info">2025-02-05</Badge>
 
 - :wastebasket: 移除创建项目时对`pnpm`的支持（存在较多问题待解决），目前默认为`npm`。

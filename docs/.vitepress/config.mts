@@ -119,7 +119,7 @@ export default defineConfig({
       },
 
       {
-        text:'v1.4.0',
+        text:'v1.5.0',
         link:null
       }
     ],

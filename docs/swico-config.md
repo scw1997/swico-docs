@@ -275,9 +275,11 @@ $('.my-element').animate(/* ... */);
 
 ## npmType
 
+- 默认值：`npm`
+
 - 仅`swico.ts`可用
 
-表示包管理工具种类，目前仅支持`npm`。
+指定使用哪种包管理工具，支持`npm`和`pnpm`。
 
 
 ## plugins
