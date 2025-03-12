@@ -273,14 +273,6 @@ $('.my-element').animate(/* ... */);
 
 开发环境是否使用https开发服务器。
 
-## npmType
-
-- 默认值：`npm`
-
-- 仅`swico.ts`可用
-
-指定使用哪种包管理工具，支持`npm`和`pnpm`。
-
 
 ## plugins
 

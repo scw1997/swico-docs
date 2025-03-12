@@ -13,11 +13,11 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 
 ```text
 ├── .husky 
+├── .swico
 ├── config  
 ├── dist  
 ├── public
 ├── src
-│   ├── .swico
 │   ├── pages
 │   │   ├── index.tsx或Index.vue
 │   │   └── index.less

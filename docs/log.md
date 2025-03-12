@@ -8,13 +8,29 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v1. 6. 1 <Badge type="info">2025-03-12</Badge>
+
+
+- :wrench: 修复1.6.0版本下vue模板启动时的配置文件丢失导致报错无法启动的bug。
+
+
+## v1. 6. 0 <Badge type="info">2025-03-12</Badge>
+
+- :wastebasket: 移除swico配置文件中的`npmType`属性，现已废弃。
+- :wrench: 修复pnpm模式下多项目同时启动时的依赖共享引发的配置报错问题。
+- :lipstick: 优化运行时配置`.swico`相关文件的模块引用逻辑。
+- :lipstick: 优化开发环境启动逻辑。
+- :lipstick: 最新版本文档同步调整。
+
+
+
 ## v1. 5. 0 <Badge type="info">2025-02-12</Badge>
 
 - :hammer_and_wrench: 重构pnpm逻辑，项目模板全面重新支持pnpm。
 - :hammer_and_wrench: 重构模板依赖结构和scirpt脚本，重构webpack依赖引用逻辑，降低架构冗余性。
 - :lipstick: 优化swico-cli创建项目时交互，新增git和husky初始化逻辑。
 - :lipstick: 优化开发环境终端输出信息展示。
-- :wrench: 修复hook useNav中custom参数类型bug，现已移除。
+- :wrench: 修复hook useNav中多余的custom参数类型bug。
 
 ## v1. 4. 0 <Badge type="info">2025-02-05</Badge>
 
