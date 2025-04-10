@@ -1,58 +1,50 @@
 # Git Hooks
 
-Swico模板内置了Git Hooks流程，用于处理每次代码提交时的额外操作和Git注释校验，旨在规范和完善开发流程。
+Swico模板内置了Git Hooks流程（可在创建项目时根据是否需要来选择），用于处理每次代码提交时的额外操作和Git注释校验，旨在规范和完善开发流程。
 
 ## .husky
 
 husky 配置文件路径，提供 git 提交前的操作钩子。
 
-- `pre-commit`
+:::tip
+若误删`.husky`配置文件，则可使用npm命令`npm run husky:init`重新生成。
+:::
 
-  用于配置git提交前的操作处理。
+### 1. pre-commit
 
-  默认配置：
+用于配置git提交前的操作处理。
 
-    .husky/pre-commit:
-    ```bash 
-    npm test
-    ```
-    package.json：
-    ```json 
-    "scripts": {
-      "test": "lint-staged",
-    },
-            
-    "lint-staged": {
-      "src/**/*.{js,ts,vue}": [
-          "prettier --write",
-          "eslint --fix"
-      ],
-      "src/**/*.{css,less,json,html,md}": "prettier --write"
-    },
-    ```
+默认相关配置：
 
-  以上述默认配置为例，在git提交前，husky会在命令行执行`.husky/pre-commit`文件里定义的终端命令即`npm test`进而调用`lint-staged`脚本命令， 该命令通过ESLint + Prettier进行代码格式校验和一键修复，若校验不通过或者一键修复后仍存在问题则禁止提交。
+:::info 配置文件路径以及内容
+.husky/pre-commit:
+```bash 
+npm test
+```
+package.json：
+```json 
+"scripts": {
+"test": "lint-staged",
+},
+      
+"lint-staged": {
+"src/**/*.{js,ts,vue}": [
+    "prettier --write",
+    "eslint --fix"
+],
+"src/**/*.{css,less,json,html,md}": "prettier --write"
+},
+```
+:::
+以上述默认配置为例，在git提交前，husky会在命令行执行`.husky/pre-commit`文件里定义的终端命令即`npm test`进而调用`lint-staged`脚本命令， 该命令通过ESLint + Prettier进行代码格式校验和一键修复，若校验不通过或者一键修复后仍存在问题则禁止提交。
 
-- `commit-msg`
+### 2. commit-msg
 
-  用于规范git提交时输入的注释信息。
+用于规范git提交时输入的注释信息。
 
-  详见下面[commitlint.config.js](#commitlint-config-js)
+默认相关配置：
 
-
-> 配置文档：[husky 官方文档](https://typicode.github.io/husky/#/)
-
-> 为防止开发者误删husky配置文件，该文件会在每次项目启动后重新生成。
-
-
-
-## commitlint.config.js
-
-git 提交格式规范校验规则配置文件。
-
-用于配合`husky`的`commit-msg`操作钩子进行`git commit`的提交信息的格式校验。
-
-默认配置：
+:::info 配置文件路径以及内容
 
 .husky/commit-msg：
 ```bash 
@@ -62,10 +54,11 @@ git 提交格式规范校验规则配置文件。
 npx --no -- commitlint --edit $1
 ```
 
+`commit-msg`需配合项目根目录下的`commitlint.config.js`文件来启用git commit`的提交信息的格式校验。
+
 commitlint.config.js：
 
-```javascript 
-
+```javascript
 //默认配置
 module.exports = {
     // 继承的规则
@@ -92,6 +85,7 @@ module.exports = {
     }
 };
 ```
+:::
 
 基于上述默认配置，git 提交时填写提交内容的说明信息需遵循以下格式，否则会校验不通过报错而提交失败：
 
@@ -115,4 +109,15 @@ module.exports = {
 fix: 修复部分bug
 ```
 
-参考文档：[commitlint 官方文档](https://commitlint.js.org/#/guides-local-setup)
+
+
+
+参考文档：
+
+> [commitlint 官方文档](https://commitlint.js.org/#/guides-local-setup)
+
+> [husky 官方文档](https://typicode.github.io/husky/#/)
+
+
+
+

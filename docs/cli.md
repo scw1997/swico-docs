@@ -33,6 +33,14 @@ swico create [project-name]
 Vue3.4 + Typescript5
 ```
 
+- 选择是否需要配置Git Hooks：
+
+```shell:no-line-numbers
+? Do you need Git Hooks:
+> Yes
+No
+```
+
 - 选择依赖包管理工具，目前支持`npm`和`pnpm`：
 
 ```shell:no-line-numbers

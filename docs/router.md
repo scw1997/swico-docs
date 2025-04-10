@@ -142,7 +142,7 @@ type ConfigRoutesItemType = {
 
 ```
 下面是各个字段具体介绍： 
-- `path`
+- **path**
 
   必填项，配置当前路由地址。如果是第一级（最外层）路由，应以`/`开头，其他子路由则不需要以/开头。
   
@@ -156,13 +156,13 @@ type ConfigRoutesItemType = {
   :::warning 注意
   除了上述一般用法外，在动态路由匹配规则上，Vue-Router和React-Router存在不少的差异，更多详情请阅读相应官方文档：[VueRouter动态路由]与[ReactRouter动态路由]。
   :::
-- `name`
+- **name**
 
   当前路由的命名，也是唯一标识。
 
   :bulb: 推荐设置此属性，方便路由跳转和项目日后维护。（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
 
-- `component`
+- **component**
 
   当前路由地址对应的页面组件路径。值为相对于`src/pages`的相对路径，且不需要文件名后缀。不支持绝对路径。见示例：
 
@@ -176,7 +176,7 @@ type ConfigRoutesItemType = {
   ::: tip 技巧
     当`component`和`redirect`都未设置值时，Swico会将当前路由直接渲染成`Outlet`。当只需要访问子路由页面而不需要访问父路由页面时，这会很有用。
   :::
-- `redirect`
+- **redirect**
 
   当前路由地址重定向后的路由地址，值为对应路由完整的`path`值。
 
@@ -226,7 +226,7 @@ type ConfigRoutesItemType = {
   :::
   
 
-- `children`
+- **children**
 
   当前路由的子路由列表设置，内部字段与外部一致。
   ::: code-group
@@ -311,7 +311,7 @@ type ConfigRoutesItemType = {
   ```
   :::
   
-- `decorator`
+- **decorator**
 
   当前路由组件的包装组件的路径，值类型与`component`一致。
   ::: code-group
@@ -385,7 +385,7 @@ type ConfigRoutesItemType = {
   ```
   :::
 
-- `custom`
+- **custom**
 
   用于设置当前路由下的一些自定义字段数据，类型不限，且**不可修改**。
 
@@ -423,7 +423,9 @@ type ConfigRoutesItemType = {
   :::
 ## 路由跳转
 
-- 使用Hook
+Swico提供了两种方式进行路由跳转。
+
+1. **Hook方式**
 
 一般页面组件内部跳转推荐使用Hook API `useNav`。
 
@@ -469,7 +471,7 @@ const handleClick = ()=>{
 
 更多关于useNav的介绍请阅读：[API > Hooks > useNav]
 
-- 命令式跳转
+2. **命令式**
 
 使用Swico提供的`history` API可以进行命令式跳转。
 ::: tip 技巧

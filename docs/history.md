@@ -3,9 +3,7 @@
 
 - 类型：`SwicoHistoryType`
 
-history用来进行路由的命令式跳转。
-
-关于路由配置相关请阅读：[路由]。
+history是swico提供的一个API，用来进行路由的**命令式跳转**。
 
 history的值是一个对象，包含多个方法和属性。它的类型定义如下：
 
@@ -39,9 +37,9 @@ type SwicoHistoryOptionType = {
 
 用于跳转至新的路由。
 
-接收一个`to`参数：
+接收一个参数：
 
-- 当参数值类型为string时，表示对应的路由完整`path`
+- **当调用参数值类型为string时，表示对应的路由完整path值**
   ```typescript
   import { history } from 'swico'
   
@@ -51,16 +49,16 @@ type SwicoHistoryOptionType = {
   }
   // ...
   ```
-- 当为对象时，其类型为`SwicoHistoryOptionType`，见下方说明：
+- **当调用参数值为对象时，其类型为`SwicoHistoryOptionType`，见下方说明**：
 
-  | 参数     | 类型                 | 说明                                                                               |
-  |--------|--------------------|----------------------------------------------------------------------------------|
-  | query  | Record<string,any> | searchParams的序列化对象。<br/>如欲访问路由地址为`/news?a=1&b=2`，则param值应为`{a:1,b:2}`。           |
-  | params | Record<string,any> | 路由动态参数组成的对象。<br/>如欲跳转页面路由地址为`/news/123`，其路由path为`/news/:id`，则params应为`{id:123}`。 |
-  | hash   | string             | 路由hash字符串。                                                                       |
-  | name   | string             | 路由唯一标识值。                                                                         |
-  | path   | string             | 配置的路由地址（不带任何参数）<br/>`注：当name有值时，path值无效`。                                        |
-  | state  | Record<string,any>             | 需要给目标路由传递的状态参数，可在目标路由组件内获取。**只在目标路由会话窗口有效**                                      |
+  | 参数     | 类型                 | 说明                                                                                |
+  |--------|--------------------|-----------------------------------------------------------------------------------|
+  | query  | Record<string,any> | searchParams的序列化对象。<br/>例如欲访问路由地址为`/news?a=1&b=2`，则param值应为`{a:1,b:2}`。           |
+  | params | Record<string,any> | 路由动态参数组成的对象。<br/>例如欲跳转页面路由地址为`/news/123`，其路由path为`/news/:id`，则params应为`{id:123}`。 |
+  | hash   | string             | 路由hash字符串。                                                                        |
+  | name   | string             | 路由唯一标识值。                                                                          |
+  | path   | string             | 配置的路由地址（不带任何参数）<br/>`注：当name有值时，path值无效`。                                         |
+  | state  | Record<string,any>             | 需要给目标路由传递的状态参数，可在目标路由组件内获取。**只在目标路由会话窗口有效**                                       |
 
   ```js
   //推荐使用包含name的对象形式代替string形式

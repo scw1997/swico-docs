@@ -171,8 +171,9 @@ copy: [
 - test.json
 ```
 
-> Swico默认已内置在构建产物时对项目根路径下public文件夹复制到构建产物dist目录下
-
+:::info
+Swico默认已内置在构建产物时对项目根路径下public文件夹复制到构建产物dist目录下
+:::
 
 ## define
 
@@ -222,7 +223,7 @@ declare const FOO: string;
 
     开发环境：`cheap-module-source-map`（Vue模板），`eval-cheap-module-source-map`（React模板）
         
-    生产环境：`none（未设置）`
+    生产环境：`none`
 
 devtool用于设置SourceMap源码映射类型，主要用于代码运行报错时的错误定位排查。
 
@@ -326,9 +327,13 @@ proxy: {
 比如项目被部署的服务器路径为`/test`，那么通过浏览器访问项目首页的地址默认为`www.xxx.com/test/index.html`。当不设置publicPath时，
 项目构建后index.html中所引用的js，css，图片等静态资源地址依然是基于根路径，这种情况下访问上面首页地址后，将无法正确引用静态资源。 此时需要设置publicPath为`/test/`。
 
-更多细节参考： [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)。
+:::info
+Swico默认会将此属性值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.publicPath`访问。
+:::
 
->Swico默认会将此属性值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.publicPath`访问。
+更多关于`publicPath`介绍请参考： [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)。
+
+
 
 
 

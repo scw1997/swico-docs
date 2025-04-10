@@ -1,6 +1,6 @@
 # Link
 
-Link组件是一个带路由跳转功能的 `<a>` 元素。
+Swico提供了一个Link组件，它的本质是一个带路由跳转功能的 `<a>` 元素。
 
 ::: code-group
 
@@ -44,9 +44,9 @@ import { Link } from 'swico'
 
 是否替换当前路由。
 
-当为`true`时，跳转行为等价于`history.replace()`。
+当为值true时，跳转行为等价于**history.replace()**。
 
-当为`false`时，跳转行为等价于`history.push()`。
+当值为false时，跳转行为等价于**history.push()**。
 ## className/class
 
 - 类型：`string`
@@ -55,7 +55,7 @@ import { Link } from 'swico'
 
 ## style
 
-- 类型：`string`
+- 类型：`CSSProperties`或`string`
 
 style属性设置。
 
