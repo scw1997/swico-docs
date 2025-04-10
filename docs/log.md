@@ -12,11 +12,11 @@
 
 - :wrench: 修复1.5.0版本后global全局样式文件部分情况下删除仍会报错的问题。
 
-## v1. 7. 1 <Badge type="info">2025-04-10</Badge>
+## v1. 7. 1 <Badge type="info">2025-04-09</Badge>
 
 - :wrench: 修复模板中的swico依赖版本与swico-cli版本不同步的问题。
 
-## v1. 7. 0 <Badge type="info">2025-04-10</Badge>
+## v1. 7. 0 <Badge type="info">2025-04-09</Badge>
 
 
 - :new: 同步swico-cli最新版，创建项目时新增支持Git Hooks配置可选。
