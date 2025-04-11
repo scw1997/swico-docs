@@ -8,6 +8,10 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v1. 7. 3 <Badge type="info">2025-04-11</Badge>
+
+- :wrench: 修复React模板中全局loading组件部分场景下的加载报错问题。
+
 ## v1. 7. 2 <Badge type="info">2025-04-10</Badge>
 
 - :wrench: 修复1.5.0版本后global全局样式文件部分情况下删除仍会报错的问题。
