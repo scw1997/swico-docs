@@ -6,7 +6,7 @@
 
 ## React模板
 
-在React模板中样式文件支持 `.css`，`.less`和`.scss` 文件的引入，并且对以`.module.(css|less|scss)`命名结尾的样式文件默认开启[CSS Modules](https://github.com/webpack-contrib/css-loader#modules)特性。
+在React模板中样式文件支持 `.css`，`.less`和`.scss` 文件的引入，并且对以`.module.(css|less|scss)`命名结尾的样式文件默认开启[CSS Modules](https://rspack.dev/zh/guide/tech/css#css-modules)特性。
 
 
 标准CSS使用示例：
