@@ -8,7 +8,7 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
-## v2. 0. 0 <Badge type="info">2025-05-01</Badge>
+## v2. 0. 0 <Badge type="info">2025-05-12</Badge>
 
 - :hammer_and_wrench: 全面接入`Rspack 1`打包工具及其生态，重构部分打包逻辑，提升编译和打包效率，不再采用Webpack。
 - :new: 升级React 19，Vue 3.5，ESLint 9，TypeScript 5.8架构以及相关部分依赖版本。
