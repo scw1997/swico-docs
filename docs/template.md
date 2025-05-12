@@ -3,9 +3,9 @@
 
 Swico提供了两套前端开发模板可供选择，方便不同框架开发者使用：
 
-- Vue模板：`Vue 3.4 + Vue Router 4.x + TypeScript 5.x`
+- Vue模板：`Vue 3.5 + Vue Router 4.x + TypeScript 5.x`
 
-- React模板：`React 18 + React Router 6.x + TypeScript 5.x`
+- React模板：`React 19 + React Router 7.x + TypeScript 5.x`
 
 
 两套模板结构和配置大同小异，主要针对React和Vue的特点做了细微区分。
@@ -31,8 +31,7 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 │   ├── global.(css|less|scss)
 │   └── loading
 │       └── index.tsx
-├── .eslintignore
-├── .eslintrc
+├── eslint.config.mjs
 ├── .prettierignore
 ├── .prettierrc.js
 ├── commitlint.config.js
@@ -48,12 +47,16 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 Swico运行时配置文件，会在每次执行`swico start`和`swico build`命令时自动重新生成（默认已加入git忽略路径）。
 
 ::: warning 注意
-本地开发服务运行过程中时不要手动删除此文件夹，会引发报错。
+开发环境运行过程中时不要手动删除此文件夹，会引发报错。
 :::
 
 ## husky/commitlint
 
-`.husky`和`commitlint.config.js`文件为Git Hooks相关的配置文件，只有在创建项目时选择`需要Git Hooks`才会生成此类文件。
+`.husky`和`commitlint.config.js`文件为Git Hooks相关的配置文件。
+
+:::warning 注意
+只有在通过swico-cli创建项目时选择`需要Git Hooks`才会生成此类文件。
+:::
 
 详见：[Git Hooks]
 
@@ -161,6 +164,7 @@ const Index = () => {
 
 ```html
 <!--src/index.ejs-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,9 +178,9 @@ const Index = () => {
   <Title>Swico App</Title>
   <script>
     // swico配置文件中router->base配置项
-    window.routerBase = '<%= routerBase %>'
+    window.SWICO_ROUTER_BASE = '<%= routerBase %>'
     // swico配置文件中publicPath配置项
-    window.publicPath = '<%= publicPath %>'
+    window.SWICO_PUBLIC_PATH = '<%= publicPath %>'
   </script>
 </head>
 <body>
@@ -184,8 +188,11 @@ const Index = () => {
 <div id="root">
   <!-- 页面在这里渲染    -->
 </div>
+
+
 </body>
 </html>
+
 ```
 ::: danger 警告
 切勿删除`id="root"`的div元素，它是模板中挂载整个项目App的容器元素。
@@ -244,11 +251,13 @@ const Index = () => {
 
 - **在Vue模板中：**
 
-  Vue3的`Suspense`还不是正式版API，所以暂不支持。
+  Vue3的`Suspense`目前只能用于异步组件，对于路由中的懒加载组件，这些与异步组件不同，**目前他们不会触发 `<Suspense>`**。
+
+  但是，它们仍然可以有异步组件作为后代，你可以在路由组件的后代组件中使用 `<Suspense>`。
 
 ## eslint/prettier
 
-eslint配置文件：`.eslintignore，.eslintrc`
+eslint配置文件：`eslint.config.mjs`
 
 prettier配置文件：`.prettierignore，.prettierrc.js`
 

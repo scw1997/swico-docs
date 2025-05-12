@@ -8,6 +8,16 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 0. 0 <Badge type="info">2025-05-01</Badge>
+
+- :hammer_and_wrench: 全面接入`Rspack 1`打包工具及其生态，重构部分打包逻辑，提升编译和打包效率，不再采用Webpack。
+- :new: 升级React 19，Vue 3.5，ESLint 9，TypeScript 5.8架构以及相关部分依赖版本。
+- :lipstick: 调整终端信息输出。
+- :lipstick: 优化初始模板配置页面。
+- :wrench: 修复Swico配置项`console`无效的问题。
+- :wastebasket: 去除部分无用第三方依赖包。
+
+
 ## v1. 7. 3 <Badge type="info">2025-04-11</Badge>
 
 - :wrench: 修复React模板中全局loading组件部分场景下的加载报错问题。

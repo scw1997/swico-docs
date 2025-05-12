@@ -2,12 +2,12 @@
 
 路由是在Swico配置文件中通过`router`字段设置的。
  
-其中React模板的内置路由系统基于[React-Router6]，而Vue模板则基于[Vue-Router4]。尽管二者之间存在不少差异，但基于二次封装，最大化统一了两种模板相关的API。
+其中React模板的内置路由系统基于[React-Router 7]，而Vue模板则基于[Vue-Router 4]。尽管二者之间存在不少差异，但基于二次封装，最大化统一了两种模板相关的API。
 
 
 ## 基本配置
 
-下面是两种模板的默认路由配置：
+路由配置示例：
 
 ::: code-group
 
@@ -141,7 +141,7 @@ type ConfigRoutesItemType = {
 };
 
 ```
-下面是各个字段具体介绍： 
+下面是各个属性具体介绍： 
 - **path**
 
   必填项，配置当前路由地址。如果是第一级（最外层）路由，应以`/`开头，其他子路由则不需要以/开头。
@@ -159,9 +159,9 @@ type ConfigRoutesItemType = {
 - **name**
 
   当前路由的命名，也是唯一标识。
-
-  :bulb: 推荐设置此属性，方便路由跳转和项目日后维护。（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
-
+  :::tip 
+  建议设置`name`属性，方便路由跳转和项目日后维护。（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
+  :::
 - **component**
 
   当前路由地址对应的页面组件路径。值为相对于`src/pages`的相对路径，且不需要文件名后缀。不支持绝对路径。见示例：
@@ -173,7 +173,7 @@ type ConfigRoutesItemType = {
   | src/pages/foo/MyFoo.vue     | foo/MyFoo  |
   | src/pages/bar.vue           | bar        |
 
-  ::: tip 技巧
+  ::: tip
     当`component`和`redirect`都未设置值时，Swico会将当前路由直接渲染成`Outlet`。当只需要访问子路由页面而不需要访问父路由页面时，这会很有用。
   :::
 - **redirect**
@@ -531,8 +531,8 @@ Swico项目中可通过两种方式获取路由参数信息：
 
 [VueRouter动态路由]:https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html
 [ReactRouter动态路由]:https://reactrouter.com/en/main/route/route#path
-[Vue-Router4]:https://router.vuejs.org/zh/
-[React-Router6]:https://reactrouter.com/en/main
+[Vue-Router 4]:https://router.vuejs.org/zh/
+[React-Router 7]:https://reactrouter.com/en/main
 [Swico变量]:/swico-var
 [API > history]:/history
 [API > Link]:/link

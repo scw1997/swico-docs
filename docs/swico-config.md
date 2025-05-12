@@ -14,7 +14,6 @@ Swico提供配置文件方便开发者可对部分项目配置进行修改扩展
 
 ```typescript
 //config/swico.ts
-
 export default {
     alias: {
         apiPath: 'src/api'
@@ -30,56 +29,42 @@ export default {
 // config/swico.dev.ts
 
 export default {
-    proxy: {
-        '/api/report': {
-            target: 'http://localhost:4000', // 跨域目标主机，自行修改
-            ws: true, // 代理 websockets
-            changeOrigin: true,
-            pathRewrite: {
-                '^/api': '' // 重写地址
-            }
-        }
+  proxy: [
+    {
+      context: ['/api/report'],
+      target: 'http://localhost:4000' // 跨域目标主机，自行修改
     }
+  ]
 };
 ```
 
 
 ```typescript
 //config/swico.prod.ts
-
 export default {
     //插件
-    plugins: [
-        //优化moment包体积，构建时忽略外国语言包
-        new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/)
-    ],
     console: true //生产环境保留console
 };
 ```
 
-:bulb: 推荐使用Swico提供的`defineConfig`方法来自定义配置，以便支持TypeScript类型提示：
+**推荐使用Swico提供的`defineConfig`方法来自定义配置，以便支持TypeScript类型提示**：
 
 
 ```typescript
-//config/swico.dev.ts
-
+// config/swico.dev.ts
 import { defineConfig } from 'swico';
 
-//第一个参数指定环境，可选值有base,dev,prod
 export default defineConfig('dev', {
-    proxy: {
-        '/api/report': {
-            target: 'http://localhost:4000', // 跨域目标主机，自行修改
-            ws: true, // 代理 websockets
-            changeOrigin: true,
-            pathRewrite: {
-                '^/api': '' // 重写地址
-            }
-        }
+  proxy: [
+    {
+      context: ['/api/report'],
+      target: 'http://localhost:4000' // 跨域目标主机，自行修改
     }
+  ]
 });
+
 ```
-下面是可用配置项的介绍：
+下面是配置项的具体介绍：
 
 ## alias
 
@@ -89,9 +74,15 @@ export default defineConfig('dev', {
 
 例如：
 ```typescript
-alias: {
+// config/swico.ts
+import { defineConfig } from 'swico';
+
+export default defineConfig('base', {
+  alias: {
     apiPath: path.join('.', '/src/api')
-},
+  }
+});
+
 ```
 则你在项目代码中使用`import 'apiPath/test' `等价于引入`项目根路径/scr/api/test`。
 
@@ -109,11 +100,9 @@ tsconfig.json：
     }
 }
 ```
-
-> swico默认已配置`@`映射为`/src`路径
-
-
-
+:::tip
+swico默认已配置`@`映射为`/src`路径
+:::
 
 ## console
 
@@ -123,7 +112,15 @@ tsconfig.json：
 
 生产环境是否在浏览器控制台中显示代码中console 打印的信息。
 
+```typescript
+// config/swico.prod.ts
+import { defineConfig } from 'swico';
 
+export default defineConfig('prod', {
+  console:false // 生产环境移除console信息
+});
+
+```
 
 ## copy
 
@@ -131,10 +128,17 @@ tsconfig.json：
 
 打包构建时将指定目录文件（夹）复制到指定路径。
 
-当值为`字符串数组`时，默认拷贝到产物dist目录，如：
+#### 当值为`字符串数组`时，默认拷贝到产物dist目录，如：
+
 
 ```typescript
-copy: ['test.json', 'src/img.png']
+// config/swico.prod.ts
+import { defineConfig } from 'swico';
+
+export default defineConfig('prod', {
+  copy: ['test.json', 'src/img.png']
+});
+
 ```
 
 会产生如下产物的结构：
@@ -148,15 +152,21 @@ copy: ['test.json', 'src/img.png']
 - test.json
 ```
 
-当值为`对象数组`时，支持复制到指定目标路径。 其中相对路径默认为项目根目录，不支持根路径写法。
+#### 当值为`对象数组`时，支持复制到指定目标路径。 其中相对路径默认为项目根目录，不支持根路径写法。
 
 比如：
 
 ```typescript
-copy: [
-  { from: 'from', to: 'dist/output' },
-  { from: 'test.json', to: 'dist' }
-]
+// config/swico.prod.ts
+import { defineConfig } from 'swico';
+
+export default defineConfig('prod', {
+  copy: [
+    { from: 'from', to: 'dist/output' },
+    { from: 'test.json', to: 'dist' }
+  ]
+});
+
 ```
 
 此时将产生如下产物结构：
@@ -171,8 +181,8 @@ copy: [
 - test.json
 ```
 
-:::info
-Swico默认已内置在构建产物时对项目根路径下public文件夹复制到构建产物dist目录下
+:::tip
+Swico默认已内置在构建产物时对项目根路径下`public`文件夹复制到构建产物dist目录下
 :::
 
 ## define
@@ -183,10 +193,16 @@ Swico默认已内置在构建产物时对项目根路径下public文件夹复制
 
 例如：
 ```typescript
-define: { key: 'name' }
+// config/swico.ts
+import { defineConfig } from 'swico';
+
+export default defineConfig('base', {
+  define: { key: 'name' }
+});
+
 ```
 
-那么代码里的 `console.log('hello world', key)` 会被编译成 `console.log('hello world', 'name')`。
+那么代码里的所有的变量名为`key`的值会被编译成`'name'`。
 
 同时也支持通过函数返回一个对象或promise来设置变量值：
 
@@ -227,7 +243,7 @@ declare const FOO: string;
 
 devtool用于设置SourceMap源码映射类型，主要用于代码运行报错时的错误定位排查。
 
-更多可选值说明参考： [devtool文档](https://webpack.docschina.org/configuration/devtool/)。    
+更多可选值说明参考： [devtool文档](https://rspack.dev/zh/config/devtool)。    
 
 
 ## externals
@@ -251,9 +267,14 @@ devtool用于设置SourceMap源码映射类型，主要用于代码运行报错�
 此时，通过script引入的第三方jqury包会自动在window上挂载一个名为jQuery的全局变量，然后配置externals：
 
 ```typescript
-externals: {
-  jquery: 'jQuery'
-}
+// config/swico.ts
+import { defineConfig } from 'swico';
+
+export default defineConfig('prod', {
+  externals: {
+    jquery: 'jQuery'
+  }
+});
 ```
 然后在代码中直接引用：
 
@@ -263,7 +284,7 @@ import $ from 'jquery';
 $('.my-element').animate(/* ... */);
 ```
 
-更多详情请参考：[webpack externals](https://webpack.docschina.org/configuration/externals/)
+更多详情请参考：[externals配置详情](https://rspack.dev/zh/config/externals)
 
 
 ## https
@@ -279,16 +300,28 @@ $('.my-element').animate(/* ... */);
 
 默认值：`[]`
 
-Webpack Plugin 的相关配置，用于根据业务需要额外的一些 plugin 设置。
+Rspack Plugin 的相关配置，用于根据业务需要额外的一些 plugin 设置。
+
+开发者可以根据需要自定义配置**Rsapck内置提供的plugin或者Rspack目前支持的Webpack Plugin**
 
 示例：
 
 ```typescript
-plugins: [
-    //优化moment包体积，构建时忽略外国语言包
-    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/)
-]
+// config/swico.dev.ts
+import { defineConfig } from 'swico';
+import { rspack } from '@rspack/core';
+
+const isDev = process.env.SWICO_ENV==='dev'
+
+export default defineConfig('dev', {
+  plugins: [isDev && new rspack.HotModuleReplacementPlugin()],
+});
+
 ```
+
+:::tip
+关于支持的plugin详细信息请访问：[Rspack Plugin](https://rspack.dev/zh/plugins/)
+:::
 
 ## proxy
 
@@ -299,19 +332,21 @@ plugins: [
 示例：
 
 ```typescript
-proxy: {
-    '/api/report': {
-        target: 'http://localhost:4000', // 跨域目标主机，自行修改
-        ws: true, // 代理 websockets
-        changeOrigin: true,
-        pathRewrite: {
-            '^/api': '' // 重写地址
-        }
+//config/swico.dev.ts
+import { defineConfig } from 'swico';
+
+export default defineConfig('dev', {
+  proxy: [
+    {
+      context: ['/api/report'],
+      target: 'http://localhost:4000' // 跨域目标主机，自行修改
     }
-}
+  ]
+});
+
 ```
 
-更多属性说明请参考：[devServer Proxy文档](https://webpack.docschina.org/configuration/dev-server/#devserverproxy)。
+更多属性说明请参考：[devServer Proxy文档](https://rspack.dev/zh/config/dev-server#devserverproxy)。
 
 
 ## publicPath
@@ -331,11 +366,7 @@ proxy: {
 Swico默认会将此属性值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.publicPath`访问。
 :::
 
-更多关于`publicPath`介绍请参考： [publicPath说明](https://webpack.docschina.org/configuration/output/#outputpublicpath)。
-
-
-
-
+更多关于`publicPath`介绍请参考： [publicPath说明](https://rspack.dev/zh/guide/features/asset-base-path)。
 
 
 ## router
