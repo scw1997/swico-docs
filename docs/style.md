@@ -172,3 +172,46 @@ CSS Modules使用示例：
 </style>
 
   ```
+
+## Tailwind CSS
+
+从`v2.1.0`版本开始，Swico 支持Tailwind CSS 4.x配置，以下是配置说明：
+
+1. 安装Tailwind相关依赖：
+
+```bash
+pnpm i tailwindcss @tailwindcss/postcss -D
+```
+
+2. 修改postcss.config.js配置
+
+```bash
+module.exports = {
+    plugins: [
+        ['autoprefixer']
+        ['@tailwindcss/postcss'],   # [!code ++]
+    ]
+}
+```
+
+3. global.css文件入口引入tailwind
+
+```css
+/*  src/global.css    */
+@import 'tailwindcss';
+```
+:::danger 注意
+
+要使用tailwind css，只能在`src/global.css`文件中引入tailwind，global.less/scss不支持
+:::
+
+4. 在页面文件中使用
+
+:::code-group 
+
+```jsx [react]
+<div className="bg-blue-500">测试tailwind样式</div>
+```
+```vue [vue]
+<div class="bg-blue-500">测试tailwind样式</div>
+```

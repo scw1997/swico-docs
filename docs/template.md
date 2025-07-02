@@ -35,6 +35,7 @@ Swico提供了两套前端开发模板可供选择，方便不同框架开发者
 ├── .prettierignore
 ├── .prettierrc.js
 ├── commitlint.config.js
+├── postcss.config.js
 ├── package.json
 └── tsconfig.json
 ```
@@ -265,9 +266,24 @@ prettier配置文件：`.prettierignore，.prettierrc.js`
 
 需要说明的是，Swico默认只会在终端输出eslint error信息，并不会输出warning。
 
+## postcss.config.js <Badge type="info">v2.1.0</Badge>
 
+css解析的配置文件。
+
+可用于配置tailwind css，详见：[样式 > Tailwind CSS]。
+
+默认配置：
+
+```js
+module.exports = {
+    plugins: [
+        ['autoprefixer']  //表示使用autoprefixer插件提高css兼容性
+    ]
+}
+```
 
 [API > Swico配置]:/swico-config
 [Git Hooks]:/git-hooks
 [样式]:/style
 [API > Global配置]:/swico-global
+[样式 > Tailwind CSS]:/style#tailwind-css

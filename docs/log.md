@@ -8,10 +8,18 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 1. 0 <Badge type="info">2025-07-01</Badge>
+
+- :new: 文档新增支持`TailWind CSS 4.x`配置说明。
+- :lipstick: `postcss`配置文件独立出来，可自定义配置。
+- :wrench: 修复开发/生成环境编译用时的显示误差问题。
+- :wrench: 修复内部部分配置项获取的逻辑错误。
+
+
 ## v2. 0. 0 <Badge type="info">2025-05-12</Badge>
 
 - :hammer_and_wrench: 全面接入`Rspack 1`打包工具及其生态，重构部分打包逻辑，提升编译和打包效率，不再采用Webpack。
-- :new: 升级React 19，Vue 3.5，ESLint 9，TypeScript 5.8架构以及相关部分依赖版本。
+- :new: 升级React 19，React Router 7，Vue 3.5，ESLint 9，TypeScript 5.8架构以及相关部分依赖版本。
 - :lipstick: 调整终端信息输出。
 - :lipstick: 优化初始模板配置页面。
 - :wrench: 修复Swico配置项`console`无效的问题。
