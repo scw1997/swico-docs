@@ -8,7 +8,7 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
-## v2. 1. 0 <Badge type="info">2025-07-01</Badge>
+## v2. 1. 0 <Badge type="info">2025-07-02</Badge>
 
 - :new: 文档新增支持`TailWind CSS 4.x`配置说明。
 - :lipstick: `postcss`配置文件独立出来，可自定义配置。
