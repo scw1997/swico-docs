@@ -369,7 +369,7 @@ Swico默认会将此属性值通过项目入口文件 [index.ejs] 挂载到全�
 更多关于`publicPath`介绍请参考： [publicPath说明](https://rspack.dev/zh/guide/features/asset-base-path)。
 
 
-## responseHeaders
+## responseHeaders <Badge type="tip">v2.5.0</Badge>
 
 - 仅`swico.dev.ts`可用
 
