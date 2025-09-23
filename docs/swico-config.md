@@ -369,6 +369,23 @@ Swico默认会将此属性值通过项目入口文件 [index.ejs] 挂载到全�
 更多关于`publicPath`介绍请参考： [publicPath说明](https://rspack.dev/zh/guide/features/asset-base-path)。
 
 
+## responseHeaders
+
+- 仅`swico.dev.ts`可用
+
+为本地开发环境所有响应添加自定义 HTTP 头
+
+```typescript
+//config/swico.dev.ts
+import { defineConfig } from 'swico';
+
+export default defineConfig('dev', {
+    headers: {
+        'X-Swico': 'swico',
+    },
+});
+
+```
 ## router
 
 用于配置项目路由，详细配置说明请阅读：[路由]

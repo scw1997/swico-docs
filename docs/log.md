@@ -8,6 +8,14 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 2. 0 <Badge type="info">2025-09-23</Badge>
+
+- :new: Swico新增`responseHeaders`配置项
+- :new: 升级Rspack 1.5版本
+- :wrench: 修复hook useNav()没有传name和pathname时的异常路由跳转问题
+- :wrench: 修复部分情况下路由匹配信息异常的问题
+- :lipstick: 文档调整，增加注意事项说明
+
 ## v2. 1. 0 <Badge type="info">2025-07-02</Badge>
 
 - :new: 文档新增支持`TailWind CSS 4.x`配置说明。

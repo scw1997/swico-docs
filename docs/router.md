@@ -148,11 +148,11 @@ type ConfigRoutesItemType = {
   
   path支持路由动态参数 如`:id` 的形式和通配符的形式：
 
-  | path                                          | 匹配路径               | history.location.params获取值    |
-  |-----------------------------------------------|--------------------|-------------------------------|
-  | /news/:id                                     | /news/123          | <span>{id:'123'}</span>       |
-  | /user/:userid/name/:username                  | /user/123/name/scw | <span>{userid:123,username:'scw'}</span>|
-  | /*  `（仅React）`<br/><br/>/:pathMatch(.*)\* `（仅Vue）` | 404页面              | <span>{}</span>                           |
+  | path                                          | 匹配路径               | history.location.params获取值                                                    |
+  |-----------------------------------------------|--------------------|-------------------------------------------------------------------------------|
+  | /news/:id                                     | /news/123          | <span>{id:'123'}</span>                                                       |
+  | /user/:userid/name/:username                  | /user/123/name/scw | <span>{userid:123,username:'scw'}</span>                                      |
+  | /*  `（仅React）`<br/><br/>/:pathMatch(.*)\* `（仅Vue）` | /any（任意路径）         | <span>{*:'any'}</span>`（仅React）`<br/><span>{pathMatch:['any']}</span>`（仅Vue）` |
   :::warning 注意
   除了上述一般用法外，在动态路由匹配规则上，Vue-Router和React-Router存在不少的差异，更多详情请阅读相应官方文档：[VueRouter动态路由]与[ReactRouter动态路由]。
   :::
@@ -415,10 +415,13 @@ type ConfigRoutesItemType = {
 
   console.log(custom)
   ```
-  ```js [history.location]
+  ```tsx [history.location]
   import {history}  from 'swico'
 
-  console.log(history.location.custom)
+  useEffect(() => {
+    console.log(history.location.custom)
+  }, []);
+  
   ```
   :::
 ## 路由跳转
