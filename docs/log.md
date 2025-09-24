@@ -8,6 +8,11 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 3. 0 <Badge type="info">2025-09-24</Badge>
+
+- :wrench: 修复部分情况下本地启动无法正常显示页面，报404错误的问题
+- :wrench: 修复swico-cli创建项目时，已存在同名项目，选择Cancel却依然继续创建的问题
+
 ## v2. 2. 0 <Badge type="info">2025-09-23</Badge>
 
 - :new: Swico新增`responseHeaders`配置项
