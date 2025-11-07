@@ -9,7 +9,8 @@ import { Link } from 'swico'
 const Example = () => {
   return (
    <div>
-        <Link to={'/test'}>点我跳转到/test</Link>
+        <Link to={'/test'}>点我跳转到地址：/test</Link>
+       <Link to={{name:'test',query:{a:'1'}}}>点我跳转到地址：/test?a=1</Link>
   </div>
     );
 };
@@ -24,7 +25,8 @@ import { Link } from 'swico'
 </script>
 
 <template>
-  <Link to='/test'>点我跳转到/test</Link>
+  <Link to="/test">点我跳转到地址：/test</Link>
+  <Link :to="{name:'test',query:{a:'1'}}">点我跳转到地址：/test?a=1</Link>
 </template>
 
 ```
@@ -33,9 +35,9 @@ import { Link } from 'swico'
 该组件支持以下props：
 ## to
 
-- 类型：`string`
+- 类型：`string | number | SwicoHistoryOptionType ` 
 
-必传项，欲跳转的路由path地址。
+必传项，欲跳转的路由信息。参数说明请参考：[useNav > to](/hooks.html#to)
 
 ## replace
 
@@ -44,9 +46,9 @@ import { Link } from 'swico'
 
 是否替换当前路由。
 
-当为值true时，跳转行为等价于**history.replace()**。
+当为值true时，跳转行为等价于[history.replace()](/history.html#replace)。
 
-当值为false时，跳转行为等价于**history.push()**。
+当值为false时，跳转行为等价于[history.push()](/history.html#push)。
 ## className/class
 
 - 类型：`string`
@@ -55,7 +57,8 @@ import { Link } from 'swico'
 
 ## style
 
-- 类型：`CSSProperties`或`string`
+- 类型：React模板中为`CSSProperties`，Vue模板中为`string`
 
-style属性设置。
+行内样式style设置。
+
 

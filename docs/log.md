@@ -8,6 +8,20 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 5. 0 <Badge type="info">2025-11-07</Badge>
+
+- :wrench: 紧急修复同时启动react和vue项目时，Link组件TS类型检查混乱异常报错的问题
+- :lipstick: swico包引用入口逻辑大量优化
+- :lipstick: 调整生成的.swico路径部分文件名称
+- :lipstick: 模板默认eslint配置微调
+
+## v2. 4. 0 <Badge type="info">2025-11-06</Badge>
+
+- :new: Rspack，React，Vue等部分依赖升级为最新版本
+- :hammer_and_wrench: 重构`Link`组件，`to` prop新增支持`SwicoHistoryOption`类型 
+- :hammer_and_wrench: 调整swico-cli的脚本命令name统一用`swico-cli`，避免与swico冲突
+- :lipstick: 优化swico-cli创建项目时，将指定的项目名称同步至package.json中
+
 ## v2. 3. 0 <Badge type="info">2025-09-24</Badge>
 
 - :wrench: 修复部分情况下本地启动无法正常显示页面，报404错误的问题
