@@ -219,11 +219,15 @@ const Index = () => {
 
 ## loading
 
-全局路由懒加载时用来配置加载动画的组件文件，此文件是可选的。
+路由懒加载的占位组件，可用于配置路由页面加载渲染之前的显示效果。此文件是可选的。
+
+
 
 - **在React模板中：**
 
-  具体路径为`src/loading/index.tsx`。以下为示例：
+此组件会基于React内置的`lazy`和`Suspense` API的基础上创建。
+
+组件路径为`src/loading/index.tsx`。以下为示例：
 
 
 ::: code-group
@@ -252,9 +256,11 @@ const Index = () => {
 
 - **在Vue模板中：**
 
-  Vue3的`Suspense`目前只能用于异步组件，对于路由中的懒加载组件，这些与异步组件不同，**目前他们不会触发 `<Suspense>`**。
+    暂不支持
 
-  但是，它们仍然可以有异步组件作为后代，你可以在路由组件的后代组件中使用 `<Suspense>`。
+>  Vue3的`Suspense`目前只能用于异步组件，对于路由中的懒加载组件，这些与异步组件不同，**目前他们不会触发 `<Suspense>`**。
+
+ 
 
 ## eslint/prettier
 

@@ -39,6 +39,11 @@ import { Link } from 'swico'
 
 必传项，欲跳转的路由信息。参数说明请参考：[useNav > to](/hooks.html#to)
 
+
+:::warning 注意
+v2.5.0版本之前，to参数只支持string类型。
+:::
+
 ## replace
 
 - 类型：`boolean`
