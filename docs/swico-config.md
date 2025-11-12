@@ -181,8 +181,10 @@ export default defineConfig('prod', {
 - test.json
 ```
 
-:::tip
-Swico默认已内置在构建产物时对项目根路径下`public`文件夹复制到构建产物dist目录下
+:::warning 注意事想
+- Swico默认已内置在构建产物时对项目根路径下`public`文件夹复制到构建产物dist目录下，建议优先使用此路径
+- 复制文件时，如果文件不存在，则Swico会抛出错误。
+- 复制一个目录时，如果目录中没有文件，则Swico会抛出错误。
 :::
 
 ## define
