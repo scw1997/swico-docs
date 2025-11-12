@@ -112,7 +112,7 @@ export default defineConfig('base', {
 
 
 
-> Swico默认会将此配置值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.routerBase`访问。
+> Swico默认会将此配置值注入到全局，项目代码中可通过`SWICO_ROUTER_BASE`直接访问获取。
 
 ::: warning 注意
 当type值为`hash`时，此时将会忽略base值的设置。这意味着此时访问路由无论是否携带base都可以正常访问。
@@ -160,7 +160,7 @@ type ConfigRoutesItemType = {
 
   当前路由的命名，也是唯一标识。
   :::tip 
-  建议设置`name`属性，方便路由跳转和项目日后维护。（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）
+  建议设置`name`属性，方便路由跳转和项目日后维护（当根据`name`进行路由跳转时，即使之后路由地址发生变化也不用修改跳转部分的代码。）。
   :::
 - **component**
 
@@ -385,7 +385,7 @@ type ConfigRoutesItemType = {
   ```
   :::
 
-- **custom**
+- **custom** <Badge type="tip">v1.3.0</Badge>
 
   用于设置当前路由下的一些自定义字段数据，类型不限，且**不可修改**。
 
@@ -495,7 +495,7 @@ const jumpLogin = ()=>{
 更多关于history路由跳转的方法请阅读：[API > history]
 
 
-## Link组件
+3. **使用Link组件**
 
 ::: code-group
 

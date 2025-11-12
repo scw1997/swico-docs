@@ -3,9 +3,9 @@
 
 Swico提供了两套前端开发模板可供选择，方便不同框架开发者使用：
 
-- Vue模板：`Vue 3.5 + Vue Router 4.x + TypeScript 5.x`
+- Vue模板：`Vue 3.5 + Vue Router 4 + TypeScript 5`
 
-- React模板：`React 19 + React Router 7.x + TypeScript 5.x`
+- React模板：`React 19 + React Router 7 + TypeScript 5`
 
 
 两套模板结构和配置大同小异，主要针对React和Vue的特点做了细微区分。
@@ -65,7 +65,7 @@ Swico运行时配置文件，会在每次执行`swico start`和`swico build`命�
 
 swico配置文件目录，项目路由需要在此配置。此外你还可以进行功能扩展例如Alias映射，本地请求代理等。
 
-详见：[API > Swico配置]
+详见：[API > 配置项]
 
 ## dist
 
@@ -104,6 +104,64 @@ const Index = () => {
 };
 ```
 :::
+
+**注意：若swico配置项`publicPath`不为`/`（默认为/），则在`生产环境`下，需要在标签链接里添加上publicPath前缀才能正常访问该资源。**
+
+例如以下Swico配置：
+
+```ts
+//config/swico.ts
+import { defineConfig } from 'swico';
+const { SWICO_ENV} = process.env;
+
+export default defineConfig('base', {
+    publicPath:'/test/',
+    // 将表示当前所处环境的变量注入到项目中，可在业务代码中使用
+    define:   { SWICO_ENV }
+    
+});
+
+```
+
+则生产环境访问logo.png文件时，需加上publicPath前缀：
+::: code-group
+
+```tsx{5} [react]
+
+const Index = () => {
+    //这里的SWICO_PUBLIC_PATH是Swico默认注入的全局变量
+    const preFix = isProduction ? SWICO_PUBLIC_PATH : '/'
+    return (
+        <div className={'welcome'}>
+            {/*public目录下有个logo.png文件*/}
+            <img alt="logo" src=`${preFix}logo.png` />
+            <h2 style={{ color: '#3a95a7' }}>欢迎使用 Swico</h2>
+        </div>
+    );
+};
+```
+
+```vue{4} [vue]
+<script setup>
+//这里的SWICO_PUBLIC_PATH是Swico默认注入的全局变量
+const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
+</script>
+
+<template>
+  <div class="welcome">
+    <!--public目录下有个logo.png文件-->
+    <img alt="logo" :src="`${preFix}logo.png`" />
+    <h2 style="color: #3a95a7">Welcome to Swico!</h2>
+  </div>
+</template>
+```
+
+
+
+:::
+
+
+
 
 ## layout
 
@@ -161,7 +219,9 @@ const Index = () => {
 
 ## index.ejs
 
-项目的入口`index.html`模板文件，可根据需要自行修改，例如引入一些外部js资源等。
+项目的入口`index.html`模板文件。
+
+可根据需要自行调整修改，例如引入一些外部js资源。
 
 ```html
 <!--src/index.ejs-->
@@ -175,39 +235,67 @@ const Index = () => {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
   />
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="<%= SWICO_ENV==='prod'? SWICO_PUBLIC_PATH:'/' %>favicon.ico" />
   <Title>Swico App</Title>
-  <script>
-    // swico配置文件中router->base配置项
-    window.SWICO_ROUTER_BASE = '<%= routerBase %>'
-    // swico配置文件中publicPath配置项
-    window.SWICO_PUBLIC_PATH = '<%= publicPath %>'
-  </script>
 </head>
 <body>
-<!--切勿删除此元素节点-->
-<div id="root">
+<!--切勿删除此根元素节点-->
+<div id="swico-root">
   <!-- 页面在这里渲染    -->
 </div>
-
-
 </body>
 </html>
 
 ```
-::: danger 警告
-切勿删除`id="root"`的div元素，它是模板中挂载整个项目App的容器元素。
-:::
 
 ## global.ts
 
-这里主要用于定义一些全局配置性的参数或方法，需要默认导出（配置详细介绍见：[API > Global配置]）。
+用于定义一些全局配置性的参数或方法（`注意必须有默认导出`），也可添加一些在全局页面渲染时需要执行的逻辑。
 
-还可以添加一些全局性的代码，会在全局页面渲染时执行。 
+推荐使用`defineGlobal` api来获得更好的TypeScript类型提示。
 
-::: warning 注意
- 此文件不可删除，并且必须有默认导出。如果你不需要，则使默认导出为空对象即可。
-:::
+
+- **在Vue模板中：**
+
+支持以下配置项：
+
+- **`onInit`**
+
+ Vue模板挂载的App实例初始完成后的回调。返回两个参数：`app`（vue应用实例）和`router`（vue-router对象）。
+
+可以在此对app和router进行api调用操作，比如添加插件，设置路由守卫等。
+
+
+
+示例：
+  ```ts
+  // src/global.ts
+
+  import { defineGlobal } from 'swico';
+  import { createPinia } from 'pinia';
+  
+  export default defineGlobal({
+      onInit: (app, router) => {
+          //注入全局状态管理store
+          app.use(createPinia());
+          //设置路由守卫
+          router.beforeEach((to, from, next) => {
+              //
+          })
+      }
+  });
+  
+  ```
+
+- **在React模板中：**
+
+暂无可支持的配置，则默认空对象导出。
+
+  ```ts
+ // src/global.ts
+  export default {}
+  ```
+
 
 ## global.(css|less|scss)
 
@@ -222,14 +310,13 @@ const Index = () => {
 路由懒加载的占位组件，可用于配置路由页面加载渲染之前的显示效果。此文件是可选的。
 
 
-
 - **在React模板中：**
 
-此组件会基于React内置的`lazy`和`Suspense` API的基础上创建。
+此功能基于React内置的`lazy`和`Suspense` API实现。
 
-组件路径为`src/loading/index.tsx`。以下为示例：
+组件路径为`src/loading/index.tsx`。
 
-
+示例：
 ::: code-group
 
   ```tsx [src/loading/index.tsx]
@@ -244,7 +331,7 @@ const Index = () => {
   ```
 
   ```less [style.module.less]
-   .loadingContainer {
+  .loadingContainer {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -254,13 +341,14 @@ const Index = () => {
   ```
 :::
 
-- **在Vue模板中：**
+- **在Vue模板中：** 
 
-    暂不支持
+暂不支持
 
->  Vue3的`Suspense`目前只能用于异步组件，对于路由中的懒加载组件，这些与异步组件不同，**目前他们不会触发 `<Suspense>`**。
+:::warning 官方解释
+Vue3 Suspense目前为实验特性且未来很可能会发生变化，同时Vue Router 使用动态导入对懒加载组件（Swico路由配置默认为懒加载模式）进行了内置支持。这些与异步组件不同，目前他们不会触发 Suspense。
 
- 
+:::
 
 ## eslint/prettier
 
@@ -272,7 +360,7 @@ prettier配置文件：`.prettierignore，.prettierrc.js`
 
 需要说明的是，Swico默认只会在终端输出eslint error信息，并不会输出warning。
 
-## postcss.config.js <Badge type="info">v2.1.0</Badge>
+## postcss.config.js <Badge type="tip">v2.1.0</Badge>
 
 css解析的配置文件。
 
@@ -288,8 +376,7 @@ module.exports = {
 }
 ```
 
-[API > Swico配置]:/swico-config
+[API > 配置项]:/swico-config
 [Git Hooks]:/git-hooks
 [样式]:/style
-[API > Global配置]:/swico-global
 [样式 > Tailwind CSS]:/style#tailwind-css

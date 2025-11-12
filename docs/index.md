@@ -16,7 +16,7 @@ hero:
 
 features:
   - title: 前沿技术栈
-    details: 基于Rspack 1 + Typescript 5，基于Rust多线程驱动，显著提升编译性能。
+    details: 基于Rspack 1 + Typescript 5，底层基于Rust多线程驱动，显著提升编译性能。
   - title: API高度统一
     details: 提供Vue 3和React 19两种模板，并最大化统一API。
   - title: 开箱即用
@@ -27,6 +27,6 @@ features:
     details: 基于React-Router 7和Vue-Router 4进行封装，支持路由嵌套，动态参数，懒加载以及装饰校验等功能。
   - title: 功能可扩展
     details: 支持进行项目架构自定义配置修改或扩展，例如Alias映射，本地请求代理等。
-footer: MIT Licensed | Copyright © 2024-present
+footer: MIT Licensed | Copyright © 2025-present
 ---
 

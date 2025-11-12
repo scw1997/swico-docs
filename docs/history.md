@@ -159,17 +159,17 @@ type SwicoLocationType = {
 
 用于获取当前页面路由的相关参数：
 
-| 参数       | 类型                 | 说明                                                                                                               |
-  |----------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| query    | Record<string,any> | searchParams的序列化对象。<br/>如当前页面地址为`/news?a=1&b=2`，则query值为`{a:1,b:2}`。                                             |
-| params   | Record<string,any> | 路由动态参数组成的对象。<br/>如当前页面地址为`/news/123`，其路由path为`/news/:id`，则params值为`{id:123}`。<br/>**注意：Vue模板下获取的params对象格式略有差异** |
-| hash     | string             | 路由hash字符串。                                                                                                       |
-| name     | string             | 路由唯一标识值。                                                                                                         |
-| path     | string             | 配置的路由地址（不带任何参数）                                                                                                  |
-| pathname | string             | 带base的完整path值。                                                                                                   |
-| search   | string             | 路由查询字符串,如`?a=1&b=2`。                                                                                             |
-| state    | Record<string,any> | 当前路由的状态参数，一般在跳转至当前路由时设置，**只在当前会话窗口有效**。                                                                          |                                     |
-| custom   | any                | 当前路由的自定义数据，不可修改。                                                                                                 |        
+| 参数                                                   | 类型                 | 说明                                                                                                               |
+  |------------------------------------------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
+| query                                                | Record<string,any> | searchParams的序列化对象。<br/>如当前页面地址为`/news?a=1&b=2`，则query值为`{a:1,b:2}`。                                             |
+| params                                               | Record<string,any> | 路由动态参数组成的对象。<br/>如当前页面地址为`/news/123`，其路由path为`/news/:id`，则params值为`{id:123}`。<br/>**注意：Vue模板下获取的params对象格式略有差异** |
+| hash                                                 | string             | 路由hash字符串。                                                                                                       |
+| name                                                 | string             | 路由唯一标识值。                                                                                                         |
+| path                                                 | string             | 配置的路由地址（不带任何参数）                                                                                                  |
+| pathname                                             | string             | 带base的完整path值。                                                                                                   |
+| search                                               | string             | 路由查询字符串,如`?a=1&b=2`。                                                                                             |
+| state                                                | Record<string,any> | 当前路由的状态参数，一般在跳转至当前路由时设置，**只在当前会话窗口有效**。                                                                          |                                     |
+| custom <span><Badge type="tip">v1.3.0</Badge></span> | any                | 当前路由的自定义数据，不可修改。                                                                                                 |        
 ```typescript
 import { history } from 'swico'
 const { location } = history
@@ -216,12 +216,12 @@ router:{
 
 
 
-### history.location中的path和pathname的区别
+:::tip history.location中的path和pathname的区别
 
 二者的区别主要在于路由base值的设置（见：[路由 > 基本配置 > base]）。
  
 例如当base值为/base，访问的当前路由地址为/base/news/list?id=1，则path值为/news/list，而pathname为/base/news/list。
-
+:::
 
 
 [路由]:/router

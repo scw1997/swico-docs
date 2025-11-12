@@ -22,7 +22,7 @@ npm i swico-cli -g
 
 安装完成后进入任意路径，创建指定名称的Swico App项目：
 ```shell:no-line-numbers
-swico create [project-name]
+swico-cli create [project-name]
 ```
 此命令执行后会引导开发者进行相关项目配置选择，随后等待模板初始化完成即可创建成功。
 

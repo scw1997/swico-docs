@@ -70,25 +70,22 @@ export default defineConfig({
             link:'/style'
           },
           {
+            text:'变量',
+            link:'/char'
+          },
+          {
             text:'Git Hooks',
             link:'/git-hooks'
           },
-          {
-            text:'环境变量',
-            link:'/env'
-          },
+
         ]
       },
       {
         text:'API',
         items:[
           {
-            text: 'Swico配置',
+            text: '配置项',
             link: '/swico-config',
-          },
-          {
-            text: 'Global配置',
-            link: '/swico-global',
           },
           {
             text:'history',
@@ -99,7 +96,7 @@ export default defineConfig({
             link: '/hooks',
           },
           {
-            text: 'Link',
+            text: 'Link组件',
             link: '/link',
           },
           {
@@ -119,7 +116,7 @@ export default defineConfig({
       },
 
       {
-        text:'v2.5.0',
+        text:'v2.7.0',
         link:null
       }
     ],

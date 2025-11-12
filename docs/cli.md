@@ -13,7 +13,7 @@ npm i swico-cli -g
 ```
 
 ::: warning swico-cli版本
-`强烈建议安装swico-cli v2版本`，其项目模板打包工具基于Rspack,编译性能相比v1有了显著提升。
+`强烈建议安装swico-cli v2以上版本`，其项目模板打包工具基于Rspack,编译性能相比v1有了显著提升。
 
 如果你需要使用webpack打包工具，请安装`1.7.3`版本，这是v1最完善的版本。
 
@@ -22,8 +22,12 @@ npm i swico-cli -g
 指定在当前路径下创建的项目名称：
 
 ```shell:no-line-numbers
-swico create [project-name]
+swico-cli create [project-name]
 ```
+:::warning 注意
+
+v2.4.0之前的版本请使用`swico create [project-name]`来创建项目
+:::
 
 
 创建命令执行后，会提供以下选项：

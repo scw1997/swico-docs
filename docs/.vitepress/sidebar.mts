@@ -39,10 +39,6 @@ export default [
                 link:'#路由跳转'
             },
             {
-                text:'Link组件',
-                link:'#link组件'
-            },
-            {
                 text:'路由参数',
                 link:'#路由参数'
             },
@@ -53,25 +49,20 @@ export default [
         link: '/style',
     },
     {
-        text: 'Git Hooks',
-        link: '/git-hooks',
+        text: '变量',
+        link: '/char',
     },
     {
-        text: '环境变量',
-        link: '/env',
+        text: 'Git Hooks',
+        link: '/git-hooks',
     },
 
     {
         text:'API',
         items:[
             {
-                text: 'Swico配置',
+                text: '配置项',
                 link: '/swico-config',
-
-            },
-            {
-                text: 'Global配置',
-                link: '/swico-global',
 
             },
             {
@@ -86,7 +77,7 @@ export default [
 
             },
             {
-                text: 'Link',
+                text: 'Link组件',
                 link: '/link',
 
             },

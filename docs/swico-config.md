@@ -1,6 +1,6 @@
 
 
-# 配置
+# 配置项
 
 Swico提供配置文件方便开发者可对部分项目配置进行修改扩展，例如Alias映射，本地请求代理等。
 
@@ -327,7 +327,7 @@ export default defineConfig('dev', {
 
 - 仅`swico.dev.ts`可用
 
-配置本地开发时，Webpack DevServer的请求代理。
+配置本地开发时，Rspack DevServer的请求代理。
 
 示例：
 
@@ -355,15 +355,15 @@ export default defineConfig('dev', {
 
 - 仅`swico.ts`可用
 
-配置 Webpack 的`output > publicPath` 选项，表示当前项目访问地址的前缀路径。
+配置 Rsbpack 的`output > publicPath` 选项，表示当前项目访问地址的前缀路径。通常以`/`开头和结尾。
 
-通常在当项目被部署到到服务器`非根路径`下的情况下使用。
+此项通常在当项目被部署到到服务器`非根路径`下的情况下使用。
 
-比如项目被部署的服务器路径为`/test`，那么通过浏览器访问项目首页的地址默认为`www.xxx.com/test/index.html`。当不设置publicPath时，
+比如项目被部署的服务器路径为`/test/`，那么通过浏览器访问项目首页的地址默认为`www.xxx.com/test/index.html`。当不设置publicPath时，
 项目构建后index.html中所引用的js，css，图片等静态资源地址依然是基于根路径，这种情况下访问上面首页地址后，将无法正确引用静态资源。 此时需要设置publicPath为`/test/`。
 
 :::info
-Swico默认会将此属性值通过项目入口文件 [index.ejs] 挂载到全局，项目代码中可通过`window.publicPath`访问。
+Swico默认会将此配置值注入到全局，项目代码中可通过`SWICO_PUBLIC_PATH`访问获取。
 :::
 
 更多关于`publicPath`介绍请参考： [publicPath说明](https://rspack.dev/zh/guide/features/asset-base-path)。

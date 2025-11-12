@@ -8,6 +8,20 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 7. 0 <Badge type="info">2025-11-12</Badge>
+- :new: 新增支持访问`SWICO_ENV`等多个全局变量，方便项目业务代码中快速访问使用。
+- :hammer_and_wrench: 顶层挂载节点id由`root`调整为`swico-root`
+- :wrench: 官方文档架构调整，多处说明文本缺失/歧义/不规范/错误优化修复。
+- :lipstick: **.swico**输出文件逻辑优化，部分架构调整。
+- :wastebasket: `index.ejs`文件调整，不再默认挂载任何全局变量至window对象，改为由上述第1条代替。
+
+## v2. 6. 0 <Badge type="info">2025-11-12</Badge>
+
+:::danger 警告
+误发！存在严重bug，请勿安装此版本！
+:::
+
+
 ## v2. 5. 0 <Badge type="info">2025-11-07</Badge>
 
 - :wrench: 紧急修复同时启动react和vue项目时，Link组件TS类型检查混乱异常报错的问题
