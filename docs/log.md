@@ -8,6 +8,11 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 7. 1 <Badge type="info">2025-11-17</Badge>
+
+- :wrench: 修复Vue模板中无法正常渲染Link组件的问题
+- :lipstick: Vue模板默认eslint配置微调，避免与prettier冲突
+
 ## v2. 7. 0 <Badge type="info">2025-11-12</Badge>
 - :new: 新增支持访问`SWICO_ENV`等多个全局变量，方便项目业务代码中快速访问使用。
 - :hammer_and_wrench: 顶层挂载节点id由`root`调整为`swico-root`
