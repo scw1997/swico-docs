@@ -8,6 +8,14 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 8. 0 <Badge type="info">2025-11-25</Badge>
+
+- :new: 新增支持不同模板swico API特性可通过`swico/react`或`swico/vue`来代替`swico`引入，从而获得更好的TS类型提示。
+- :new: React模板global.ts文件新增支持`onInit`配置项
+- :lipstick: 同步调整swico-cli创建项目时模板中默认为通过`swico/react`或`swico/vue`来引入API特性
+- :lipstick: 优化.swico输出性能，不再生成额外的Link，Loading和config文件
+- :lipstick: 优化挂载根节点元素动态生成，不再设置id属性避免可能的元素全局id污染
+
 ## v2. 7. 1 <Badge type="info">2025-11-17</Badge>
 
 - :wrench: 修复Vue模板中无法正常渲染Link组件的问题

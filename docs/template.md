@@ -239,10 +239,7 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
   <Title>Swico App</Title>
 </head>
 <body>
-<!--切勿删除此根元素节点-->
-<div id="swico-root">
   <!-- 页面在这里渲染    -->
-</div>
 </body>
 </html>
 
@@ -255,20 +252,45 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
 推荐使用`defineGlobal` api来获得更好的TypeScript类型提示。
 
 
-- **在Vue模板中：**
+
 
 支持以下配置项：
 
-- **`onInit`**
+### onInit
 
- Vue模板挂载的App实例初始完成后的回调。返回两个参数：`app`（vue应用实例）和`router`（vue-router对象）。
+**对于React模板**：<Badge type="tip">v2.8.0</Badge>
+
+**`onInit`为顶层Root元素render执行后的回调方法。**
+
+该方法暂无传递参数。
+
+**对于Vue模板**：
+
+**`onInit`为顶层挂载的App实例即将初始化完成的回调方法。**
+
+该方法传递两个参数：`app`（vue应用实例）和`router`（vue-router对象）。
 
 可以在此对app和router进行api调用操作，比如添加插件，设置路由守卫等。
 
 
 
 示例：
-  ```ts
+
+:::code-group
+  ```ts [react]
+  // src/global.ts
+
+  import { defineGlobal } from 'swico';
+  import { createPinia } from 'pinia';
+  
+  export default defineGlobal({
+      onInit: () => {
+         //将在root元素render后调用
+      }
+  });
+  
+  ```
+  ```ts [vue]
   // src/global.ts
 
   import { defineGlobal } from 'swico';
@@ -276,6 +298,7 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
   
   export default defineGlobal({
       onInit: (app, router) => {
+          //将在当前顶层App实例即将渲染时调用
           //注入全局状态管理store
           app.use(createPinia());
           //设置路由守卫
@@ -286,17 +309,6 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
   });
   
   ```
-
-- **在React模板中：**
-
-暂无可支持的配置，则默认空对象导出。
-
-  ```ts
- // src/global.ts
-  export default {}
-  ```
-
-
 ## global.(css|less|scss)
 
 全局样式文件，主要用于添加一些全局可用的通用样式。此文件是可选的。
