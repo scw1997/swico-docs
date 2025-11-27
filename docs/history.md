@@ -18,31 +18,7 @@ type SwicoHistoryType = {
 };
 ```
 
-:::danger 警告
 
-注意：`React模板下不要在全局layout组件的顶层访问history`，初次渲染由于还没有初始化路由，无法正常拿到history对象。
-
-```tsx
-//src/layout/index.ts
-import { history,Outlet } from 'swico'
-export default ()=>{
-    
-    //错误方式
-    const { query,name } = history.location //# [!code --]
-  
-    //正确方式
-    useEffect(() => {
-          const { query,name } = history.location //# [!code ++]
-    }, []);
-    
-    return <div>
-      
-        <Outlet />
-    </div>
-}
-```
-
-:::
 
 ## push
 
@@ -214,7 +190,56 @@ router:{
 }
 ```
 
+:::warning 注意
 
+`不要在全局layout组件的顶层访问history`，在Layout中React模板下需要等待初始挂载完成，Vue模板下需要进行属性监听。否则无法正常拿到history对象的正确值。
+:::code-group
+
+```tsx [react]
+//src/layout/index.ts
+import { history,Outlet } from 'swico'
+export default ()=>{
+    
+    //此处无法获取到正确属性值
+    const { query,name } = history.location //# [!code --]
+    console.log('location.name',name);//# [!code --]
+  
+    //正确方式
+    useEffect(() => {
+          const { query,name } = history.location //# [!code ++]
+            console.log('location.name',name);//# [!code ++]
+    }, []);
+    
+    return <div>
+        <Outlet />
+    </div>
+}
+```
+```vue [vue]
+<!--src/layout/Layout.vue-->
+
+<script setup lang="ts">
+  import { Outlet, Link, history } from 'swico/vue';
+  import { watch,ref } from 'vue';
+  //此处无法获取到正确属性值 //# [!code --]
+  const name = history.location.name//# [!code --]
+  console.log('location.name',history.location.name);//# [!code --]
+
+  //正确方式 //# [!code ++]
+  const nameRef = ref('');//# [!code ++]
+  watch(() => history.location.name, (name) => { //# [!code ++]
+    console.log('location.name', name); //# [!code ++]
+    nameRef.value = name //# [!code ++]
+  });//# [!code ++]
+</script>
+
+<template>
+  <!--  <span>当前路由的name为：{{name}}</span>  //# [!code ++] -->
+  <span>当前路由的name为：{{nameRef}}</span>
+  <Outlet />
+</template>
+```
+:::
 
 :::tip history.location中的path和pathname的区别
 

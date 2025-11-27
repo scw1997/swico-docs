@@ -2,6 +2,7 @@
 
 Swico提供了以下Hooks API
 
+
 ## useLocation
 
 
@@ -76,6 +77,35 @@ router:{
   search:'?a=1&b=2'
 }
 ```
+:::warning 注意
+
+Vue模板不要在**全局layout组件的顶层**获取useLocation的返回值对象里属性，初次渲染由于还没有初始化路由，无法正常拿到返回值对象的正确值。
+
+```vue [vue]
+<!--src/layout/Layout.vue-->
+
+<script setup lang="ts">
+    import { Outlet, Link, useLocation, history } from 'swico/vue';
+    import { watch,ref } from 'vue';
+    const location = useLocation();
+    //无法获取到正确属性值 //# [!code --]
+    console.log('location.name',location.name);//# [!code --]
+
+    //正确方式 //# [!code ++]
+    const nameRef = ref('');//# [!code ++]
+    watch(() => location.name, (name) => { //# [!code ++]
+        console.log('location.name', name); //# [!code ++]
+        nameRef.value = name //# [!code ++]
+    });//# [!code ++]
+</script>
+
+<template>
+<!--  <span>当前路由的name为：{{name}}</span>  //# [!code ++] -->  
+  <span>当前路由的name为：{{nameRef}}</span>
+  <Outlet />
+</template>
+```
+:::
 
 ## useNav
 
