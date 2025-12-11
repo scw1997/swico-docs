@@ -8,6 +8,17 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v2. 9. 0 <Badge type="info">2025-12-11</Badge>
+
+- :new: 路由跳转时，跳转目标页面的state参数新增`navType`属性值表示跳转类型。
+- :new: swico入口新增暴露部分`ConfigRoutesItemType`等必要的TS类型。
+- :new: 新增全局变量`SWICO_STATIC_PUBLIC_PATH`。
+- :wrench: 修复Vue模板下路由跳转时，若没有找到与所传name匹配的页面时控制台没有警告报错信息的问题。
+- :wrench: 修复swico配置文件路径`config`路径下引用swico/react和swico/vue时的ts报错。
+- :lipstick: `index.ejs`文件中去除IE兼容meta标签，调整模板语言默认识别为中文。
+- :lipstick: React模板下global.ts配置对象中的`onInit`方法调用时机调整，与Vue模板保持一致。
+- :lipstick: 说明文档同步调整优化。
+
 ## v2. 8. 0 <Badge type="info">2025-11-25</Badge>
 
 - :new: 新增支持不同模板swico API特性可通过`swico/react`或`swico/vue`来代替`swico`引入，从而获得更好的TS类型提示。

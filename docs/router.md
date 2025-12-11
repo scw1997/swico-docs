@@ -13,7 +13,7 @@
 
 ```ts [react]
 //config/swico.ts
-import { defineConfig } from 'swico';
+import { defineConfig } from 'swico/react';
 
 export default defineConfig('base', {
     //...
@@ -54,7 +54,7 @@ export default defineConfig('base', {
 
 ```ts [vue]
 //config/swico.ts
-import { defineConfig } from 'swico';
+import { defineConfig } from 'swico/vue';
 
 export default defineConfig('base', {
    //...
@@ -279,7 +279,7 @@ type ConfigRoutesItemType = {
   ::: code-group
   
   ```tsx [react]
-  import { Outlet } from 'swico';
+  import { Outlet } from 'swico/react';
 
   const Example = () => {
   return (
@@ -296,7 +296,7 @@ type ConfigRoutesItemType = {
   
   ```vue [vue]
   <script setup lang="ts">
-  import { Outlet } from 'swico';
+  import { Outlet } from 'swico/vue';
   </script>
   
   <template>
@@ -351,7 +351,7 @@ type ConfigRoutesItemType = {
   ::: code-group
 
   ```tsx [react]
-  import { Outlet } from 'swico';
+  import { Outlet } from 'swico/react';
   import { useState } from 'react'
   const Decorator = () => {
     const [isLogin,setIsLogin] = useState(false)
@@ -368,7 +368,7 @@ type ConfigRoutesItemType = {
 
   ```vue [vue]
   <script setup lang="ts">
-  import { Outlet } from 'swico';
+  import { Outlet } from 'swico/vue';
   defineProps<{isLogin:boolean}>()
   </script>
   
@@ -437,7 +437,7 @@ Swico提供了两种方式进行路由跳转。
 ::: code-group
 
 ```tsx [react]
-import { useNav } from 'swico'
+import { useNav } from 'swico/react'
 
 const Example = () => {
   const nav = useNav()  
@@ -456,7 +456,7 @@ export default Example;
 
 ```vue [vue]
 <script setup lang="ts">
-import { useNav } from 'swico'
+import { useNav } from 'swico/vue'
 
 const nav = useNav() 
 
@@ -500,7 +500,7 @@ const jumpLogin = ()=>{
 ::: code-group
 
 ```tsx [react]
-import { Link } from 'swico'
+import { Link } from 'swico/react'
 const Example = () => {
   return (
    <div>
@@ -514,7 +514,7 @@ export default Example;
 
 ```vue [vue]
 <script setup lang="ts">
-import { Link } from 'swico'
+import { Link } from 'swico/vue'
 </script>
 
 <template>

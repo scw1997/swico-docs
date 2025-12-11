@@ -70,18 +70,26 @@ export default defineConfig('base', {
 
 获取当前环境所设置的publicPath值。默认为`/`。
 
+### SWICO_STATIC_PUBLIC_PATH <Badge type="tip" text="v2.9.0" />
+
+获取当前环境的静态资源路径前缀值。通常在引用`public`文件夹下静态资源时使用。
+
+开发环境为`/`，生产环境为`SWICO_PUBLIC_PATH`。
+
+
 基本示例：
 
 ::: code-group
 
 ```tsx [react]
 const Index = () => {
-    console.log('Swico全局变量', SWICO_PUBLIC_PATH, SWICO_ROUTER_BASE, SWICO_ENV);
+    console.log('Swico全局变量', SWICO_PUBLIC_PATH, SWICO_ROUTER_BASE, SWICO_ENV,SWICO_STATIC_PUBLIC_PATH);
     return (
       <div>
         SWICO_ROUTER_BASE：{SWICO_ROUTER_BASE}
         SWICO_PUBLIC_PATH：{SWICO_PUBLIC_PATH}
         SWICO_ENV：{SWICO_ENV}
+        SWICO_STATIC_PUBLIC_PATH：{SWICO_STATIC_PUBLIC_PATH}
       </div>
     );
 };
@@ -89,7 +97,7 @@ const Index = () => {
 
 ```vue [vue]
 <script setup>
-console.log('Swico全局变量', SWICO_PUBLIC_PATH, SWICO_ROUTER_BASE, SWICO_ENV);
+console.log('Swico全局变量', SWICO_PUBLIC_PATH, SWICO_ROUTER_BASE, SWICO_ENV,SWICO_STATIC_PUBLIC_PATH);
 
 const publicPath = SWICO_PUBLIC_PATH;
 const routerBase = SWICO_ROUTER_BASE;
@@ -101,6 +109,7 @@ const env = SWICO_ENV;
         SWICO_ROUTER_BASE：{{ routerBase }} 
         SWICO_PUBLIC_PATH：{{ publicPath }} 
         SWICO_ENV：{{ env }}
+        SWICO_STATIC_PUBLIC_PATH：{SWICO_STATIC_PUBLIC_PATH}
     </div>
 </template>
 ```

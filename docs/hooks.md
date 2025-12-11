@@ -16,7 +16,7 @@ useLocation用于页面组件内部的路由参数获取：
 ::: code-group
 
 ```tsx [react]
-import { useLocation } from 'swico'
+import { useLocation } from 'swico/react'
 
 const Example = () => {
   const location = useLocation()
@@ -30,7 +30,7 @@ export default Example;
 
 ```vue [vue]
 <script setup lang="ts">
-import { useLocation } from 'swico'
+import { useLocation } from 'swico/vue'
 
 const location = useLocation()
 
@@ -137,7 +137,7 @@ type UseNavType = () => {
 ::: code-group
 
 ```tsx [react]
-import { useNav } from 'swico'
+import { useNav } from 'swico/react'
 
 const Example = () => {
   const nav = useNav()  
@@ -217,7 +217,12 @@ nav({name:'test',hash:'hash'})  //相当于nav('/test#/hash')
 
 nav({name:'test1',params:{id:'123'}})  //相当于nav('/test1/123')
 ```
+:::tip to的属性值变化 <Badge type="tip">v2.9.0</Badge>
 
+自`v2.9.0`开始，在执行nav跳转时,参数`to`中的`state`参数会默认携带一个`navType`属性值，表示当前跳转行为的类型。
+
+navType值可能为`push`或`replace`。可在跳转后的目标页面中通过此属性判断当前页面是否为replace跳转行为。
+:::
 
 ### options
 

@@ -74,93 +74,43 @@ swico配置文件目录，项目路由需要在此配置。此外你还可以进
 
 ## public
 
-此目录下所有文件（夹）会完全按原有路径结构被复制到打包构建产物的根路径(dist)下。
+此目录下所有文件（夹）会完全按原有路径结构被复制到打包构建产物的根路径(dist)下。可用于存放静态资源文件。
 
-可用于存放静态资源文件，并在项目代码中通过`根路径`引入该文件。
+引用此目录下静态资源时：
+
+- 若publicPath配置项值为/（默认为/），则可直接通过`/`+`public文件路径`引用静态资源
+- 若publicPath配置项值非/，则引用路径需要基于当前环境判断。开发环境为`/`+`public文件路径`，生产环境为`publicPath值`+`public文件路径`。
+
+Swico对以上逻辑进行了封装，你可以直接通过内置的全局变量`SWICO_STATIC_PUBLIC_PATH`变量引用public目录下静态资源。
 
 示例：
 ::: code-group
-
-```vue{4} [vue]
-<template>
-  <div class="welcome">
-    <!--public目录下有个logo.png文件-->
-    <img alt="logo" src="/logo.png" />
-    <h2 style="color: #3a95a7">Welcome to Swico!</h2>
-  </div>
-</template>
-```
-
-
 ```tsx{5} [react]
 const Index = () => {
     return (
-        <div className={'welcome'}>
-            {/*public目录下有个logo.png文件*/}
-            <img alt="logo" src="/logo.png" />
-            <h2 style={{ color: '#3a95a7' }}>欢迎使用 Swico</h2>
-        </div>
+    <div>
+        {/* 图片路径：public/logo.png*/}
+        <img alt="logo" src={`${SWICO_STATIC_PUBLIC_PATH}logo.png`} />
+        
+         {/*图片路径：public/test/logo.png*/}
+         <img alt="logo" src={`${SWICO_STATIC_PUBLIC_PATH}test/logo.png`} />   
+    </div>
     );
 };
 ```
-:::
 
-**注意：若swico配置项`publicPath`不为`/`（默认为/），则在`生产环境`下，需要在标签链接里添加上publicPath前缀才能正常访问该资源。**
-
-例如以下Swico配置：
-
-```ts
-//config/swico.ts
-import { defineConfig } from 'swico';
-const { SWICO_ENV} = process.env;
-
-export default defineConfig('base', {
-    publicPath:'/test/',
-    // 将表示当前所处环境的变量注入到项目中，可在业务代码中使用
-    define:   { SWICO_ENV }
+```vue{4} [vue]
+<template>
+  <div >
+     {/* 图片路径：public/logo.png*/}
+     <img alt="logo" :src="`${SWICO_STATIC_PUBLIC_PATH}logo.png`" />
     
-});
-
-```
-
-则生产环境访问logo.png文件时，需加上publicPath前缀：
-::: code-group
-
-```tsx{5} [react]
-
-const Index = () => {
-    //这里的SWICO_PUBLIC_PATH是Swico默认注入的全局变量
-    const preFix = isProduction ? SWICO_PUBLIC_PATH : '/'
-    return (
-        <div className={'welcome'}>
-            {/*public目录下有个logo.png文件*/}
-            <img alt="logo" src=`${preFix}logo.png` />
-            <h2 style={{ color: '#3a95a7' }}>欢迎使用 Swico</h2>
-        </div>
-    );
-};
-```
-
-```vue{4} [vue]
-<script setup>
-//这里的SWICO_PUBLIC_PATH是Swico默认注入的全局变量
-const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
-</script>
-
-<template>
-  <div class="welcome">
-    <!--public目录下有个logo.png文件-->
-    <img alt="logo" :src="`${preFix}logo.png`" />
-    <h2 style="color: #3a95a7">Welcome to Swico!</h2>
+     {/*图片路径：public/test/logo.png*/}
+     <img alt="logo" :src="`${SWICO_STATIC_PUBLIC_PATH}test/logo.png`" />
   </div>
 </template>
 ```
-
-
-
 :::
-
-
 
 
 ## layout
@@ -173,9 +123,8 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
   全局布局组件文件路径为`layout/index.tsx`
   ```tsx
   // src/layout/index.tsx
-  
   import { FC } from 'react';
-  import { Outlet } from 'swico';
+  import { Outlet } from 'swico/react';
   
   const Layout: FC = () => {
     //Outlet为整体路由页面渲染，可根据布局需要放到适当的位置
@@ -190,10 +139,8 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
   全局布局组件文件路径为`layout/Layout.vue`
   ```vue
   <!--src/layout/Layout.vue  -->
-  
   <script setup lang="ts">
-  
-  import { Outlet } from 'swico';
+  import { Outlet } from 'swico/vue';
   </script>
   
   <template>
@@ -227,15 +174,14 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
 <!--src/index.ejs-->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8"/>
   <meta
           name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
   />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <link rel="shortcut icon" href="<%= SWICO_ENV==='prod'? SWICO_PUBLIC_PATH:'/' %>favicon.ico" />
+  <link rel="shortcut icon" href="<%= SWICO_STATIC_PUBLIC_PATH %>favicon.ico" />
   <Title>Swico App</Title>
 </head>
 <body>
@@ -251,22 +197,19 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
 
 推荐使用`defineGlobal` api来获得更好的TypeScript类型提示。
 
-
-
-
 支持以下配置项：
 
-### onInit
+### `onInit`
 
-**对于React模板**：<Badge type="tip">v2.8.0</Badge>
+对于React模板：<Badge type="tip">v2.8.0</Badge>
 
-**`onInit`为顶层Root元素render执行后的回调方法。**
+`onInit`为顶层Root元素render方法即将调用时的回调方法。
 
 该方法暂无传递参数。
 
-**对于Vue模板**：
+对于Vue模板：
 
-**`onInit`为顶层挂载的App实例即将初始化完成的回调方法。**
+`onInit`为顶层挂载的App实例的mount方法即将调用时的回调方法。
 
 该方法传递两个参数：`app`（vue应用实例）和`router`（vue-router对象）。
 
@@ -279,8 +222,7 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
 :::code-group
   ```ts [react]
   // src/global.ts
-
-  import { defineGlobal } from 'swico';
+  import { defineGlobal } from 'swico/react';
   import { createPinia } from 'pinia';
   
   export default defineGlobal({
@@ -292,8 +234,7 @@ const preFix =  SWICO_ENV==='production' ? SWICO_PUBLIC_PATH : '/'
   ```
   ```ts [vue]
   // src/global.ts
-
-  import { defineGlobal } from 'swico';
+  import { defineGlobal } from 'swico/vue';
   import { createPinia } from 'pinia';
   
   export default defineGlobal({

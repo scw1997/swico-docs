@@ -5,7 +5,7 @@ Swico提供了一个Link组件，它的本质是一个带路由跳转功能的 `
 ::: code-group
 
 ```tsx [react]
-import { Link } from 'swico'
+import { Link } from 'swico/react'
 const Example = () => {
   return (
    <div>
@@ -21,7 +21,7 @@ export default Example;
 
 ```vue [vue]
 <script setup lang="ts">
-import { Link } from 'swico'
+import { Link } from 'swico/vue'
 </script>
 
 <template>

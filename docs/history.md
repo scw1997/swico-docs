@@ -53,14 +53,21 @@ type SwicoHistoryOptionType = {
   ```
 - **当调用参数值为对象时，其类型为`SwicoHistoryOptionType`，见下方说明**：
 
-  | 参数     | 类型                 | 说明                                                                                |
-  |--------|--------------------|-----------------------------------------------------------------------------------|
-  | query  | Record<string,any> | searchParams的序列化对象。<br/>例如欲访问路由地址为`/news?a=1&b=2`，则param值应为`{a:1,b:2}`。           |
-  | params | Record<string,any> | 路由动态参数组成的对象。<br/>例如欲跳转页面路由地址为`/news/123`，其路由path为`/news/:id`，则params应为`{id:123}`。 |
-  | hash   | string             | 路由hash字符串。                                                                        |
-  | name   | string             | 路由唯一标识值。                                                                          |
-  | path   | string             | 配置的路由地址（不带任何参数）<br/>`注：当name有值时，path值无效`。                                         |
-  | state  | Record<string,any>             | 需要给目标路由传递的状态参数，可在目标路由组件内获取。**只在目标路由会话窗口有效**                                       |
+  | 参数     | 类型                 | 说明                                                                                          |
+  |--------|--------------------|---------------------------------------------------------------------------------------------|
+  | query  | Record<string,any> | searchParams的序列化对象。<br/>例如欲访问路由地址为`/news?a=1&b=2`，则param值应为`{a:1,b:2}`。                     |
+  | params | Record<string,any> | 路由动态参数组成的对象。<br/>例如欲跳转页面路由地址为`/news/123`，其路由path为`/news/:id`，则params应为`{id:123}`。           |
+  | hash   | string             | 路由hash字符串。                                                                                  |
+  | name   | string             | 路由唯一标识值。                                                                                    |
+  | path   | string             | 配置的路由地址（不带任何参数）<br/>`注：当name有值时，path值无效`。                                                   |
+  | state  | Record<string,any>             | 需要给目标路由传递的状态参数，可在目标路由组件内获取。<br/>**只在目标路由会话窗口有效**<br/> |
+
+    :::tip state的属性值变化 <Badge type="tip">v2.9.0</Badge>
+    
+    自`v2.9.0`开始，在执行history.push或replace跳转时,参数`to`中的`state`参数会默认携带一个`navType`属性值，表示当前跳转行为的类型。
+    
+    navType值可能为`push`或`replace`。可在跳转后的目标页面中通过此属性判断当前页面是否为replace跳转行为。
+    :::
 
   ```js
   //推荐使用包含name的对象形式代替string形式
@@ -197,7 +204,7 @@ router:{
 
 ```tsx [react]
 //src/layout/index.ts
-import { history,Outlet } from 'swico'
+import { history,Outlet } from 'swico/react'
 export default ()=>{
     
     //此处无法获取到正确属性值
