@@ -106,9 +106,9 @@ const env = SWICO_ENV;
 
 <template>
     <div>
-        SWICO_ROUTER_BASE：{{ routerBase }} 
-        SWICO_PUBLIC_PATH：{{ publicPath }} 
-        SWICO_ENV：{{ env }}
+        SWICO_ROUTER_BASE：{{ SWICO_ROUTER_BASE }} 
+        SWICO_PUBLIC_PATH：{{ SWICO_PUBLIC_PATH }} 
+        SWICO_ENV：{{ SWICO_ENV }}
         SWICO_STATIC_PUBLIC_PATH：{SWICO_STATIC_PUBLIC_PATH}
     </div>
 </template>
