@@ -67,6 +67,8 @@ type SwicoHistoryOptionType = {
     自`v2.9.0`开始，在执行history.push或replace跳转时,参数`to`中的`state`参数会默认携带一个`navType`属性值，表示当前跳转行为的类型。
     
     navType值可能为`push`或`replace`。可在跳转后的目标页面中通过此属性判断当前页面是否为replace跳转行为。
+   
+    **若当前页面并非由前一个路由通过push或replace跳转所至，则state不会存在此属性值。**
     :::
 
   ```js
