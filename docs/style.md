@@ -190,7 +190,7 @@ pnpm i tailwindcss @tailwindcss/postcss -D
 module.exports = {
     plugins: [
 #        //...//
-        [require('@tailwindcss/postcss')],   # [!code ++]
+        require('@tailwindcss/postcss'),   # [!code ++]
     ]
 }
 ```
