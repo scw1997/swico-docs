@@ -25,9 +25,9 @@
 
 ## 为什么开发环境TS类型检查对Vue文件无效？
 
-swico 2.x使用了Rspack提供的`ts-checker-rspack-plugin`进行TS类型检查，不支持Vue文件。
+Swico 2.x使用了Rspack提供的`ts-checker-rspack-plugin`进行TS类型检查，不支持Vue文件。
 
-swico 3.x 已解决此问题！
+Swico 3.x 已解决此问题！
 
 ## 生产环境打包时不会进行TS类型检查吗？
 
