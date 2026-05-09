@@ -16,9 +16,9 @@ hero:
 
 features:
   - title: 前沿技术栈
-    details: 基于Rspack 1 + Typescript 5，底层基于Rust多线程驱动，显著提升编译性能。
+    details: 基于RsBuild 2 + TypeScript 5，底层基于Rust多线程驱动，显著提升编译和构建性能。
   - title: API高度统一
-    details: 提供Vue 3和React 19两种模板，并最大化统一API。
+    details: 提供Vue 3.5和React 19两种模板，并最大化统一API。
   - title: 开箱即用
     details: 内置路由，本地开发服务器，打包构建，Git Hooks等功能，完善开发流程。
   - title: 代码风格约束

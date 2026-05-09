@@ -6,7 +6,7 @@
 
 ## React模板
 
-在React模板中样式文件支持 `.css`，`.less`和`.scss` 文件的引入，并且对以`.module.(css|less|scss)`命名结尾的样式文件默认开启[CSS Modules](https://rspack.dev/zh/guide/tech/css#css-modules)特性。
+在React模板中样式文件支持 `.css`，`.less`和`.scss` 文件的引入，并且对以`.module.(css|less|scss)`命名结尾的样式文件默认开启[CSS Modules](https://v2.rsbuild.rs/zh/guide/styling/css-modules)特性。
 
 
 标准CSS使用示例：
@@ -183,16 +183,20 @@ CSS Modules使用示例：
 pnpm i tailwindcss @tailwindcss/postcss -D
 ```
 
-2. 修改postcss.config.js配置
+2. 项目根路径下添加postcss.config.js配置
+
 
 ```bash
 module.exports = {
     plugins: [
-        ['autoprefixer']
-        ['@tailwindcss/postcss'],   # [!code ++]
+#        //...//
+        [require('@tailwindcss/postcss')],   # [!code ++]
     ]
 }
 ```
+:::warning 注意
+Swico 3.0后内置PostCSS 8+ ，要求插件引入写法`必须是 函数/对象，不能是字符串`。
+:::
 
 3. global.css文件入口引入tailwind
 

@@ -45,7 +45,7 @@ export default defineConfig('base', {
 
 用于当前本地开发服务器更新重启的判断标志，**仅限框架内部使用**。
 
-### SWICO_DEV_PORT <Badge type="tip" text="v1. 1. 0" />
+### SWICO_DEV_PORT <Badge type="tip" text="v1. 1. 0" /> <Badge type="warning" text="v3已废弃" />
 
 用于缓存当前本地开发服务器启动时所用的端口号，**仅限框架内部使用**。
 

@@ -203,13 +203,13 @@ const Index = () => {
 
 对于React模板：<Badge type="tip">v2.8.0</Badge>
 
-`onInit`为顶层Root元素render方法即将调用时的回调方法。
+onInit为顶层Root元素render方法即将调用时的回调方法。
 
 该方法暂无传递参数。
 
 对于Vue模板：
 
-`onInit`为顶层挂载的App实例的mount方法即将调用时的回调方法。
+onInit为顶层挂载的App实例的mount方法即将调用时的回调方法。
 
 该方法传递两个参数：`app`（vue应用实例）和`router`（vue-router对象）。
 
@@ -328,6 +328,11 @@ module.exports = {
     ]
 }
 ```
+
+:::danger 注意
+
+Swico 3.0版本默认内置了autoprefixer插件，因此默认没有生成postcss.config.js文件（但依然支持此配置文件），如有其他配置需要请自行添加。
+:::
 
 [API > 配置项]:/swico-config
 [Git Hooks]:/git-hooks

@@ -8,6 +8,18 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+## v3. 0. 0 <Badge type="info">2026-05-09</Badge>
+
+- :new: swico架构基于rsbuild 2.0生态部分重构，显著提升编译和构建性能。采用`rsdoctor`代替`webpack-bundle-analyzer`进行构建产物分析。
+- :new: 新增proxy配置项配置后的终端提示信息。
+- :new: 新增vue文件支持ts类型检查。
+- :new: 升级了部分依赖版本，去除冗余依赖包。
+- :wrench: 修复了部分swico内置方法意外通过export暴露的问题。
+- :wrench: 修复了vue模板下name值重复时导致报错的问题。
+- :wrench: 修复了public文件夹内无文件时项目启动报错的问题。
+- :lipstick: 说明文档同步调整优化。
+
+
 ## v2. 9. 0 <Badge type="info">2025-12-11</Badge>
 
 - :new: 路由跳转时，跳转目标页面的state参数新增`navType`属性值表示跳转类型。

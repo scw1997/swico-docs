@@ -12,10 +12,13 @@
 npm i swico-cli -g
 ```
 
-::: warning swico-cli版本
-`强烈建议安装swico-cli v2以上版本`，其项目模板打包工具基于Rspack,编译性能相比v1有了显著提升。
+::: warning swico-cli版本说明
 
-如果你需要使用webpack打包工具，请安装`1.7.3`版本，这是v1最完善的版本。
+v3：模板基于rsbuild 2，最佳实践，性能最好！
+
+v2：基于rspack 1，底层基于rust，性能较v1显著提升。
+
+v1：基于webpack 5，受限于js单线程，性能一般。
 
 :::
 

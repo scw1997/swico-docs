@@ -302,27 +302,25 @@ $('.my-element').animate(/* ... */);
 
 默认值：`[]`
 
-Rspack Plugin 的相关配置，用于根据业务需要额外的一些 plugin 设置。
+Rsbuild Plugin 的相关配置，用于根据业务需要额外的一些 plugin 设置。
 
-开发者可以根据需要自定义配置**Rsapck内置提供的plugin或者Rspack目前支持的Webpack Plugin**
 
 示例：
 
 ```typescript
 // config/swico.dev.ts
 import { defineConfig } from 'swico';
-import { rspack } from '@rspack/core';
 
 const isDev = process.env.SWICO_ENV==='dev'
 
 export default defineConfig('dev', {
-  plugins: [isDev && new rspack.HotModuleReplacementPlugin()],
+  plugins: [isDev && somePlugin()],
 });
 
 ```
 
 :::tip
-关于支持的plugin详细信息请访问：[Rspack Plugin](https://rspack.dev/zh/plugins/)
+关于支持的plugin详细信息请访问：[Rsbuild Plugin](https://v2.rsbuild.rs/zh/config/plugins)
 :::
 
 ## proxy
@@ -348,7 +346,7 @@ export default defineConfig('dev', {
 
 ```
 
-更多属性说明请参考：[devServer Proxy文档](https://rspack.dev/zh/config/dev-server#devserverproxy)。
+更多属性说明请参考：[Proxy文档](https://v2.rsbuild.rs/zh/config/server/proxy)。
 
 
 ## publicPath
@@ -357,7 +355,7 @@ export default defineConfig('dev', {
 
 - 仅`swico.ts`可用
 
-配置 Rsbpack 的`output > publicPath` 选项，表示当前项目访问地址的前缀路径。通常以`/`开头和结尾。
+配置 Rspack 的`output > publicPath` 选项，表示当前项目访问地址的前缀路径。通常以`/`开头和结尾。
 
 此项通常在当项目被部署到到服务器`非根路径`下的情况下使用。
 
@@ -366,6 +364,17 @@ export default defineConfig('dev', {
 
 :::info
 Swico默认会将此配置值注入到全局，项目代码中可通过`SWICO_PUBLIC_PATH`访问获取。
+:::
+
+:::warning publicPath和router.base字段值是否必须保持一致？
+**不一定必须一致，但在大多数实际部署场景中建议保持一致**
+
+
+- 当应用部署在子路径下，如 https://example.com/my-app/。 Rsbuild 资源路径和前端路由都基于`/my-app/`，此时二者保持一致，避免 404 或资源加载失败。
+
+
+- 而当资源托管在 CDN 上：publicPath 可设为 CDN 地址（如 https://cdn.example.com/assets/），  而 base 仍是应用子路径（如 /my-app）。
+又或者服务端路由与前端解耦，后端统一代理资源请求，此时 publicPath 可设为 /，而 basename 仍为子路径。
 :::
 
 更多关于`publicPath`介绍请参考： [publicPath说明](https://rspack.dev/zh/guide/features/asset-base-path)。
