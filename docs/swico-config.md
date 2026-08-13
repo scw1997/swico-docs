@@ -55,12 +55,13 @@ export default {
 import { defineConfig } from 'swico';
 
 export default defineConfig('dev', {
-  proxy: [
-    {
-      context: ['/api/report'],
-      target: 'http://localhost:4000' // 跨域目标主机，自行修改
-    }
-  ]
+  proxy: {
+    // http://localhost/api -> https://example.com/api
+    // http://localhost/api/foo -> https://example.com/api/foo
+
+    // 此时，/api/users 会被代理到 https://example.com/api/users。
+    '/api': 'https://example.com',
+  },
 });
 
 ```
@@ -336,12 +337,13 @@ export default defineConfig('dev', {
 import { defineConfig } from 'swico';
 
 export default defineConfig('dev', {
-  proxy: [
-    {
-      context: ['/api/report'],
-      target: 'http://localhost:4000' // 跨域目标主机，自行修改
-    }
-  ]
+  proxy: {
+    // http://localhost/api -> https://example.com/api
+    // http://localhost/api/foo -> https://example.com/api/foo
+
+    // 此时，/api/users 会被代理到 https://example.com/api/users。
+    '/api': 'https://example.com',
+  },
 });
 
 ```
