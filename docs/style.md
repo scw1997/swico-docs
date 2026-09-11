@@ -175,7 +175,51 @@ CSS Modules使用示例：
 
 ## Tailwind CSS
 
-从`v2.1.0`版本开始，Swico 支持Tailwind CSS 4.x配置，以下是配置说明：
+### 方式1：通过 Rsbuild 插件（推荐）<Badge type="tip" text="v3. 1. 0" />
+
+1. 安装相关依赖 
+```bash
+pnpm i tailwindcss @tailwindcss/postcss -D
+```
+
+2. 修改`config/swico.ts`配置文件注入插件
+
+```ts
+//config/swico.ts
+//swico 公共自定义配置
+import { defineConfig } from 'swico/react';
+import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss';
+
+export default defineConfig('base', {
+  template: 'react',
+  router: {
+    // ....  
+  },
+  plugins:[pluginTailwindcss()]
+});
+
+```
+3. 在全局样式文件`global.css`中引入tailwindcss
+
+```css
+/*  src/global.css    */
+
+@import 'tailwindcss';
+```
+
+4. 在页面文件中使用
+
+:::code-group
+
+```jsx [react]
+<div className="bg-blue-500">测试tailwind样式</div>
+```
+```vue [vue]
+<div class="bg-blue-500">测试tailwind样式</div>
+```
+:::
+### 方式2：通过 PostCSS 插件 <Badge type="tip" text="v2. 1. 0" />
+
 
 1. 安装Tailwind相关依赖：
 
@@ -204,10 +248,7 @@ Swico 3.0后内置PostCSS 8+ ，要求插件引入写法`必须是 函数/对象
 /*  src/global.css    */
 @import 'tailwindcss';
 ```
-:::danger 注意
 
-要使用tailwind css，只能在`src/global.css`文件中引入tailwind，global.less/scss不支持
-:::
 
 4. 在页面文件中使用
 
@@ -219,3 +260,9 @@ Swico 3.0后内置PostCSS 8+ ，要求插件引入写法`必须是 函数/对象
 ```vue [vue]
 <div class="bg-blue-500">测试tailwind样式</div>
 ```
+
+
+:::danger 注意
+
+无论使用上述哪种方式，要注入tailwindcss 4.x，只能在`src/global.css`文件中引入tailwind，global.less/scss不支持
+:::

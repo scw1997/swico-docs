@@ -8,6 +8,16 @@
 [//]: # (:wastebasket:废弃/删除)
 [//]: # (:hammer_and_wrench:重构)
 
+
+## v3. 1. 0 <Badge type="info">2026-09-11</Badge>
+
+- :new: RsBuild更新至v2.1版本。
+- :new: 新增支持React模板启用react-compiler。
+- :new: 新增支持基于RsBuild原生插件引入Tailwindcss 4.x。
+- :wrench: 修复了配置项`publicPath`和`router.base`的尾部斜杠问题。
+- :wrench: 修复了Vue模板下部分场景eslint校验异常的问题，优化调整了eslint配置文件。
+- :wastebasket: 移除Swico全局内置变量`SWICO_DEV_ROUTER_BASE`。
+
 ## v3. 0. 0 <Badge type="info">2026-05-09</Badge>
 
 - :new: swico架构基于rsbuild 2.0生态部分重构，显著提升编译和构建性能。采用`rsdoctor`代替`webpack-bundle-analyzer`进行构建产物分析。

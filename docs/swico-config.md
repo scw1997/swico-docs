@@ -301,7 +301,7 @@ $('.my-element').animate(/* ... */);
 
 ## plugins
 
-默认值：`[]`
+- 默认值：`[]`
 
 Rsbuild Plugin 的相关配置，用于根据业务需要额外的一些 plugin 设置。
 
@@ -324,11 +324,21 @@ export default defineConfig('dev', {
 关于支持的plugin详细信息请访问：[Rsbuild Plugin](https://v2.rsbuild.rs/zh/config/plugins)
 :::
 
+## port <Badge type="tip">v3.1.0</Badge>
+
+- 默认值：`3000`
+
+- 仅`swico.dev.ts`可用
+
+
+
+配置本地开发时，Rsbuild DevServer的端口号。若所配置的端口被占用，则会自动递增使用下一个可用端口。
+
 ## proxy
 
 - 仅`swico.dev.ts`可用
 
-配置本地开发时，Rspack DevServer的请求代理。
+配置本地开发时，Rsbuild DevServer的请求代理。
 
 示例：
 
@@ -381,6 +391,15 @@ Swico默认会将此配置值注入到全局，项目代码中可通过`SWICO_PU
 
 更多关于`publicPath`介绍请参考： [publicPath说明](https://rspack.dev/zh/guide/features/asset-base-path)。
 
+
+## reactCompiler <Badge type="tip">v3.1.0</Badge>
+
+- 默认值：`false`
+
+- 仅`swico.ts`可用
+
+配置是否开启使用`React Compiler`。仅**React**模板生效。
+> 关于React Compiler详细信息请参考：[React Compiler](https://zh-hans.react.dev/learn/react-compiler)
 
 ## responseHeaders <Badge type="tip">v2.5.0</Badge>
 
