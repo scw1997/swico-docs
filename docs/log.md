@@ -9,6 +9,13 @@
 [//]: # (:hammer_and_wrench:重构)
 
 
+## v3. 2. 0 <Badge type="info">2026-09-24</Badge>
+
+- :new: ESLint更新至v10版本，相关eslint配置文件调整。
+- :wrench: 修复了启动开发环境后进行打包构建，构建完成后开发环境的history无法使用/报错异常的问题。
+- :lipstick: 重构优化了开发/生产环境创建.swico项目运行目录文件时的逻辑，减少冗余代码，增强可读性。
+
+
 ## v3. 1. 0 <Badge type="info">2026-09-11</Badge>
 
 - :new: RsBuild更新至v2.1版本。
