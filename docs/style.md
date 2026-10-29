@@ -73,7 +73,7 @@ CSS Modules使用示例：
 
   const Index: React.FC = () => {
     return (
-            <div className={'welcome'}>
+            <div className={style.welcome}>
               <img alt="logo" src="/logo.png" />
               <h2>Simpler, more practical</h2>
             </div>
