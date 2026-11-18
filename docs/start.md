@@ -2,15 +2,15 @@
 # 快速上手
 
 ## 环境准备
-请确保系统已安装`Node 20`及以上的版本（[Node中文官网]）。
+请确保系统已安装`Node 20.19+, 22.12+ `的版本（[Node中文官网]）。
 
 :bulb:  推荐使用`nvm`来管理Node版本，推荐安装[nvm-windows]。
 
 ```shell:no-line-numbers
-$ nvm install 20.11.0
-$ nvm use 20
+$ nvm install 20.19.0
+$ nvm use 20.19
 $ node -v
-v20.11.0
+v20.19.0
 ```
 
 ## 创建项目

@@ -180,7 +180,8 @@ const Index = () => {
           name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
   />
-  <link rel="shortcut icon" href="<%= SWICO_STATIC_PUBLIC_PATH %>favicon.ico" />
+<!--  public路径下如果有favicon.ico文件则会被自动引入到index.ejs中，所以无需手动添加-->
+<!--  <link rel="shortcut icon" href="<%= SWICO_STATIC_PUBLIC_PATH %>favicon.ico" />-->
   <Title>Swico App</Title>
 </head>
 <body>

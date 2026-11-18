@@ -173,6 +173,32 @@ CSS Modules使用示例：
 
   ```
 
+## PostCSS
+
+Swico基于Rsbuild支持通过 PostCSS 来转换 CSS 代码
+
+基本示例：
+
+```js
+// 项目根目录下postcss.config.js
+
+// 需要先安装postcss-plugin-px2rem依赖
+module.exports = {
+  plugins: {
+    'postcss-plugin-px2rem': {
+      rootValue: 100, // 根元素的fontSize值，如这里写100,则css中 10px终被转换成10/100=0.1rem
+      exclude: /(node_modules)/,
+      minPixelValue: 1, // 1px以上的生效
+      selectorBlackList: ['html', '.px'], //忽略转换的选择器
+      propBlackList: ['max-width', 'max-height', 'min-width', 'min-height'] //忽略转换的css属性
+    }
+  }
+};
+
+
+```
+
+详细说明请参考：[Rsbuild PostCSS](https://v2.rsbuild.rs/zh/guide/styling/css-usage#postcss)
 ## Tailwind CSS
 
 ### 方式1：通过 Rsbuild 插件（推荐）<Badge type="tip" text="v3. 1. 0" />

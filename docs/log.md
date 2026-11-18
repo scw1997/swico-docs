@@ -9,6 +9,15 @@
 [//]: # (:hammer_and_wrench:重构)
 
 
+## v3. 3. 0 <Badge type="info">2026-11-18</Badge>
+
+- :wrench: 修复了Vue模板下启动开发环境提示tsChecker缺少typescript依赖的问题。
+- :wrench: 修复了引用public文件夹内静态资源文件时的`SWICO_STATIC_PUBLIC_PATH`变量值问题，现已移除，统一使用`SWICO_PUBLIC_PATH`。
+- :new: `index.ejs`中支持自动引入`public > favicon.ico`文件
+- :lipstick: eslint配置部分调整，package.json node版本支持调整
+- :lipstick: 官方文档优化，添加postcss说明
+
+
 ## v3. 2. 0 <Badge type="info">2026-09-24</Badge>
 
 - :new: ESLint更新至v10版本，相关eslint配置文件调整。
